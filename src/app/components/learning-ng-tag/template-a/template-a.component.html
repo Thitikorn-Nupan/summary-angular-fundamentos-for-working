@@ -1,0 +1,28 @@
+<div class="card">
+  <p-table [columns]="columns!"  [value]="products!" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header let-colum>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-product > <!-- why it knows  -->
+      <tr>
+        <td>
+          {{ product.Id! }}
+        </td>
+        <td >
+          {{ product.Name! }}
+        </td>
+        <td >
+          {{ product.Category! }}
+        </td>
+        <td >
+          {{ product.Quantity! }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

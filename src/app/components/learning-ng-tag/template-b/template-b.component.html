@@ -1,1 +1,32 @@
-<p>template-b works!</p>
+<div *ngIf="enableCard" class="mb-4 p-8 flex items-center justify-center">
+  <p-button label="template b" severity="info"/>
+  <!--
+        *****
+        custom css on primeng using [style]="{ key : value }"
+        *****
+  -->
+  <p-card  [style]="{ width: '25rem', overflow: 'hidden' }">
+    <!--
+         *****
+         #header is name of ng-template by default ng-template
+         it's not render if you don't specify name or condition
+         *****
+     -->
+    <ng-template #header>
+      <img alt="Card" class="w-full" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"/>
+    </ng-template>
+    <ng-template [ngIf]="(title!=null) && (subTitle!=null)">
+      <h2>{{ title }}</h2>
+      <h3>{{ subTitle }}</h3>
+    </ng-template>
+    <p>
+      {{ description }}
+    </p>
+    <ng-template #footer>
+      <div class="flex gap-4 mt-1">
+        <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full"/>
+        <p-button label="Save" class="w-full" styleClass="w-full" severity="info"/>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

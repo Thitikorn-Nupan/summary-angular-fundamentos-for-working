@@ -1,15 +1,22 @@
-<div class="card">
+<div class="card" style="max-width: fit-content">
+  <p-button label="template a" severity="success" />
   <p-table [columns]="columns!"  [value]="products!" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template #header let-colum>
-      <tr>
-        <th>Code</th>
+    <ng-template #header >
+      <!--<tr>
+        <th>{{ colum }}</th>
         <th>Name</th>
         <th>Category</th>
         <th>Quantity</th>
+      </tr>-->
+      <tr *ngFor="let col of columns">
+        <th>{{ col.C1 }}</th>
+        <th>{{ col.C2 }}</th>
+        <th>{{ col.C3 }}</th>
+        <th>{{ col.C4 }}</th>
       </tr>
     </ng-template>
     <ng-template #body let-product > <!-- why it knows  -->
-      <tr>
+      <tr  >
         <td>
           {{ product.Id! }}
         </td>

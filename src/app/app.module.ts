@@ -13,6 +13,8 @@ import { LearningNgTagComponent } from './components/learning-ng-tag/learning-ng
 import { TemplateAComponent } from './components/learning-ng-tag/template-a/template-a.component';
 import { TemplateBComponent } from './components/learning-ng-tag/template-b/template-b.component';
 import {TableModule} from 'primeng/table';
+import {Button} from 'primeng/button';
+import {Card} from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import {TableModule} from 'primeng/table';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule
+    Menubar, CommonModule, TableModule, Button, Card
   ],
   providers: [
     // set primeng

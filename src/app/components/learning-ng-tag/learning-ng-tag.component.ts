@@ -9,5 +9,7 @@ import { Component } from '@angular/core';
 export class LearningNgTagComponent {
   protected textEnable : boolean = true;
   protected templateAEnable : boolean = true;
-  protected templateBEnable : boolean = false;
+  protected templateBEnable : boolean = true;
+  protected title = 'Title From Parent'
+  protected subTitle = 'Subtitle From Parent'
 }

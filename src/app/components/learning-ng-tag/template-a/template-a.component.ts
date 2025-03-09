@@ -48,6 +48,9 @@ export class TemplateAComponent implements OnInit {
       C3:'Category',
       C4:'Quantity'
     }
+
+
+    this.columns = [colum];
   }
   protected columns: Colum[] | undefined;
   protected products: Product[] | undefined;

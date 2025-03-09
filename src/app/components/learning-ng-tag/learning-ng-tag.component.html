@@ -23,19 +23,17 @@
 
 
 <div>
-  <h1>Section 2</h1>
+  <h1>Section 2 using ng-template with [ngIf]</h1>
   <div class="" *ngIf="textEnable"> Hello world </div>
-
   <ng-template [ngIf]="textEnable">
     <p>Hello world by tag p in ng-template</p>
   </ng-template>
-
 </div>
 
 
 
 <div>
-  <h1>Section 3</h1>
+  <h1>Section 3 using ng-template with [ngIf] , render subcomponent</h1>
 
   <ng-template [ngIf]="templateAEnable">
     <div>
@@ -45,10 +43,21 @@
   </ng-template>
 
   <ng-template [ngIf]="templateBEnable">
+    <h1>render subcomponent and ** bind the child component</h1>
     <div>
-      <template-b>
+      <!-- The next step is to bind @Input() the property in the parent component's template. -->
+      <template-b
+       [title]="title"
+       [subTitle]="subTitle"
+       [enableCard]="true"
+       >
       </template-b>
     </div>
   </ng-template>
+
+</div>
+
+<div>
+  <h1>Section 3 using ng-template with [ngIf] , render subcomponent</h1>
 
 </div>

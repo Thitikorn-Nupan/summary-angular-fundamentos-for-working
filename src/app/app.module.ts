@@ -8,13 +8,15 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {providePrimeNG} from 'primeng/config';
 import {Menubar} from 'primeng/menubar';
 import {CommonModule} from '@angular/common';
-import Aura from '@primeng/themes/aura';
+import Nora from '@primeng/themes/nora';
 import { LearningNgTagComponent } from './components/learning-ng-tag/learning-ng-tag.component';
 import { TemplateAComponent } from './components/learning-ng-tag/template-a/template-a.component';
 import { TemplateBComponent } from './components/learning-ng-tag/template-b/template-b.component';
 import {TableModule} from 'primeng/table';
 import {Button} from 'primeng/button';
 import {Card} from 'primeng/card';
+import {FloatLabel} from 'primeng/floatlabel';
+import {IftaLabel} from 'primeng/iftalabel';
 
 @NgModule({
   declarations: [
@@ -27,15 +29,16 @@ import {Card} from 'primeng/card';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel
   ],
   providers: [
     // set primeng
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: Nora,
       },
+
     })
   ],
   bootstrap: [AppComponent]

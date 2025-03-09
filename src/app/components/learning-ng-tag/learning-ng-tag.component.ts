@@ -12,4 +12,18 @@ export class LearningNgTagComponent {
   protected templateBEnable : boolean = true;
   protected title = 'Title From Parent'
   protected subTitle = 'Subtitle From Parent'
+  protected status? : string
+  protected lessons: boolean = false;
+
+  protected changeStatus(padding: string) {
+    this.status = padding;
+  }
+
+  protected logData(value : any) {
+    if (value.length >= 5) {
+      this.lessons = true;
+    }else {
+      this.lessons = false;
+    }
+  }
 }

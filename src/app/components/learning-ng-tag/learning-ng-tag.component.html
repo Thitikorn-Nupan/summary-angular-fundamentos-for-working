@@ -58,6 +58,59 @@
 </div>
 
 <div>
-  <h1>Section 3 using ng-template with [ngIf] , render subcomponent</h1>
+  <h1>Section 4 using ng-template with [ngSwitch]</h1>
 
+  <h2>Status: {{ status }}</h2>
+
+  <!-- all html tags use *ngSwitchCase  -->
+  <div [ngSwitch]="status">
+    <div *ngSwitchCase="'approved'">The request has been approved!</div>
+    <div *ngSwitchCase="'pending'">The request is still pending.</div>
+    <div *ngSwitchCase="'rejected'">The request has been rejected.</div>
+    <div *ngSwitchDefault>Please select a status.</div>
+  </div>
+
+  <!-- all ng-template tag use [ngSwitchCase]  -->
+  <div [ngSwitch]="status">
+    <ng-template [ngSwitchCase]="'approved'">
+      <p>The request has been approved! (from ng-template)</p>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'pending'">
+      <p>The request is still pending. (from ng-template)</p>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'rejected'">
+      <p>The request has been rejected. (from ng-template)</p>
+    </ng-template>
+    <ng-template [ngSwitchDefault]>
+      <p>Please select a status. (from ng-template)</p>
+    </ng-template>
+  </div>
+
+
+  <p-button label="Approved" severity="danger" (onClick)="changeStatus('approved')" />
+  <p-button label="Padding" severity="contrast" (onClick)="changeStatus('pending')" />
+  <p-button label="Rejected" severity="success" (onClick)="changeStatus('rejected')" />
+
+</div>
+
+
+<div>
+  <!-- In the template, you use the hash symbol, #, to declare a template variable. -->
+  <h1>Section 5 using ng-template and use the hash symbol # to declare a template variable.</h1>
+  <p-iftalabel>
+    <input #username id="username"  autocomplete="off" />
+    <label for="username">Username</label>
+  </p-iftalabel>
+
+  <div class="lessons-list" *ngIf="lessons else loading">
+    <!-- if true -->
+    Username is correct
+  </div>
+
+  <ng-template #loading>
+    <!-- if false-->
+    <div>Loading...</div>
+  </ng-template>
+
+  <p-button label="Send" severity="success" (onClick)="logData(username.value)" />
 </div>

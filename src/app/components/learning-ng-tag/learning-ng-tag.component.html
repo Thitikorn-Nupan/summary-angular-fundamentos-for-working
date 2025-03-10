@@ -97,20 +97,36 @@
 <div>
   <!-- In the template, you use the hash symbol, #, to declare a template variable. -->
   <h1>Section 5 using ng-template and use the hash symbol # to declare a template variable.</h1>
-  <p-iftalabel>
+  <!--
+   <p-iftalabel>
     <input #username id="username"  autocomplete="off" />
     <label for="username">Username</label>
   </p-iftalabel>
+  -->
 
-  <div class="lessons-list" *ngIf="lessons else loading">
-    <!-- if true -->
-    Username is correct
-  </div>
+  <p-inputgroup>
+    <p-inputgroup-addon>
+      <i class="pi pi-user"></i>
+    </p-inputgroup-addon>
+    <!-- hash symbol use to get get value of tag as name,tag,value -->
+    <input #key placeholder="Key..." />
+  </p-inputgroup>
 
+  <!-- hash symbol use to *ngIf="" -->
   <ng-template #loading>
-    <!-- if false-->
+    <!-- if lessons is false-->
     <div>Loading...</div>
   </ng-template>
 
-  <p-button label="Send" severity="success" (onClick)="logData(username.value)" />
+  <p-button label="Send key" severity="success" (onClick)="logData(key.value)" />
+
+  <div class="lessons-list" *ngIf="lessons else loading">
+    <!-- if lessons is true -->
+    'open' == render template-c
+    <template-c
+      [enableWarning]="true"
+      [severity]="'error'">
+    </template-c>
+  </div>
+
 </div>

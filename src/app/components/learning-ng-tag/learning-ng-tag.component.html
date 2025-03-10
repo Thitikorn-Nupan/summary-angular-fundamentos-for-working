@@ -21,15 +21,13 @@
 </div>
 
 
-
 <div>
   <h1>Section 2 using ng-template with [ngIf]</h1>
-  <div class="" *ngIf="textEnable"> Hello world </div>
+  <div class="" *ngIf="textEnable"> Hello world</div>
   <ng-template [ngIf]="textEnable">
     <p>Hello world by tag p in ng-template</p>
   </ng-template>
 </div>
-
 
 
 <div>
@@ -47,10 +45,10 @@
     <div>
       <!-- The next step is to bind @Input() the property in the parent component's template. -->
       <template-b
-       [title]="title"
-       [subTitle]="subTitle"
-       [enableCard]="true"
-       >
+        [title]="title"
+        [subTitle]="subTitle"
+        [enableCard]="true"
+      >
       </template-b>
     </div>
   </ng-template>
@@ -87,9 +85,9 @@
   </div>
 
 
-  <p-button label="Approved" severity="danger" (onClick)="changeStatus('approved')" />
-  <p-button label="Padding" severity="contrast" (onClick)="changeStatus('pending')" />
-  <p-button label="Rejected" severity="success" (onClick)="changeStatus('rejected')" />
+  <p-button label="Approved" severity="danger" (onClick)="changeStatus('approved')"/>
+  <p-button label="Padding" severity="contrast" (onClick)="changeStatus('pending')"/>
+  <p-button label="Rejected" severity="success" (onClick)="changeStatus('rejected')"/>
 
 </div>
 
@@ -109,7 +107,7 @@
       <i class="pi pi-user"></i>
     </p-inputgroup-addon>
     <!-- hash symbol use to get get value of tag as name,tag,value -->
-    <input #key placeholder="Key..." />
+    <input #key placeholder="Key..."/>
   </p-inputgroup>
 
   <!-- hash symbol use to *ngIf="" -->
@@ -118,7 +116,7 @@
     <div>Loading...</div>
   </ng-template>
 
-  <p-button label="Send key" severity="success" (onClick)="logData(key.value)" />
+  <p-button label="Send key" severity="success" (onClick)="logData(key.value)"/>
 
   <div class="lessons-list" *ngIf="lessons else loading">
     <!-- if lessons is true -->
@@ -129,4 +127,52 @@
     </template-c>
   </div>
 
+
 </div>
+
+
+<div>
+  <!-- In the template, you use the hash symbol, #, to declare a template variable. -->
+  <h1>Section 6 using ng-template and use the hash symbol # with *ngIf</h1>
+
+  <!-- for change templates -->
+  <div class="card flex justify-center">
+    <div class="flex flex-wrap gap-4">
+
+      <div class="flex items-center">
+        <!--
+          **** condition in one line ****
+          {{ condition ? <do true> : <do false>}}
+        -->
+        <p-radio-button class="{{this.templateDTrueOrEFalse ? 'p-radiobutton-checked' : null }}" (change)="listenTemplate()" name="template-d" value="template-d" [(ngModel)]="ingredient" ></p-radio-button>
+        <label class="ml-2">Template D</label>
+      </div>
+
+      <div class="flex items-center">
+        <p-radio-button (change)="listenTemplate()" name="template-e" value="template-e" [(ngModel)]="ingredient"></p-radio-button>
+        <label class="ml-2">Template E</label>
+      </div>
+
+    </div>
+  </div>
+
+    <div *ngIf="templateDTrueOrEFalse; then templateD else templateE"></div>
+
+    <ng-template #templateD>
+      <p>Render template D</p>
+      <template-d
+        [x]="150"
+        [y]="150">
+      </template-d>
+    </ng-template>
+
+    <ng-template #templateE>
+      <p>Render template E</p>
+      <template-e
+        [x]="150"
+        [y]="150">
+      </template-e>
+    </ng-template>
+
+
+  </div>

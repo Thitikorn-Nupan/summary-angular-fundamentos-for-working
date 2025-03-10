@@ -22,6 +22,12 @@ import { TemplateCComponent } from './components/learning-ng-tag/template-c/temp
 import {InputGroupAddon} from 'primeng/inputgroupaddon';
 import {InputGroup} from 'primeng/inputgroup';
 import {Message} from 'primeng/message';
+import { TemplateDComponent } from './components/learning-ng-tag/template-d/template-d.component';
+import { TemplateEComponent } from './components/learning-ng-tag/template-e/template-e.component';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButton} from 'primeng/radiobutton';
+import {FormsModule} from '@angular/forms';
+import { LearningNgTagAndDecoratorComponent } from './components/learning-ng-tag-and-decorator/learning-ng-tag-and-decorator.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +36,15 @@ import {Message} from 'primeng/message';
     LearningNgTagComponent,
     TemplateAComponent,
     TemplateBComponent,
-    TemplateCComponent
+    TemplateCComponent,
+    TemplateDComponent,
+    TemplateEComponent,
+    LearningNgTagAndDecoratorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule
   ],
   providers: [
     // set primeng

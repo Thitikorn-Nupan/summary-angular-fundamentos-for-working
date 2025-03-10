@@ -20,7 +20,7 @@ export class LearningNgTagComponent {
   }
 
   protected logData(value : any) {
-    if (value.length >= 5) {
+    if (value === 'open') {
       this.lessons = true;
     }else {
       this.lessons = false;

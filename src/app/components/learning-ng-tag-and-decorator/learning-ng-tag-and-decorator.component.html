@@ -12,6 +12,85 @@
     It is used for grouping content that is not rendered, but that can be used in other parts of your code.
 -->
 <div>
-  <h1>Section 1</h1>
-  <!-- fetcg api -->
+
+  <!-- for change templates -->
+  <div class="card flex justify-center">
+    <div class="flex flex-wrap gap-4">
+
+      <div class="flex items-center">
+        <!-- ** [(ngModel)]="template" will be relative on value tag -->
+        <p-radio-button  (change)="listenTemplate()" name="template-a" value="template-a" [(ngModel)]="template" ></p-radio-button>
+        <label class="ml-2">Template A</label>
+        <p-radio-button  (change)="listenTemplate()" name="template-b"  value="template-b" [(ngModel)]="template" ></p-radio-button>
+        <label class="ml-2">Template B</label>
+        <p-radio-button  (change)="listenTemplate()" name="template-c"  value="template-c" [(ngModel)]="template" ></p-radio-button>
+        <label class="ml-2">Template C</label>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<div>
+  <ng-template [ngIf]="template==='template-a'">
+
+    <h1>Section 1 on Template A Render multiple components </h1>
+
+    <!--
+       2 ways to access @Input() on child class
+       title=""
+       [title]=""
+     -->
+    <template-a2
+      titleDefault="First Render from template-a2"
+      serverity="success">
+    </template-a2>
+
+    <template-a2
+      titleDefault="Second Render from template-a2"
+      serverity="info">
+    </template-a2>
+
+    <template-a2
+      titleDefault="Third Render from template-a2"
+      serverity="warn">
+    </template-a2>
+
+  </ng-template>
+
+
+
+
+</div>
+
+
+
+<div>
+  <ng-template [ngIf]="template==='template-b'">
+
+    <h1>Section 2 on Template B Input/Output Decorators </h1>
+
+    <ng-template [ngIf]="template==='template-b'">
+      <!--
+          Configuring the parent's template to child for @Output() decorator
+          The event binding, (newTitleEvent **@Output() on child**)='changeTitle($event) **method on parent',
+          ** Connects the event in the child, newTitleEvent, to the method in the parent, changeTitle().
+          The $event contains the data that the user types into the <input> in the child template UI.
+          To see the @Output() working, add the following to the parent's template i have to get {{ titleTemplateB }}
+      -->
+      <template-b2
+        titleDefault="{{titleTemplateB}}"
+        serverity="{{serverityTemplateB}}"
+        (newTitleEvent)="changeTitle($event)"
+        (newSeverityEvent)="changeServerity($event)"
+      >
+      </template-b2>
+    </ng-template>
+
+
+  </ng-template>
+</div>
+
+<ng-template [ngIf]="template==='template-c'">
+  Todo C
+</ng-template>

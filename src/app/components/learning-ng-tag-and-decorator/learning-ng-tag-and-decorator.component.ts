@@ -8,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class LearningNgTagAndDecoratorComponent {
 
+  protected template?: string;
+  protected titleTemplateB : string = "Render from template-b2 and send values to child component by @Input()"
+  protected serverityTemplateB: string = "info";
+
+  protected listenTemplate() {
+    console.log(this.template)
+  }
+
+  // *** Binding child (EventEmitter) to method parent
+  protected changeTitle(title:string){
+    this.titleTemplateB = title
+  }
+
+  protected changeServerity(serverity:string){
+    this.serverityTemplateB = serverity
+  }
+
 }

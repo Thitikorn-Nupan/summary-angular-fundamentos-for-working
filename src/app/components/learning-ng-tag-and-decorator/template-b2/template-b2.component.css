@@ -1,0 +1,7 @@
+/* way to modified primeng tag */
+:host {
+  ::ng-deep .pMessage {
+    display: block;
+    max-width: 800px;
+  }
+}

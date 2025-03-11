@@ -8,7 +8,6 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {providePrimeNG} from 'primeng/config';
 import {Menubar} from 'primeng/menubar';
 import {CommonModule} from '@angular/common';
-import Nora from '@primeng/themes/nora';
 import Aura from '@primeng/themes/aura';
 import { LearningNgTagComponent } from './components/learning-ng-tag/learning-ng-tag.component';
 import { TemplateAComponent } from './components/learning-ng-tag/template-a/template-a.component';
@@ -22,6 +21,15 @@ import { TemplateCComponent } from './components/learning-ng-tag/template-c/temp
 import {InputGroupAddon} from 'primeng/inputgroupaddon';
 import {InputGroup} from 'primeng/inputgroup';
 import {Message} from 'primeng/message';
+import { TemplateDComponent } from './components/learning-ng-tag/template-d/template-d.component';
+import { TemplateEComponent } from './components/learning-ng-tag/template-e/template-e.component';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButton} from 'primeng/radiobutton';
+import {FormsModule} from '@angular/forms';
+import { LearningNgTagAndDecoratorComponent } from './components/learning-ng-tag-and-decorator/learning-ng-tag-and-decorator.component';
+import {HttpClientModule, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {TemplateA2Component} from './components/learning-ng-tag-and-decorator/template-a2/template-a2.component';
+import { TemplateB2Component } from './components/learning-ng-tag-and-decorator/template-b2/template-b2.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +38,22 @@ import {Message} from 'primeng/message';
     LearningNgTagComponent,
     TemplateAComponent,
     TemplateBComponent,
-    TemplateCComponent
+    TemplateCComponent,
+    TemplateDComponent,
+    TemplateEComponent,
+    TemplateA2Component,
+    LearningNgTagAndDecoratorComponent,
+    TemplateB2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
+    // HttpClientModule
   ],
   providers: [
+    // for http client
+    provideHttpClient(withInterceptorsFromDi()),
     // set primeng
     provideAnimationsAsync(),
     providePrimeNG({

@@ -1,0 +1,39 @@
+<p-message styleClass="pMessage" severity="{{ serverity }}">{{ title }}</p-message>
+
+<p-button label="send (title) value to parent component by @Output()" severity="info"
+          (onClick)="changeTitle('Render from template-b2 and send values to parent component by @Output()')"
+/>
+
+<p-button label="send (serverity) value to parent component by @Output()" severity="success"
+          (onClick)="changeSeverity('success')"
+/>
+
+<div class="card" style="max-width: fit-content">
+  <p-table [value]="todos!" [tableStyle]="{ 'min-width': '50rem' }">
+    <!-- set ag-template var buy pTemplate="header" or #header-->
+    <ng-template pTemplate="header" >
+      <tr >
+        <th>ORDER</th>
+        <th>USER ID</th>
+        <th>TITLE</th>
+        <th>COMPLETED</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-todo > <!-- why it knows  -->
+      <tr>
+        <td>
+          {{ todo.id }}
+        </td>
+        <td >
+          {{ todo.userId! }}
+        </td>
+        <td >
+          {{ todo.title }}
+        </td>
+        <td >
+          {{ todo.completed! }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

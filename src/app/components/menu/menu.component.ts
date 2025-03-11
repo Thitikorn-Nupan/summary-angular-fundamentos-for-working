@@ -15,18 +15,22 @@ export class MenuComponent implements OnInit {
       {
         label: 'Home',
         icon: 'pi pi-home',
+        // *** you can set routerLink on here
+        routerLink: '/'
       },
       {
         label: 'Projects',
         icon: 'pi pi-search',
-        items: [ // key item for generate dropdown
+        items: [ // key items inside label for generate dropdown
           {
-            label: 'Project A',
-            icon: 'pi pi-bolt'
+            label: 'Learning Ng-Template',
+            icon: 'pi pi-bolt',
+            routerLink: '/learning-ng-template'
           },
           {
-            label: 'Project B',
-            icon: 'pi pi-server'
+            label: 'Learning Ng-Template Focus Input/Output Decorator',
+            icon: 'pi pi-server',
+            routerLink: '/learning-ng-tag-and-decorator'
           },
           {
             label: 'Project C',

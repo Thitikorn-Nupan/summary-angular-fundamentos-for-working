@@ -8,7 +8,22 @@
           (onClick)="changeSeverity('success')"
 />
 
+
+<p-button label="send (default message template b) value to parent component by @Output()" severity="contrast"
+          (onClick)="changeDefaultMessageTemplateB()"
+/>
+
+<p-button label="plus size todo value to parent component by @Output()" severity="danger"
+          (onClick)="plusSize()"
+/>
+
+<p-button label="minus size todo value to parent component by @Output()" severity="danger"
+          (onClick)="minusSize()"
+/>
+
 <div class="card" style="max-width: fit-content">
+  <h3>Todo Table</h3>
+
   <p-table [value]="todos!" [tableStyle]="{ 'min-width': '50rem' }">
     <!-- set ag-template var buy pTemplate="header" or #header-->
     <ng-template pTemplate="header" >
@@ -36,4 +51,51 @@
       </tr>
     </ng-template>
   </p-table>
+</div>
+
+
+<!--  userId: number;
+  id: number;
+  title: string;
+  body: string;
+  link: string;
+  comment_count: number;-->
+<div class="card" style="max-width: fit-content">
+  <h3>Post Table</h3>
+  <p-table [value]="posts!" [tableStyle]="{ 'min-width': '50rem' }">
+    <!-- set ag-template var buy pTemplate="header" or #header-->
+    <ng-template pTemplate="header" >
+      <tr >
+        <th>ORDER</th>
+        <th>USER ID</th>
+        <th>TITLE</th>
+        <th>BODY</th>
+        <th>LINK</th>
+        <th>COMMENT COUNT</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-post > <!-- why it knows  -->
+      <tr>
+        <td>
+          {{ post.id }}
+        </td>
+        <td >
+          {{ post.userId }}
+        </td>
+        <td >
+          {{ post.title }}
+        </td>
+        <td >
+          {{ post.body }}
+        </td>
+        <td >
+          {{ post.link }}
+        </td>
+        <td >
+          {{ post.comment_count }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
 </div>

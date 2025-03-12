@@ -11,6 +11,8 @@ export class LearningNgTagAndDecoratorComponent {
   protected template?: string;
   protected titleTemplateB : string = "Render from template-b2 and send values to child component by @Input()"
   protected serverityTemplateB: string = "info";
+  protected messageOnTemplateB : string= "Default message set on parent";
+  protected sizeTableTemplateB: number = 1;
 
   protected listenTemplate() {
     console.log(this.template)
@@ -25,4 +27,11 @@ export class LearningNgTagAndDecoratorComponent {
     this.serverityTemplateB = serverity
   }
 
+  protected changeDefaultMessage($event: string) {
+    this.messageOnTemplateB = $event;
+  }
+
+  protected changeSizeTable(size:number) {
+    this.sizeTableTemplateB = size
+  }
 }

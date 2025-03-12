@@ -78,11 +78,20 @@
           The $event contains the data that the user types into the <input> in the child template UI.
           To see the @Output() working, add the following to the parent's template i have to get {{ titleTemplateB }}
       -->
+
+
+      <p-message  severity="contrast">{{ messageOnTemplateB }}</p-message>
+      <p-message  severity="contrast">Todo and Post tables size are is {{sizeTableTemplateB}}</p-message>
+
+      <!-- (newSizeTodoEvent) is binding 2 function -->
       <template-b2
         titleDefault="{{titleTemplateB}}"
         serverity="{{serverityTemplateB}}"
+        [sizeTable]="sizeTableTemplateB"
         (newTitleEvent)="changeTitle($event)"
         (newSeverityEvent)="changeServerity($event)"
+        (newDefaultMessageTemplateBEvent)="changeDefaultMessage($event)"
+        (newSizeEvent)="changeSizeTable($event)"
       >
       </template-b2>
     </ng-template>

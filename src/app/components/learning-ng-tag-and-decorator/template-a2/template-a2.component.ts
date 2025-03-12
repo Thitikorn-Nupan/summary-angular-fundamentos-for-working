@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FakeApiService} from '../../../service/fake-api.service';
-import {Todo} from '../../../models/form/todo';
+import {Todo} from '../../../models/api/todo';
 
 @Component({
   selector: 'template-a2',

@@ -33,8 +33,14 @@ export class MenuComponent implements OnInit {
             routerLink: '/learning-ng-tag-and-decorator'
           },
           {
-            label: 'Project C',
-            icon: 'pi pi-pencil'
+            label: 'Learning Ng-Container',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-ng-container'
+          },
+          {
+            label: 'Learning Form Group',
+            icon: 'pi pi-pencil',
+            // routerLink: '/learning-ng-container'
           }
         ]
       },

@@ -32,7 +32,7 @@
 
 
 <div>
-  <ng-template [ngIf]="template==='template-a'">
+  <ng-template [ngIf]="template==='template-a'" >
 
     <h1>Section 1 on Template A Render multiple components </h1>
 
@@ -70,7 +70,7 @@
 
     <h1>Section 2 on Template B Input/Output Decorators </h1>
 
-    <ng-template [ngIf]="template==='template-b'">
+    <!--<ng-template [ngIf]="template==='template-b'">-->
       <!--
           Configuring the parent's template to child for @Output() decorator
           The event binding, (newTitleEvent **@Output() on child**)='changeTitle($event) **method on parent',
@@ -94,7 +94,7 @@
         (newSizeEvent)="changeSizeTable($event)"
       >
       </template-b2>
-    </ng-template>
+    <!--</ng-template>-->
 
 
   </ng-template>

@@ -1,0 +1,118 @@
+<!--
+
+-->
+<div>
+
+  <!-- for change templates -->
+  <div class="card flex justify-center">
+    <div class="flex flex-wrap gap-4">
+
+      <div class="flex items-center">
+        <!-- ** [(ngModel)]="template" will be relative on value tag -->
+        <p-radio-button class="{{this.switchTemplate ? 'p-radiobutton-checked' : ' ' }}" (change)="listenTemplate()"
+                        name="template-a" value="template-a" [(ngModel)]="template"></p-radio-button>
+        <label class="ml-2">Template A</label>
+        <p-radio-button (change)="listenTemplate()" name="template-b" value="template-b"
+                        [(ngModel)]="template"></p-radio-button>
+        <label class="ml-2">Template B</label>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div>
+  <!-- *ngIf="" not same [ngIf]="" -->
+  <ng-template [ngIf]="switchTemplate" [ngIfElse]="templateB">
+    <div>
+      <h1>Test Section 1 Login Template A</h1>
+    </div>
+    <ng-container *ngIf="months && switchTemplate">
+      <!-- *ngIf="months !== null" or *ngIf="months" it's same for checking null -->
+      <!--
+      ***
+      ng-container is an extremely simple directive that allows you to group elements in a template
+      that doesn’t interfere with styles or layout because Angular doesn’t put it in the DOM
+      this is helpful if you don’t want any extra div on DOM, you can simply use ng-container.
+      for eg: If there are two structural directives (*ngIf,*ngFor at the same tag) being called on one div as below:
+      ***
+      -->
+      <!--
+      *** you'll get error
+      <div *ngIf="months" *ngFor="let month of months"></div>
+      *** one workaround would be to separate
+      As we can see, the ng-container directive provides us
+      with an element that we can attach a structural directive
+      to a section of the page, without having to create an extra element just for that.
+      *** ng-container->ng-container->ng-container->...->ng-container
+      -->
+      <ng-container *ngFor="let month of months; ">
+
+        <p-message closable severity="success"> {{ month }}</p-message>
+
+        <ng-container *ngFor="let i of [1,2]">
+
+          <p-message closable severity="info"> {{ i }}</p-message>
+
+        </ng-container>
+
+      </ng-container>
+
+
+    </ng-container>
+  </ng-template>
+
+  <ng-template #templateB>
+    <div>
+      <h1>Test Section 1 Login Template B</h1>
+    </div>
+    <div class="card">
+      <div class="card flex justify-center">
+        <p-checkbox (click)="switchActivity()" [(ngModel)]="active" [binary]="true" /> <!-- [binary]="true" is meaning 0 , 1 -->
+        <label class="ml-2">Active</label>
+      </div>
+      <p-table [value]="files" [scrollable]="true" [tableStyle]="{'min-width':'50rem'}">
+        <ng-template #header>
+          <tr>
+            <th>Name</th>
+            <th>Size (MB)</th>
+            <th>Type</th>
+            <th>Active</th>
+          </tr>
+        </ng-template>
+
+        <ng-template #body let-file >
+          <!--
+            ng-template can't have sub ng-template
+            use ng-container instead
+          -->
+          <ng-container *ngIf="file.active && active" >
+            <tr>
+              <td>{{ file.name }}</td>
+              <td>{{ file.size }}</td>
+              <td>{{ file.type }}</td>
+              <td>
+                <p-tag [value]="file.active" [severity]="getServerity()" />
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!file.active && !active" >
+            <tr>
+              <td>{{ file.name }}</td>
+              <td>{{ file.size }}</td>
+              <td>{{ file.type }}</td>
+              <td>
+                <p-tag [value]="file.active" [severity]="getServerity()" />
+              </td>
+
+            </tr>
+          </ng-container>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </ng-template>
+
+
+</div>

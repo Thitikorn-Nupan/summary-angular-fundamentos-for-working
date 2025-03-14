@@ -30,6 +30,11 @@ import { LearningNgTagAndDecoratorComponent } from './components/learning-ng-tag
 import {HttpClientModule, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {TemplateA2Component} from './components/learning-ng-tag-and-decorator/template-a2/template-a2.component';
 import { TemplateB2Component } from './components/learning-ng-tag-and-decorator/template-b2/template-b2.component';
+import { LearningNgContainerTagComponent } from './components/learning-ng-container-tag/learning-ng-container-tag.component';
+import {PickList} from 'primeng/picklist';
+import {OrderList} from 'primeng/orderlist';
+import {TreeTableModule} from 'primeng/treetable';
+import {Tag} from 'primeng/tag';
 
 @NgModule({
   declarations: [
@@ -43,12 +48,13 @@ import { TemplateB2Component } from './components/learning-ng-tag-and-decorator/
     TemplateEComponent,
     TemplateA2Component,
     LearningNgTagAndDecoratorComponent,
-    TemplateB2Component
+    TemplateB2Component,
+    LearningNgContainerTagComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule, PickList, OrderList, TreeTableModule, Tag,
     // HttpClientModule
   ],
   providers: [

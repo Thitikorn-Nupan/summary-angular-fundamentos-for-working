@@ -35,6 +35,8 @@ import {PickList} from 'primeng/picklist';
 import {OrderList} from 'primeng/orderlist';
 import {TreeTableModule} from 'primeng/treetable';
 import {Tag} from 'primeng/tag';
+import { TemplateA3Component } from './components/learning-ng-container-tag/template-a3/template-a3.component';
+import { TemplateB3Component } from './components/learning-ng-container-tag/template-b3/template-b3.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import {Tag} from 'primeng/tag';
     TemplateA2Component,
     LearningNgTagAndDecoratorComponent,
     TemplateB2Component,
-    LearningNgContainerTagComponent
+    LearningNgContainerTagComponent,
+    TemplateA3Component,
+    TemplateB3Component
   ],
   imports: [
     BrowserModule,

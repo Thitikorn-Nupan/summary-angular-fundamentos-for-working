@@ -9,12 +9,12 @@
 
       <div class="flex items-center">
         <!-- ** [(ngModel)]="template" will be relative on value tag -->
-        <p-radio-button class="{{this.switchTemplate ? 'p-radiobutton-checked' : ' ' }}" (change)="listenTemplate()"
-                        name="template-a" value="template-a" [(ngModel)]="template"></p-radio-button>
+        <p-radio-button class="{{this.switchTemplate ? 'p-radiobutton-checked' : ' ' }}" (change)="listenTemplate()" name="template-a" value="template-a" [(ngModel)]="template"></p-radio-button>
         <label class="ml-2">Template A</label>
-        <p-radio-button (change)="listenTemplate()" name="template-b" value="template-b"
-                        [(ngModel)]="template"></p-radio-button>
+        <p-radio-button class="{{this.switchTemplate ? ' ' : 'p-radiobutton-checked' }}" (change)="listenTemplate()" name="template-b" value="template-b" [(ngModel)]="template"></p-radio-button>
         <label class="ml-2">Template B</label>
+        <p-checkbox (change)="listenTemplateB2()" value="template-b2" [(ngModel)]="templateB2" />
+        <label class="ml-2">Template B2</label>
       </div>
     </div>
   </div>
@@ -28,8 +28,7 @@
     <div>
       <h1>Test Section 1 Login Template A</h1>
     </div>
-    <ng-container *ngIf="months && switchTemplate">
-      <!-- *ngIf="months !== null" or *ngIf="months" it's same for checking null -->
+    <ng-container *ngIf="months && switchTemplate"><!-- *ngIf="months !== null" or *ngIf="months" it's same for checking null -->
       <!--
       ***
       ng-container is an extremely simple directive that allows you to group elements in a template
@@ -61,12 +60,18 @@
 
 
     </ng-container>
+
   </ng-template>
+  <!-- -->
+
+
 
   <ng-template #templateB>
     <div>
       <h1>Test Section 1 Login Template B</h1>
     </div>
+
+
     <div class="card">
       <div class="card flex justify-center">
         <p-checkbox (click)="switchActivity()" [(ngModel)]="active" [binary]="true" /> <!-- [binary]="true" is meaning 0 , 1 -->
@@ -87,6 +92,8 @@
             ng-template can't have sub ng-template
             use ng-container instead
           -->
+          <!--
+          -->
           <ng-container *ngIf="file.active && active" >
             <tr>
               <td>{{ file.name }}</td>
@@ -105,13 +112,130 @@
               <td>
                 <p-tag [value]="file.active" [severity]="getServerity()" />
               </td>
-
             </tr>
           </ng-container>
         </ng-template>
       </p-table>
     </div>
 
+
+    <div>
+      <h1>Test Section 2 work with p-treeTable</h1>
+    </div>
+
+    <div>
+
+      <!-- for change templates -->
+      <div class="card flex justify-center">
+        <div class="flex flex-wrap gap-4">
+
+          <div class="flex items-center">
+            <!-- ** [(ngModel)]="template" will be relative on value tag -->
+            <p-radio-button (change)="listenTableAndCustomHeaderCols()" name="p-table-tree-user" value="p-table-tree-user" [(ngModel)]="table" ></p-radio-button>
+            <label class="ml-2">P Tree Table User</label>
+            <p-radio-button (change)="listenTableAndCustomHeaderCols()" name="p-table-tree-employee" value="p-table-tree-employee" [(ngModel)]="table" ></p-radio-button>
+            <label class="ml-2">P Tree Table Employee</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--
+        [columns]="cols" for header
+        [value]="tableData" for body
+        // ** for set paginator table
+        [paginator]="true"
+        [rows]="3"
+        // ** for set paginator table
+    -->
+    <h2>{{title}}</h2>
+
+
+    <p-treeTable #treeTable
+                 *ngIf="table === 'p-table-tree-user'"
+                 [columns]="cols"
+                 [value]="tableData"
+                 [paginator]="false"
+                 [rows]="0"
+                 [tableStyle]="{'min-width': '450px','width' : 'auto'}"
+                 >
+      <!-- header -->
+      <ng-template pTemplate="header" let-columns>
+        <ng-container *ngIf="cols">
+          <tr>
+            <!-- *** [attr.colspan] , [attr.rowspan] are same thing you set colspan,rowspan on tag -->
+            <th
+              [attr.colspan]="2"
+              [attr.rowspan]="0"
+              *ngFor="let col of columns"> <!-- [ttSortableColumn]="col.field" --> <!-- action sorting-->
+              {{ col.header }}
+              <!--<p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>--> <!-- icon of action sorting -->
+            </th>
+          </tr>
+        </ng-container>
+      </ng-template>
+      <!-- header -->
+      <!-- body-->
+      <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+        <ng-container>
+          <tr>
+            <td  [attr.colspan]="2"
+                 *ngFor="let col of columns; let i = index">
+              <p-treeTableToggler
+                [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+              {{ rowData[col.field] }}
+            </td>
+          </tr>
+        </ng-container>
+      </ng-template>
+      <!-- body-->
+
+    </p-treeTable>
+
+    <p-treeTable #treeTable
+                 *ngIf="table === 'p-table-tree-employee'"
+                 [columns]="cols"
+                 [value]="tableData"
+                 [paginator]="true"
+                 [rows]="2"
+    >
+      <!-- header -->
+      <ng-template pTemplate="header" let-columns>
+        <ng-container *ngIf="cols">
+          <tr>
+            <!-- *** [attr.colspan] , [attr.rowspan] are same thing you set colspan,rowspan on tag -->
+            <th
+              *ngFor="let col of columns"> <!-- [ttSortableColumn]="col.field" --> <!-- action sorting-->
+              {{ col.header }}
+              <!--<p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>--> <!-- icon of action sorting -->
+            </th>
+          </tr>
+        </ng-container>
+      </ng-template>
+      <!-- header -->
+      <!-- body-->
+      <!-- all the vars it's default no need to modify if you wanna change do in on ts. file  -->
+      <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+        <ng-container>
+          <tr>
+            <td *ngFor="let col of columns; let i = index">
+              <p-treeTableToggler
+                [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+              {{ rowData[col.field] }}
+            </td>
+          </tr>
+        </ng-container>
+      </ng-template>
+      <!-- body-->
+
+    </p-treeTable>
+  </ng-template>
+
+  <ng-template [ngIf]="switchTemplateB2">
+    <div>
+      <h1>Test Section 1.2 Login Template B2</h1>
+    </div>
   </ng-template>
 
 

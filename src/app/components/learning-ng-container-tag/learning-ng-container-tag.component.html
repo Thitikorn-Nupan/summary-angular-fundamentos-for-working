@@ -151,7 +151,6 @@
     -->
     <h2>{{title}}</h2>
 
-
     <p-treeTable #treeTable
                  *ngIf="table === 'p-table-tree-user'"
                  [columns]="cols"
@@ -190,7 +189,6 @@
         </ng-container>
       </ng-template>
       <!-- body-->
-
     </p-treeTable>
 
     <p-treeTable #treeTable
@@ -220,8 +218,62 @@
         <ng-container>
           <tr>
             <td *ngFor="let col of columns; let i = index">
-              <p-treeTableToggler
-                [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+              <p-treeTableToggler (click)="listenToggler(rowNode)" [rowNode]="rowNode" *ngIf="i === 5" >
+                <!--
+                     work as toggle icon
+                     so *ngIf="i === 5" means adding toggle to colum 5
+                -->
+              </p-treeTableToggler>
+              {{ rowData[col.field] }}
+            </td>
+          </tr>
+        </ng-container>
+      </ng-template>
+      <!-- body-->
+    </p-treeTable>
+
+  </ng-template>
+
+
+  <ng-template [ngIf]="switchTemplateB2">
+
+    <div>
+      <h1>Test Section 1.2 work with p-treeTable (Dynamic)</h1>
+    </div>
+
+    <p-checkbox (change)="listenTableB2Dynamic()" name="table-b2" value="table-b2" [(ngModel)]="tableB2" />
+    <label class="ml-2">{{titleB2}}</label>
+
+    <p-treeTable #treeTable
+                 [columns]="colsB2"
+                 [value]="tableDataB2"
+                 [paginator]="false"
+                 [rows]="0"
+    >
+      <!-- header -->
+      <ng-template pTemplate="header" let-columns>
+        <ng-container *ngIf="colsB2">
+          <tr>
+            <!-- *** [attr.colspan] , [attr.rowspan] are same thing you set colspan,rowspan on tag -->
+            <th
+              *ngFor="let col of columns"> <!-- [ttSortableColumn]="col.field" --> <!-- action sorting-->
+              {{ col.header }}
+              <!--<p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>--> <!-- icon of action sorting -->
+            </th>
+          </tr>
+        </ng-container>
+      </ng-template>
+      <!-- header -->
+      <!-- body-->
+      <!-- all the vars it's default no need to modify if you wanna change do in on ts. file  -->
+      <ng-template pTemplate="body" let-rowData="rowData" let-columns="columns">
+        <ng-container>
+          <tr>
+            <td *ngFor="let col of columns; let i = index">
+              <!--
+              can cut this if you don't have children on tree node
+              <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+              -->
               {{ rowData[col.field] }}
             </td>
           </tr>
@@ -230,13 +282,9 @@
       <!-- body-->
 
     </p-treeTable>
+
   </ng-template>
 
-  <ng-template [ngIf]="switchTemplateB2">
-    <div>
-      <h1>Test Section 1.2 Login Template B2</h1>
-    </div>
-  </ng-template>
 
 
 </div>

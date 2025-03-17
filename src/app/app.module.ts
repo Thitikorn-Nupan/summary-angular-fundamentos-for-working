@@ -35,8 +35,11 @@ import {PickList} from 'primeng/picklist';
 import {OrderList} from 'primeng/orderlist';
 import {TreeTableModule} from 'primeng/treetable';
 import {Tag} from 'primeng/tag';
-import { TemplateA3Component } from './components/learning-ng-container-tag/template-a3/template-a3.component';
-import { TemplateB3Component } from './components/learning-ng-container-tag/template-b3/template-b3.component';
+import { LearningViewChildComponent } from './components/learning-view-child/learning-view-child.component';
+import { LearningNgContentComponent } from './components/learning-ng-content/learning-ng-content.component';
+import { TemplateA3Component } from './components/learning-ng-content/template-a3/template-a3.component';
+import { TemplateB3Component } from './components/learning-ng-content/template-b3/template-b3.component';
+
 
 @NgModule({
   declarations: [
@@ -52,8 +55,10 @@ import { TemplateB3Component } from './components/learning-ng-container-tag/temp
     LearningNgTagAndDecoratorComponent,
     TemplateB2Component,
     LearningNgContainerTagComponent,
+    LearningViewChildComponent,
+    LearningNgContentComponent,
     TemplateA3Component,
-    TemplateB3Component
+    TemplateB3Component,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,6 @@ import { TemplateB3Component } from './components/learning-ng-container-tag/temp
       theme: {
         preset: Aura,
       },
-
     })
   ],
   bootstrap: [AppComponent]

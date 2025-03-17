@@ -1,0 +1,22 @@
+<ng-content>
+  <!-- -->
+</ng-content>
+<p>{{title}}</p>
+<p-message closable severity="success">
+  Id : {{student?.id}}
+  <br/>
+  Fullname : {{student?.name}}
+  <br/>
+  Email : {{student?.email}}
+</p-message>
+
+<ng-container *ngFor="let student of students; let i = index">
+  <p-message closable [severity]="getSererity(i)">
+    Id : {{student?.id}}
+    <br/>
+    Fullname : {{student?.name}}
+    <br/>
+    Email : {{student?.email}}
+  </p-message>
+</ng-container>
+

@@ -38,9 +38,9 @@ export class MenuComponent implements OnInit {
             routerLink: '/learning-ng-container'
           },
           {
-            label: 'Learning Form Group',
+            label: 'Learning Ng-Content',
             icon: 'pi pi-pencil',
-            // routerLink: '/learning-ng-container'
+            routerLink: '/learning-ng-content'
           }
         ]
       },

@@ -1,0 +1,100 @@
+<p-checkbox (change)="listenContents()" name="content-1" value="content-1" [(ngModel)]="contents.content1"/>
+<label class="ml-2">Content 1</label>
+
+<p-checkbox (change)="listenContents()" name="content-2" value="content-2" [(ngModel)]="contents.content2"/>
+<label class="ml-2">Content 2</label>
+
+<p-checkbox (change)="listenContents()" name="content-3" value="content-3" [(ngModel)]="contents.content3"/>
+<label class="ml-2">Content 3</label>
+
+
+<ng-container *ngIf="contents.content1[0] then content1 else contentOut">
+  <!-- ng template render here -->
+</ng-container>
+
+<ng-container *ngIf="contents.content2[0] then content2 else contentOut">
+  <!-- ng template render here-->
+</ng-container>
+
+<ng-container *ngIf="contents.content3[0] then content3 else contentOut">
+  <!-- ng template render here-->
+</ng-container>
+
+
+<ng-template #content1>
+  <!--
+    ng-content is used to project content into Angular components.
+    You use the <ng-content></ng-content> tag as a placeholder for that dynamic content,
+    then when the template is parsed Angular will replace that placeholder tag with your content.
+  -->
+  <div>
+    <h1>Test Content 1 Learning Ng-Content Without pass select attributes</h1>
+  </div>
+  <template-a3
+    *ngIf="contents.content1[0]"
+    [dynamicMessage]="data">
+    <!--
+    by default it's not rendering What if we want to show this content?
+    add <ng-content><ng-content/> on child template
+    this will render
+    -->
+    <div>*** Parent Component render inside Child component by ng content</div>
+  </template-a3>
+</ng-template>
+
+<ng-template #content2>
+
+  <div>
+    <h1>Test Content 2 Learning Ng-Content With select attribute</h1>
+  </div>
+
+  <template-b3
+
+    *ngIf="contents.content2[0]">
+
+    <div title>
+      *** Parent Components render inside Child component by ng content and specify select name
+    </div>
+
+    <div mathSelection [style]="styles">
+      name selector is mathSelection
+      <p-message closable severity="secondary">
+        {{ x }} x {{ y }} = {{ x * y | number }}
+      </p-message>
+    </div>
+
+
+    <div inputUsername [style]="styles">
+      name selector is inputUsername
+      <p-floatlabel>
+        <input id="over_label" [(ngModel)]="username" autocomplete="off"/>
+        <label for="over_label">Username</label>
+      </p-floatlabel>
+    </div>
+
+    <div class="card flex justify-center" inputXY [style]="styles">
+      name selector is inputXY
+      <input [(ngModel)]="x" class="ng-invalid ng-dirty" type="number" placeholder="x"/>
+      <input [(ngModel)]="y" class="ng-invalid ng-dirty" type="number" placeholder="y"/>
+    </div>
+
+  </template-b3>
+
+</ng-template>
+
+<ng-template #content3>
+  <div>
+    <h1>Test Content 3 Learning Ng-Content</h1>
+  </div>
+</ng-template>
+
+
+<ng-template #contentOut>
+  <div>
+    <h1>No content</h1>
+  </div>
+</ng-template>
+
+
+
+

@@ -2,7 +2,7 @@ import {TreeNode} from 'primeng/api';
 
 
 
-export class CustomTableDataTreeUser<T> implements TreeNode {
+export class CustomTableDataTree<T> implements TreeNode {
 
   public data : T;
   public children : TreeNode<T>[];

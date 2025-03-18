@@ -9,12 +9,14 @@ import {
   LearningNgContainerTagComponent
 } from './components/learning-ng-container-tag/learning-ng-container-tag.component';
 import {LearningNgContentComponent} from './components/learning-ng-content/learning-ng-content.component';
+import {LearningViewChildComponent} from './components/learning-view-child/learning-view-child.component';
 
 const routes: Routes = [
   {path: 'learning-ng-template', component: LearningNgTagComponent},
   {path: 'learning-ng-tag-and-decorator', component: LearningNgTagAndDecoratorComponent},
   {path: 'learning-ng-container', component: LearningNgContainerTagComponent},
   {path: 'learning-ng-content', component: LearningNgContentComponent},
+  {path: 'learning-view-child', component: LearningViewChildComponent},
 ];
 
 @NgModule({

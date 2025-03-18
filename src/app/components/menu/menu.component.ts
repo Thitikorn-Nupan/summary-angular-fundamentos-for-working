@@ -41,6 +41,11 @@ export class MenuComponent implements OnInit {
             label: 'Learning Ng-Content',
             icon: 'pi pi-pencil',
             routerLink: '/learning-ng-content'
+          },
+          {
+            label: 'Learning ViewChild',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-view-child'
           }
         ]
       },

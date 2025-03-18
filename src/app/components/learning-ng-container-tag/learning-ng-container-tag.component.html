@@ -67,6 +67,7 @@
 
 
   <ng-template #templateB>
+
     <div>
       <h1>Test Section 1 Login Template B</h1>
     </div>
@@ -77,6 +78,7 @@
         <p-checkbox (click)="switchActivity()" [(ngModel)]="active" [binary]="true" /> <!-- [binary]="true" is meaning 0 , 1 -->
         <label class="ml-2">Active</label>
       </div>
+
       <p-table [value]="files" [scrollable]="true" [tableStyle]="{'min-width':'50rem'}">
         <ng-template #header>
           <tr>
@@ -116,6 +118,7 @@
           </ng-container>
         </ng-template>
       </p-table>
+
     </div>
 
 
@@ -124,7 +127,6 @@
     </div>
 
     <div>
-
       <!-- for change templates -->
       <div class="card flex justify-center">
         <div class="flex flex-wrap gap-4">
@@ -234,7 +236,6 @@
 
   </ng-template>
 
-
   <ng-template [ngIf]="switchTemplateB2">
 
     <div>
@@ -283,8 +284,43 @@
 
     </p-treeTable>
 
-  </ng-template>
 
+    <div>
+      <h1>Test Section 1.2 work with ngTemplateOutlet</h1>
+    </div>
+
+    <ng-container *ngTemplateOutlet="greet">
+      <!-- template render here -->
+    </ng-container>
+
+    <ng-container [ngTemplateOutlet]="greet1" [ngTemplateOutletContext]="myContext"> <!-- ** same *ngTemplateOutlet="greet1; context : myContext" -->
+      <!-- template render here -->
+    </ng-container>
+
+    <ng-container *ngTemplateOutlet="greet2; context : myContext"> <!-- mapped content to myContext object -->
+      <!-- template render here -->
+    </ng-container>
+    <ng-container *ngTemplateOutlet="greet3; context: myContext">
+      <!-- template render here -->
+    </ng-container>
+
+    <ng-template #greet>
+      <p-message closable severity="info">hello</p-message>
+    </ng-template>
+
+    <ng-template #greet1 let-whatEver> <!-- iby default mapped $implicit if you don't specify -->
+      <p-message closable severity="warn">hello {{ whatEver }}!</p-message>
+    </ng-template>
+
+    <ng-template #greet2 let-data="message1"> <!-- get myContext key by let-data="<key>" -->
+      <p-message closable severity="success">hello {{ data }}!</p-message>
+    </ng-template>
+
+    <ng-template #greet3 let-data="message2">
+      <p-message closable severity="contrast">hello {{ data }}!</p-message>
+    </ng-template>
+
+  </ng-template>
 
 
 </div>

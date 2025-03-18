@@ -1,1 +1,80 @@
-<p>learning-view-child works!</p>
+<div>
+
+  <!-- for change templates -->
+  <div class="card flex justify-center">
+    <div class="flex flex-wrap gap-4">
+
+      <div class="flex items-center">
+        <!-- ** [(ngModel)]="template" will be relative on value tag class="{{this.switchTemplate ? 'p-radiobutton-checked' : ' ' }}" -->
+        <p-radio-button  (change)="listenTemplate()" name="template-a" value="template-a" [(ngModel)]="template"></p-radio-button>
+        <label class="ml-2">Template A</label>
+        <p-radio-button  (change)="listenTemplate()" name="template-b" value="template-b" [(ngModel)]="template"></p-radio-button>
+        <label class="ml-2">Template B</label>
+        <p-radio-button  (change)="listenTemplate()" name="template-c" value="template-c" [(ngModel)]="template"></p-radio-button>
+        <label class="ml-2">Template C</label>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div>
+  <ng-container [ngSwitch]="template">
+
+    <ng-container *ngSwitchCase="'template-a'">
+      <!--
+      Template References
+      The same way that we can refer to the loading template using a template reference,
+      we can also have a template injected directly into our component using the ViewChild decorator:
+      -->
+      <!--<ng-container *ngIf="template then templateA" ></ng-container>-->
+
+      <div #formTemplateA>
+        Form Template A
+        <div class="card flex justify-center">
+          <input type="text"  [(ngModel)]="message" />
+        </div>
+      </div>
+
+      <div class="card flex justify-center">
+        <p-button label="Display Template" (click)="focusFormTemplateA()" />
+      </div>
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'template-b'">
+
+      <!-- @ViewChild can also be used to access a child component's properties and methods. -->
+      <template-a4
+       [message]="'Default Hello world'">
+      </template-a4>
+
+      <template-b4
+        [message]="'Default Hello world'">
+      </template-b4>
+
+      <p-button label="Update Message On Template A4" (click)="updateMessageOnTemplateA4()" />
+      <p-button label="Update Message On Template B4" severity="info" (click)="updateMessageOnTemplateB4()" />
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'template-c'">
+
+    </ng-container>
+
+    <ng-container *ngSwitchDefault>
+      No content
+    </ng-container>
+
+
+  </ng-container>
+
+
+  <ng-template #templateA>
+    <ng-container>
+      TodoA
+    </ng-container>
+  </ng-template>
+
+</div>

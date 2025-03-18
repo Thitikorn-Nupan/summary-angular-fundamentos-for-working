@@ -39,6 +39,8 @@ import { LearningViewChildComponent } from './components/learning-view-child/lea
 import { LearningNgContentComponent } from './components/learning-ng-content/learning-ng-content.component';
 import { TemplateA3Component } from './components/learning-ng-content/template-a3/template-a3.component';
 import { TemplateB3Component } from './components/learning-ng-content/template-b3/template-b3.component';
+import { TemplateA4Component } from './components/learning-view-child/template-a4/template-a4.component';
+import { TemplateB4Component } from './components/learning-view-child/template-b4/template-b4.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { TemplateB3Component } from './components/learning-ng-content/template-b
     LearningNgContentComponent,
     TemplateA3Component,
     TemplateB3Component,
+    TemplateA4Component,
+    TemplateB4Component,
   ],
   imports: [
     BrowserModule,

@@ -43,6 +43,12 @@ export class LearningNgContainerTagComponent implements OnInit {
 
   protected titleB2?: string;
 
+  protected myContext = {
+    $implicit: 'World', // default key you can access by let-<key> {{ key }}
+    message1:'World Mather Fucker',
+    message2:'World Father Fucker'
+  };
+
   constructor() {
     this.fakeDataService = new FakeDataService();
     this.months = this.fakeDataService.retrieveAllMonths

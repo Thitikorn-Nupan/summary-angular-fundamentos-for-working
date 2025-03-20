@@ -10,6 +10,9 @@ import {
 } from './components/learning-ng-container-tag/learning-ng-container-tag.component';
 import {LearningNgContentComponent} from './components/learning-ng-content/learning-ng-content.component';
 import {LearningViewChildComponent} from './components/learning-view-child/learning-view-child.component';
+import {
+  LearningNgContainerAndPTreeTableComponent
+} from './components/learning-ng-container-and-p-tree-table/learning-ng-container-and-p-tree-table.component';
 
 const routes: Routes = [
   {path: 'learning-ng-template', component: LearningNgTagComponent},
@@ -17,6 +20,7 @@ const routes: Routes = [
   {path: 'learning-ng-container', component: LearningNgContainerTagComponent},
   {path: 'learning-ng-content', component: LearningNgContentComponent},
   {path: 'learning-view-child', component: LearningViewChildComponent},
+  {path: 'learning-ng-container-and-p-tree-table', component: LearningNgContainerAndPTreeTableComponent},
 ];
 
 @NgModule({

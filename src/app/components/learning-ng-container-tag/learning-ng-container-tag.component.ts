@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FakeDataService} from '../../service/fake-data';
 import {TreeNode} from 'primeng/api';
 import {File} from '../../models/api/file';
@@ -44,9 +44,19 @@ export class LearningNgContainerTagComponent implements OnInit {
   protected titleB2?: string;
 
   protected myContext = {
+    // property $implicit. It can be used to set the default value for all variables whose values are not set.
     $implicit: 'World', // default key you can access by let-<key> {{ key }}
     message1:'World Mather Fucker',
-    message2:'World Father Fucker'
+    message2:'World Father Fucker',
+    student : new Student(100,'alun ryder','alun@gmail.com'),
+    students:[
+      new Student(100,'alun ryder','alun@gmail.com'),
+      new Student(101,'kevin hard','kevin@gmail.com'),
+      new Student(102,'adam sandler','adam@gmail.com')
+    ],
+    alertMessage(v:string) {
+      alert(v)
+    }
   };
 
   constructor() {
@@ -201,6 +211,10 @@ export class LearningNgContainerTagComponent implements OnInit {
     ];*/
   }
 
+  ngAfterViewInit(): void {
+
+  }
+
   ngOnInit(): void {
   }
 
@@ -225,15 +239,15 @@ export class LearningNgContainerTagComponent implements OnInit {
     if (this.table === 'p-table-tree-user') {
       this.title = 'User Table';
       this.fakeDataService.setHeaderCols(this.getUserCols());
-      this.fakeDataService.setCustomTableDataTree(this.getCustomTableDataTreeUser())
+      this.fakeDataService.setBodyTreeTable(this.getCustomTableDataTreeUser())
     } else if (this.table === 'p-table-tree-employee') {
       this.title = 'Employee Table';
       this.fakeDataService.setHeaderCols(this.getEmployeeCols());
-      this.fakeDataService.setCustomTableDataTree(this.getCustomTableDataTreeEmployee())
+      this.fakeDataService.setBodyTreeTable(this.getCustomTableDataTreeEmployee())
     }
 
     this.cols = this.fakeDataService.retrieveAllHeaderCols
-    this.tableData = this.fakeDataService.retrieveAllCustomTableDataTree
+    this.tableData = this.fakeDataService.retrieveAllBodyTreeTable
   }
 
   // User P Tree Table
@@ -335,14 +349,14 @@ export class LearningNgContainerTagComponent implements OnInit {
     if (this.switchTableB2) {
       this.titleB2 = 'User Table'
       this.fakeDataService.setHeaderCols(this.getCustomTableDataTreeCols(true));
-      this.fakeDataService.setCustomTableDataTree(this.getCustomTableDataTree(true));
+      this.fakeDataService.setBodyTreeTable(this.getCustomTableDataTree(true));
     } else {
       this.titleB2 = 'Student Table'
       this.fakeDataService.setHeaderCols(this.getCustomTableDataTreeCols(false));
-      this.fakeDataService.setCustomTableDataTree(this.getCustomTableDataTree(false));
+      this.fakeDataService.setBodyTreeTable(this.getCustomTableDataTree(false));
     }
     this.colsB2 = this.fakeDataService.retrieveAllHeaderCols
-    this.tableDataB2 = this.fakeDataService.retrieveAllCustomTableDataTree
+    this.tableDataB2 = this.fakeDataService.retrieveAllBodyTreeTable
   }
   private getCustomTableDataTree(userOrStudent: boolean) {
     if (userOrStudent) {

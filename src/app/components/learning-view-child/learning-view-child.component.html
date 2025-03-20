@@ -6,11 +6,14 @@
 
       <div class="flex items-center">
         <!-- ** [(ngModel)]="template" will be relative on value tag class="{{this.switchTemplate ? 'p-radiobutton-checked' : ' ' }}" -->
-        <p-radio-button  (change)="listenTemplate()" name="template-a" value="template-a" [(ngModel)]="template"></p-radio-button>
+        <p-radio-button (change)="listenTemplate()" name="template-a" value="template-a"
+                        [(ngModel)]="template"></p-radio-button>
         <label class="ml-2">Template A</label>
-        <p-radio-button  (change)="listenTemplate()" name="template-b" value="template-b" [(ngModel)]="template"></p-radio-button>
+        <p-radio-button (change)="listenTemplate()" name="template-b" value="template-b"
+                        [(ngModel)]="template"></p-radio-button>
         <label class="ml-2">Template B</label>
-        <p-radio-button  (change)="listenTemplate()" name="template-c" value="template-c" [(ngModel)]="template"></p-radio-button>
+        <p-radio-button (change)="listenTemplate()" name="template-c" value="template-c"
+                        [(ngModel)]="template"></p-radio-button>
         <label class="ml-2">Template C</label>
       </div>
     </div>
@@ -20,6 +23,8 @@
 
 
 <div>
+
+
   <ng-container [ngSwitch]="template">
 
     <ng-container *ngSwitchCase="'template-a'">
@@ -30,15 +35,9 @@
       -->
       <!--<ng-container *ngIf="template then templateA" ></ng-container>-->
 
-      <div #formTemplateA>
-        Form Template A
-        <div class="card flex justify-center">
-          <input type="text"  [(ngModel)]="message" />
-        </div>
-      </div>
 
       <div class="card flex justify-center">
-        <p-button label="Display Template" (click)="focusFormTemplateA()" />
+        <p-button label="Display Template" (click)="focusFormTemplateA()"/>
       </div>
 
     </ng-container>
@@ -47,15 +46,15 @@
 
       <!-- @ViewChild can also be used to access a child component's properties and methods. -->
       <template-a4
-       [message]="'Default Hello world'">
+        [message]="'Default Hello world'">
       </template-a4>
 
       <template-b4
         [message]="'Default Hello world'">
       </template-b4>
 
-      <p-button label="Update Message On Template A4" (click)="updateMessageOnTemplateA4()" />
-      <p-button label="Update Message On Template B4" severity="info" (click)="updateMessageOnTemplateB4()" />
+      <p-button label="Update Message On Template A4" (click)="updateMessageOnTemplateA4()"/>
+      <p-button label="Update Message On Template B4" severity="info" (click)="updateMessageOnTemplateB4()"/>
 
     </ng-container>
 
@@ -71,10 +70,35 @@
   </ng-container>
 
 
-  <ng-template #templateA>
-    <ng-container>
-      TodoA
-    </ng-container>
-  </ng-template>
+  <div #formTemplateA> <!-- -->
+    <p-message severity="success"> formTemplateA</p-message>
+  </div>
+
+  <div id="formTemplate2" #formTemplateA2> <!-- -->
+    <p-message id="p1" severity="info">formTemplateA2</p-message>
+    <p-message id="p2" severity="info"> 2^5 = {{ 2 * 2 * 2 * 2 * 2 }}</p-message>
+  </div>
+
+
+  <div #formTemplateA3> <!-- -->
+    <template-b4
+      [severity]="'warn'"
+      [message]="'Default Hello world but you can not see on this.formTemplateA3?.nativeElement'">
+    </template-b4>
+  </div>
+
+
+  <!--<br/>
+  <ng-container #formTemplateA>
+    &lt;!&ndash; &ndash;&gt;
+    Form Template A
+  </ng-container>
+  <br/>
+
+  <ng-container #formTemplateA2>
+    &lt;!&ndash; &ndash;&gt;
+    Form Template A2
+  </ng-container>-->
+
 
 </div>

@@ -24,18 +24,23 @@ export class MenuComponent implements OnInit {
         items: [ // key items inside label for generate dropdown
           {
             label: 'Learning Ng-Template',
-            icon: 'pi pi-bolt',
+            icon: 'pi pi-pencil',
             routerLink: '/learning-ng-template'
           },
           {
             label: 'Learning Ng-Template Focus Input/Output Decorator',
-            icon: 'pi pi-server',
+            icon: 'pi pi-pencil',
             routerLink: '/learning-ng-tag-and-decorator'
           },
           {
             label: 'Learning Ng-Container',
             icon: 'pi pi-pencil',
             routerLink: '/learning-ng-container'
+          },
+          {
+            label: 'Learning Ng-Container Focus Dynamic P Tree Table',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-ng-container-and-p-tree-table'
           },
           {
             label: 'Learning Ng-Content',

@@ -1,6 +1,7 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {TemplateA4Component} from './template-a4/template-a4.component';
 import {TemplateB4Component} from './template-b4/template-b4.component';
+
 
 @Component({
   selector: 'app-learning-view-child',
@@ -8,11 +9,19 @@ import {TemplateB4Component} from './template-b4/template-b4.component';
   templateUrl: './learning-view-child.component.html',
   styleUrl: './learning-view-child.component.css'
 })
-export class LearningViewChildComponent implements OnInit {
+export class LearningViewChildComponent implements OnInit ,AfterViewInit  {
 
 
-  @ViewChild('formTemplateA')
-  private formTemplateA?: ElementRef;
+  // ElementRefA read only property that returns the HTML element where our ng-template is located in the DOM tree.
+  @ViewChild('formTemplateA', { read : ElementRef })
+  private formTemplateA?: ElementRef<HTMLElement>;
+  @ViewChild('formTemplateA2')
+  private formTemplateA2?: ElementRef<HTMLElement>;
+  @ViewChild('formTemplateA3')
+  private formTemplateA3?: ElementRef<HTMLElement>;
+
+
+
 
   // ** @ViewChild can also be used to access a child component's properties and methods.
   // ** you can access all methods without create new instance
@@ -30,9 +39,18 @@ export class LearningViewChildComponent implements OnInit {
   protected message?: string;
 
 
+
   ngOnInit(): void {
-    console.log(this.formTemplateA); // default is null
+    console.log(this.formTemplateA?.nativeElement.textContent); // default is null
   }
+
+  ngAfterViewInit(): void {
+    console.log(this.formTemplateA?.nativeElement); // <div> ... any tag you can see ... </div> can't use with ng-container,ng-template
+    console.log(this.formTemplateA2?.nativeElement.textContent); // get all text inside element ** all element that have texts n no care tags
+    console.log(this.formTemplateA2?.nativeElement.id); // get all text inside element ** all element that have texts n no care tags
+    console.log(this.formTemplateA3?.nativeElement); // only see <div> </div> but child can't see !!
+  }
+
 
   protected listenTemplate() {
     console.log(this.template);

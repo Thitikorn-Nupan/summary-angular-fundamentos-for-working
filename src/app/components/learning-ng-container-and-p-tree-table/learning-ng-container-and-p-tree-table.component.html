@@ -1,0 +1,63 @@
+<div>
+  <div class="card flex justify-center gap-4">
+    <div class="flex items-center gap-2">
+      <!-- *** Data Binding to Get Input Value concept-->
+      <!--<p-checkbox (change)="listenTemplates()" value="true" name="a" [(ngModel)]="templates.a"/>-->
+      <!-- *** Using Template Variables concept -->
+      <p-checkbox (onChange)="listenTemplates(a)" value="true" name="a" #a/>
+      <label class="ml-2" >Template A</label>
+      <p-checkbox (onChange)="listenTemplates(b)" value="true" name="b" #b/>
+      <label class="ml-2">Template B</label>
+      <p-checkbox (onChange)="listenTemplates(c)" value="true" name="c" #c/>
+      <label class="ml-2">Template C</label>
+    </div>
+  </div>
+
+  <ng-container *ngIf="templates.a"
+                [ngTemplateOutlet]="templateA">
+
+  </ng-container>
+
+  <ng-container *ngIf="templates.b"
+                [ngTemplateOutlet]="templateB">
+    <!-- Template B Render here-->
+  </ng-container>
+
+
+  <ng-template #templateA>
+    <!-- Template A Render here-->
+    <data-table
+      [title]="'Users Table'"
+      [imageUrl]="'https://img.icons8.com/?size=100&id=13042&format=png&color=000000'"
+      [enable]="true"
+      [header]="header"
+      [body]="body"
+      [style]="{'max-width': 'fit-content',
+                             'max-height': '500px',
+                             'overflow-y': 'auto',
+                             'height': '300px'}">
+    </data-table>
+
+    <data-table
+      [title]="'Students Table'"
+      [imageUrl]="'https://img.icons8.com/?size=100&id=XKedzxVhRNPR&format=png&color=000000'"
+      [enable]="true"
+      [header]="header2"
+      [body]="body2"
+      [style]="{'max-width': 'fit-content',
+                             'max-height': '500px',
+                             'overflow-y': 'auto',
+                             'height': '300px'}">
+    </data-table>
+
+  </ng-template>
+
+
+  <ng-template #templateB>
+    <p-message closable severity="warn">hello</p-message>
+  </ng-template>
+</div>
+
+
+
+

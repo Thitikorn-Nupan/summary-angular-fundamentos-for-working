@@ -61,7 +61,7 @@ export class FakeDataService {
 
   }*/
 
-  public setCustomTableDataTree(customTableDataTree: TreeNode[]) {
+  public setBodyTreeTable(customTableDataTree: TreeNode[]) {
     this.customTableDataTree = customTableDataTree
   }
 
@@ -92,7 +92,7 @@ export class FakeDataService {
     return this.headerCols;
   }
 
-  get retrieveAllCustomTableDataTree() {
+  get retrieveAllBodyTreeTable() {
     return this.customTableDataTree;
   }
 }

@@ -8,6 +8,7 @@ import {Component, Input} from '@angular/core';
 })
 export class TemplateB4Component {
   @Input() public message: string = 'Hello from Child!';
+  @Input() public severity: string = 'info';
 
   public changeMessage(newMessage: string) {
     this.message = newMessage;

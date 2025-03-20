@@ -236,6 +236,10 @@
 
   </ng-template>
 
+
+
+
+
   <ng-template [ngIf]="switchTemplateB2">
 
     <div>
@@ -289,6 +293,11 @@
       <h1>Test Section 1.2 work with ngTemplateOutlet</h1>
     </div>
 
+
+    <!--
+         To insert a template, the ngTemplateOutlet directive is used,
+         which takes the TemplateRef type as a parameter.
+    -->
     <ng-container *ngTemplateOutlet="greet">
       <!-- template render here -->
     </ng-container>
@@ -303,6 +312,26 @@
     <ng-container *ngTemplateOutlet="greet3; context: myContext">
       <!-- template render here -->
     </ng-container>
+    <!-- *** -->
+    <ng-container *ngTemplateOutlet="greet4; context: myContext">
+      <!-- template render here -->
+    </ng-container>
+
+    <ng-container [ngTemplateOutlet]="greet5" [ngTemplateOutletContext]="myContext">
+      <!-- template render here -->
+    </ng-container>
+
+    <div>
+      <ng-container [ngTemplateOutlet]="greet6">
+        <!-- template render here -->
+      </ng-container>
+    </div>
+
+    <div>
+      <ng-container [ngTemplateOutlet]="greet7" [ngTemplateOutletContext]="myContext">
+        <!-- template render here -->
+      </ng-container>
+    </div>
 
     <ng-template #greet>
       <p-message closable severity="info">hello</p-message>
@@ -319,6 +348,41 @@
     <ng-template #greet3 let-data="message2">
       <p-message closable severity="contrast">hello {{ data }}!</p-message>
     </ng-template>
+
+    <ng-template #greet4 let-data="student" > <!-- data mapped key student as Student class -->
+      <p-message closable severity="secondary">
+        {{data.id}}
+        <br/>
+        {{data.name}}
+        <br/>
+        {{data.email}}
+        <br/>
+      </p-message>
+    </ng-template>
+
+
+    <ng-template #greet5 let-data="students" > <!-- data mapped key students as array students  -->
+      <p-message *ngFor="let student of data" closable severity="error">
+        {{student.id}}
+        <br/>
+        {{student.name}}
+        <br/>
+        {{student.email}}
+        <br/>
+      </p-message>
+    </ng-template>
+
+
+    <ng-template #greet6>
+      <p-message closable severity="success">Hello World!</p-message>
+    </ng-template>
+
+
+    <ng-template #greet7 let-data="message1">
+      <p-message closable severity="info"> {{data}}</p-message>
+      <p-button severity="info" (click)="myContext.alertMessage(data)">alert</p-button>
+    </ng-template>
+
 
   </ng-template>
 

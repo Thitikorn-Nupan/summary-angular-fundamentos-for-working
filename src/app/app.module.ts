@@ -44,6 +44,8 @@ import { TemplateB4Component } from './components/learning-view-child/template-b
 import { LearningNgContainerAndPTreeTableComponent } from './components/learning-ng-container-and-p-tree-table/learning-ng-container-and-p-tree-table.component';
 import { DataTableComponent } from './components/learning-ng-container-and-p-tree-table/data-table/data-table.component';
 import {Avatar} from 'primeng/avatar';
+import { DataListComponent } from './components/learning-ng-container-and-p-tree-table/data-list/data-list.component';
+import {Listbox} from 'primeng/listbox';
 
 
 @NgModule({
@@ -68,11 +70,12 @@ import {Avatar} from 'primeng/avatar';
     TemplateB4Component,
     LearningNgContainerAndPTreeTableComponent,
     DataTableComponent,
+    DataListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule, PickList, OrderList, TreeTableModule, Tag, Avatar,
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule, PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox,
     // HttpClientModule
   ],
   providers: [

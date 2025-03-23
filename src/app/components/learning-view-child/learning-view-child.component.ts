@@ -1,6 +1,9 @@
 import {AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {TemplateA4Component} from './template-a4/template-a4.component';
 import {TemplateB4Component} from './template-b4/template-b4.component';
+import {DataListComponent} from '../learning-ng-container-and-p-tree-table/data-list/data-list.component';
+import {Country} from '../../models/api/country';
+
 
 
 @Component({
@@ -9,11 +12,11 @@ import {TemplateB4Component} from './template-b4/template-b4.component';
   templateUrl: './learning-view-child.component.html',
   styleUrl: './learning-view-child.component.css'
 })
-export class LearningViewChildComponent implements OnInit ,AfterViewInit  {
+export class LearningViewChildComponent implements OnInit, AfterViewInit {
 
 
   // ElementRefA read only property that returns the HTML element where our ng-template is located in the DOM tree.
-  @ViewChild('formTemplateA', { read : ElementRef })
+  @ViewChild('formTemplateA', {read: ElementRef})
   private formTemplateA?: ElementRef<HTMLElement>;
   @ViewChild('formTemplateA2')
   private formTemplateA2?: ElementRef<HTMLElement>;
@@ -21,27 +24,38 @@ export class LearningViewChildComponent implements OnInit ,AfterViewInit  {
   private formTemplateA3?: ElementRef<HTMLElement>;
 
 
-
-
   // ** @ViewChild can also be used to access a child component's properties and methods.
   // ** you can access all methods without create new instance
   @ViewChild(TemplateA4Component)
   protected templateA4!: TemplateA4Component;
+  @ViewChild(DataListComponent)
+  protected dataListComponent!: DataListComponent;
+
 
   // ** @ViewChild with Static Option
   // The static option in @ViewChild determines when the view query is resolved
   // static: true: The query is resolved before ngOnInit and can be accessed immediately.
   // static: false: The query is resolved after ngAfterViewInit when the view is fully initialized. ** This is the default behavior and is often used for dynamic views.
-  @ViewChild(TemplateB4Component,{ static:true }) // now all methods you can't access
+  @ViewChild(TemplateB4Component, {static: true}) // now all methods you can't access
   protected templateB4!: TemplateB4Component;
 
   protected template?: string;
   protected message?: string;
 
+  protected countries: Country[];
 
+  constructor() {
+    this.countries = [
+      {name: 'Australia', code: 'AU'},
+      {name: 'Brazil', code: 'BR'},
+      {name: 'China', code: 'CN'},
+      {name: 'Egypt', code: 'EG'},
+      {name: 'France', code: 'FR'},
+    ];
+  }
 
   ngOnInit(): void {
-    console.log(this.formTemplateA?.nativeElement.textContent); // default is null
+    console.log(this.formTemplateA?.nativeElement); // default is null
   }
 
   ngAfterViewInit(): void {
@@ -58,7 +72,8 @@ export class LearningViewChildComponent implements OnInit ,AfterViewInit  {
 
   protected focusFormTemplateA() {
     this.formTemplateA?.nativeElement?.focus(); // .nativeElement.focus() to programmatically focus the input field when the button is clicked.
-    console.log(this.formTemplateA); // store detail of tag ?
+    // store detail DOM , so you can see all children as node
+    console.log(this.formTemplateA);
   }
 
   protected updateMessageOnTemplateA4() {
@@ -69,4 +84,13 @@ export class LearningViewChildComponent implements OnInit ,AfterViewInit  {
     this.templateB4.changeMessage('Hello world');
   }
 
+  protected updateCountryOnTemplateB() {
+    this.dataListComponent.changeCountry([
+      {name: 'Germany', code: 'DE'},
+      {name: 'India', code: 'IN'},
+      {name: 'Japan', code: 'JP'},
+      {name: 'Spain', code: 'ES'},
+      {name: 'United States', code: 'US'}
+    ])
+  }
 }

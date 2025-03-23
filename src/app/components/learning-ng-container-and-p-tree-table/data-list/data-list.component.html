@@ -1,0 +1,9 @@
+<div class="card flex justify-center">
+  <p-listbox [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" class="w-full md:w-56">
+    <ng-template let-country #item>
+      <div class="flex items-center gap-2" (click)="listenSelect(country)">
+        <div>{{ country.name }} ({{country.code}})</div>
+      </div>
+    </ng-template>
+  </p-listbox>
+</div>

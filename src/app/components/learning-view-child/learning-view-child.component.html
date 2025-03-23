@@ -34,17 +34,35 @@
       we can also have a template injected directly into our component using the ViewChild decorator:
       -->
       <!--<ng-container *ngIf="template then templateA" ></ng-container>-->
-
-
       <div class="card flex justify-center">
         <p-button label="Display Template" (click)="focusFormTemplateA()"/>
+      </div>
+
+      <div #formTemplateA>
+        <p-message severity="success">formTemplate A (P Message 0)</p-message>
+        <p-message id="p1" severity="success">P Message 1</p-message>
+        <p-message id="p2" severity="success">P Message 2</p-message>
+        <template-b4
+          [severity]="'success'"
+          [message]="'Default Hello world On Child Component'">
+        </template-b4>
+      </div>
+
+      <div #formTemplateA2> <!-- -->
+
+      </div>
+
+      <div #formTemplateA3> <!-- -->
+
       </div>
 
     </ng-container>
 
     <ng-container *ngSwitchCase="'template-b'">
 
-      <!-- @ViewChild can also be used to access a child component's properties and methods. -->
+
+      <h2>ViewChild can also be used to access a child component's properties and methods.</h2>
+
       <template-a4
         [message]="'Default Hello world'">
       </template-a4>
@@ -54,7 +72,15 @@
       </template-b4>
 
       <p-button label="Update Message On Template A4" (click)="updateMessageOnTemplateA4()"/>
-      <p-button label="Update Message On Template B4" severity="info" (click)="updateMessageOnTemplateB4()"/>
+      <p-button label="Update Message On Template B4 (it won't change cause static is true)" severity="info" (click)="updateMessageOnTemplateB4()"/>
+
+
+      <data-list
+       [countries]="countries">
+      </data-list>
+
+      <p-button label="Update Countries On Data List" (click)="updateCountryOnTemplateB()"/>
+
 
     </ng-container>
 
@@ -70,35 +96,13 @@
   </ng-container>
 
 
-  <div #formTemplateA> <!-- -->
-    <p-message severity="success"> formTemplateA</p-message>
-  </div>
-
-  <div id="formTemplate2" #formTemplateA2> <!-- -->
-    <p-message id="p1" severity="info">formTemplateA2</p-message>
-    <p-message id="p2" severity="info"> 2^5 = {{ 2 * 2 * 2 * 2 * 2 }}</p-message>
-  </div>
 
 
-  <div #formTemplateA3> <!-- -->
-    <template-b4
-      [severity]="'warn'"
-      [message]="'Default Hello world but you can not see on this.formTemplateA3?.nativeElement'">
-    </template-b4>
-  </div>
 
 
-  <!--<br/>
-  <ng-container #formTemplateA>
-    &lt;!&ndash; &ndash;&gt;
-    Form Template A
-  </ng-container>
-  <br/>
 
-  <ng-container #formTemplateA2>
-    &lt;!&ndash; &ndash;&gt;
-    Form Template A2
-  </ng-container>-->
+
+
 
 
 </div>

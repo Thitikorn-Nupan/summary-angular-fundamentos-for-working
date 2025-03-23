@@ -54,7 +54,32 @@
 
 
   <ng-template #templateB>
-    <p-message closable severity="warn">hello</p-message>
+
+    <data-table
+      [title]="'Todo Table ** retrieve form api'"
+      [imageUrl]="'https://img.icons8.com/?size=100&id=47005&format=png&color=000000'"
+      [enable]="true"
+      [header]="header"
+      [body]="body"
+      [style]="{'max-width': 'fit-content',
+                             'max-height': '500px',
+                             'overflow-y': 'auto',
+                             'height': '300px'}">
+    </data-table>
+
+
+    <data-table
+      [title]="'Post Table ** retrieve form api'"
+      [imageUrl]="'https://img.icons8.com/?size=100&id=LLHD8fdivRIq&format=png&color=000000'"
+      [enable]="true"
+      [header]="header2"
+      [body]="body2"
+      [style]="{'max-width': 'fit-content',
+                             'max-height': '500px',
+                             'overflow-y': 'auto',
+                             'height': '300px'}">
+    </data-table>
+
   </ng-template>
 </div>
 

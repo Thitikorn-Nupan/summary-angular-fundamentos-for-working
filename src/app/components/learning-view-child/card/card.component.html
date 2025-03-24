@@ -1,0 +1,18 @@
+<div class="mb-4 p-8 flex items-center justify-center">
+  <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+    <ng-template #header>
+      <img alt="Card" class="w-full" height="200px" width="100%" [src]="imageUrl" />
+    </ng-template>
+    <ng-template #title> {{ titleCard }} </ng-template>
+    <ng-template #subtitle> {{ subTitleCard }} </ng-template>
+    <p>
+      {{ contentCard }}
+    </p>
+    <ng-template #footer>
+      <div class="flex gap-4 mt-1">
+        <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
+        <p-button label="Save" class="w-full" styleClass="w-full" />
+      </div>
+    </ng-template>
+  </p-card>
+</div>

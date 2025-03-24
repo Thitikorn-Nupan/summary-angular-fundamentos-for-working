@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 @Component({
-  selector: 'app-menu',
+  selector: 'menu-component',
   standalone: false,
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
         routerLink: '/'
       },
       {
-        label: 'Projects',
+        label: 'Projects (Ng-*)',
         icon: 'pi pi-search',
         items: [ // key items inside label for generate dropdown
           {
@@ -55,11 +55,13 @@ export class MenuComponent implements OnInit {
         ]
       },
       {
-        label: 'Contact',
-        icon: 'pi pi-envelope',
+        label: 'Projects (FormGroup)',
+        icon: 'pi pi-search',
         items: [
           {
-            label: 'Contact A',
+            label: 'Learning FormGroup',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-form-groups'
           },
           {
             label: 'Contact B',

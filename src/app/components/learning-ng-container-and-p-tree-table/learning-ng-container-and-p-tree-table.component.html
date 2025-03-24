@@ -13,13 +13,12 @@
     </div>
   </div>
 
-  <ng-container *ngIf="templates.a"
-                [ngTemplateOutlet]="templateA">
+  <ng-container *ngIf="templates.a" [ngTemplateOutlet]="templateA">
+    <!-- Template A Render here-->
 
   </ng-container>
 
-  <ng-container *ngIf="templates.b"
-                [ngTemplateOutlet]="templateB">
+  <ng-container *ngIf="templates.b" [ngTemplateOutlet]="templateB">
     <!-- Template B Render here-->
   </ng-container>
 

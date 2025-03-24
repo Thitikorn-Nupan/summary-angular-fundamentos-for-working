@@ -23,9 +23,8 @@ import {InputGroup} from 'primeng/inputgroup';
 import {Message} from 'primeng/message';
 import { TemplateDComponent } from './components/learning-ng-tag/template-d/template-d.component';
 import { TemplateEComponent } from './components/learning-ng-tag/template-e/template-e.component';
-import {CheckboxModule} from 'primeng/checkbox';
 import {RadioButton} from 'primeng/radiobutton';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LearningNgTagAndDecoratorComponent } from './components/learning-ng-tag-and-decorator/learning-ng-tag-and-decorator.component';
 import {HttpClientModule, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {TemplateA2Component} from './components/learning-ng-tag-and-decorator/template-a2/template-a2.component';
@@ -46,8 +45,17 @@ import { DataTableComponent } from './components/learning-ng-container-and-p-tre
 import {Avatar} from 'primeng/avatar';
 import { DataListComponent } from './components/learning-ng-container-and-p-tree-table/data-list/data-list.component';
 import {Listbox} from 'primeng/listbox';
-
-
+import { CardComponent } from './components/learning-view-child/card/card.component';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { LearningFormGroupsComponent } from './components/learning-form-groups/learning-form-groups.component';
+import {Sidebar} from 'primeng/sidebar';
+import { FormAComponent } from './components/learning-form-groups/form-a/form-a.component';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { FormBComponent } from './components/learning-form-groups/form-b/form-b.component';
+import { InputIconModule } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,11 +79,16 @@ import {Listbox} from 'primeng/listbox';
     LearningNgContainerAndPTreeTableComponent,
     DataTableComponent,
     DataListComponent,
+    CardComponent,
+    LearningFormGroupsComponent,
+    FormAComponent,
+    FormBComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule, PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox,
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule, PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar, ReactiveFormsModule,FloatLabelModule
+    ,InputIconModule,IconFieldModule,InputTextModule,CheckboxModule
     // HttpClientModule
   ],
   providers: [

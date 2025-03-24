@@ -16,4 +16,10 @@ export class CardComponent {
   @Input()
   public contentCard?: string;
 
+  enableCard: boolean = true;
+
+  listenCancel() {
+    this.enableCard = false;
+  }
+
 }

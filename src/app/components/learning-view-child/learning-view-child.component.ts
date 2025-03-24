@@ -3,6 +3,7 @@ import {TemplateA4Component} from './template-a4/template-a4.component';
 import {TemplateB4Component} from './template-b4/template-b4.component';
 import {DataListComponent} from '../learning-ng-container-and-p-tree-table/data-list/data-list.component';
 import {Country} from '../../models/api/country';
+import {CardComponent} from './card/card.component';
 
 
 
@@ -30,6 +31,8 @@ export class LearningViewChildComponent implements OnInit, AfterViewInit {
   protected templateA4!: TemplateA4Component;
   @ViewChild(DataListComponent)
   protected dataListComponent!: DataListComponent;
+  @ViewChild(CardComponent)
+  protected cardComponent!: CardComponent;
 
 
   // ** @ViewChild with Static Option
@@ -92,6 +95,10 @@ export class LearningViewChildComponent implements OnInit, AfterViewInit {
       {name: 'Spain', code: 'ES'},
       {name: 'United States', code: 'US'}
     ])
+  }
+
+  protected updateCard() {
+    this.cardComponent.enableCard = !this.cardComponent.enableCard;
   }
 
 

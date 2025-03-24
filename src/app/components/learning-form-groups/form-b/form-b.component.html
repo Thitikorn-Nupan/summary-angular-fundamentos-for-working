@@ -1,0 +1,99 @@
+<form [formGroup]="profileForm">
+  <h2>Basic Form Group + validate (with p input icon)</h2>
+  <div class="card flex justify-content-center">
+
+
+    <div class="card flex flex-wrap justify-content-center gap-3">
+      <p-iconField iconPosition="left">
+        <p-inputIcon styleClass="pi pi-pencil" />
+        <input type="text" pInputText placeholder="firstname..."  formControlName="firstName" />
+      </p-iconField>
+    </div>
+
+    <br/>
+
+    <div class="card flex flex-wrap justify-content-center gap-3">
+      <p-iconField iconPosition="left">
+        <p-inputIcon styleClass="pi pi-pencil" />
+        <input type="text" pInputText placeholder="lastname..."  formControlName="lastName" />
+      </p-iconField>
+    </div>
+
+    <br/>
+
+    <div class="card flex justify-content-center">
+      <p-checkbox
+        formControlName="checked"
+        [binary]="true"
+        inputId="binary" />
+      <label>Remember</label>
+    </div>
+
+    <br/>
+
+    <!--<div class="card flex justify-content-center">
+      <div class="flex flex-wrap gap-3">
+        <div class="flex align-items-center">
+          <p-radioButton
+            formControlName="pizza"
+            name="pizza"
+            [value]="profileForm.controls.pizza"
+            ></p-radioButton>
+          <label class="ml-2">Cheese</label>
+        </div>
+
+        <div class="flex align-items-center">
+          <p-radioButton
+            formControlName="pizza"
+            name="pizza"
+            [value]="profileForm.controls.pizza"
+          ></p-radioButton>
+          <label class="ml-2">Mushroom</label>
+        </div>
+
+      </div>
+    </div>-->
+
+    <div>
+      Favorite Language (Without primeng)
+      <br>
+      <input type="radio" id="html" name="fav_language" value="Java" formControlName="fav_language">
+      <label for="html">Java</label>
+      <br>
+      <input type="radio" id="css" name="fav_language" value="Kotlin" formControlName="fav_language">
+      <label for="css">Kotlin</label><br>
+    </div>
+
+    <div class="card flex justify-content-center">
+      Favorite Ingredient (With primeng)
+      <div class="flex flex-wrap gap-3">
+        <div class="flex align-items-center">
+          <p-radioButton
+            formControlName="ingredient"
+            name="ingredient"
+            value="Cheese"></p-radioButton>
+          <label  class="ml-2">
+            Cheese
+          </label>
+        </div>
+
+        <div class="flex align-items-center">
+          <p-radioButton
+            formControlName="ingredient"
+            name="ingredient"
+            value="Mushroom"></p-radioButton>
+          <label  class="ml-2">
+            Mushroom
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+
+    <br/>
+    <button (click)="onSubmit()">Submit</button>
+
+  </div>
+
+</form>

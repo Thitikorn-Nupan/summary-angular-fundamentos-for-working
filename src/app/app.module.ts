@@ -87,8 +87,10 @@ import { CheckboxModule } from 'primeng/checkbox';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel, InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule, PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar, ReactiveFormsModule,FloatLabelModule
-    ,InputIconModule,IconFieldModule,InputTextModule,CheckboxModule
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
+    InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
+    PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
+    ReactiveFormsModule,FloatLabelModule,InputIconModule,IconFieldModule,InputTextModule,CheckboxModule
     // HttpClientModule
   ],
   providers: [

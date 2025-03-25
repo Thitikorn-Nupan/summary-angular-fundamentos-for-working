@@ -92,14 +92,17 @@
 
       <br/>
 
-      <p-button label="Enable Or Disable Card" (click)="updateCard()"/>
-
-
+      <p-button label="Enable Or Disable Card" (click)="updateStatusCard()"/>
 
 
     </ng-container>
 
     <ng-container *ngSwitchCase="'template-c'">
+
+      <progess-spinner
+        [loadingDelaySecond]="3"
+        [animationSpinner]="'0.9s'">
+      </progess-spinner>
 
     </ng-container>
 

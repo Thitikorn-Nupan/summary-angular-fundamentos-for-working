@@ -56,6 +56,14 @@ import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ProgessSpinnerComponent } from './components/learning-view-child/progess-spinner/progess-spinner.component';
+import {ProgressSpinner} from 'primeng/progressspinner';
+import {MessagesModule} from 'primeng/messages';
+import {InputTextarea} from 'primeng/inputtextarea';
+import {InputNumber} from 'primeng/inputnumber';
+import {InputSwitch} from 'primeng/inputswitch';
+import { InputMaskModule } from 'primeng/inputmask';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +91,7 @@ import { CheckboxModule } from 'primeng/checkbox';
     LearningFormGroupsComponent,
     FormAComponent,
     FormBComponent,
+    ProgessSpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +99,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
     InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
-    ReactiveFormsModule,FloatLabelModule,InputIconModule,IconFieldModule,InputTextModule,CheckboxModule
+    ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule
+    , CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch, InputMaskModule, DropdownModule,
     // HttpClientModule
   ],
   providers: [

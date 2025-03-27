@@ -64,6 +64,8 @@ import {InputNumber} from 'primeng/inputnumber';
 import {InputSwitch} from 'primeng/inputswitch';
 import { InputMaskModule } from 'primeng/inputmask';
 import {DropdownModule} from 'primeng/dropdown';
+import { FormCComponent } from './components/learning-form-groups/form-c/form-c.component';
+import {WindowMaximizeIcon} from "primeng/icons";
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +94,7 @@ import {DropdownModule} from 'primeng/dropdown';
     FormAComponent,
     FormBComponent,
     ProgessSpinnerComponent,
+    FormCComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,7 +103,7 @@ import {DropdownModule} from 'primeng/dropdown';
     InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
     ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule
-    , CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch, InputMaskModule, DropdownModule,
+    , CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch, InputMaskModule, DropdownModule, WindowMaximizeIcon,
     // HttpClientModule
   ],
   providers: [

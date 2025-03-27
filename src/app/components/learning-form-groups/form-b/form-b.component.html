@@ -117,13 +117,17 @@
 
     <br/>
     <div class="card flex justify-content-center">
-      <!-- [options]="<data for display>"-->
+      <!-- [options]="<data for display>"
+           country will have value if user clicked option
+      -->
       <p-dropdown
         formControlName="country"
         [options]="countries"
         optionLabel="name"
         placeholder="Select a country" />
+
     </div>
+
 
     <br/>
 

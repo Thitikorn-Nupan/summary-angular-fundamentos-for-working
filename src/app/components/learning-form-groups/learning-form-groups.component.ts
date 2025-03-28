@@ -29,4 +29,26 @@ export class LearningFormGroupsComponent {
       fieldData : new FormControl(false, [Validators.required])
     };
   }
+
+
+  protected usernameField2() {
+    return {
+      fieldName: 'username2',
+      fieldData : new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(20)])
+    };
+  }
+
+  protected passwordField2() {
+    return {
+      fieldName: 'password2',
+      fieldData : new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(20)])
+    };
+  }
+
+  protected rememberField2() {
+    return {
+      fieldName: 'remember2',
+      fieldData : new FormControl(false, [Validators.required])
+    };
+  }
 }

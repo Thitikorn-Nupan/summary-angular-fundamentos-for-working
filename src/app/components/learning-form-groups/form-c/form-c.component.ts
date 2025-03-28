@@ -11,7 +11,10 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class FormCComponent implements OnInit , AfterViewInit {
 
+  @Input()
+  public enable : boolean = true;
   protected tableId : string = 'table-info';
+
   protected tableHeaderId : string = 'table-header-info';
   protected todos : Todo[]
   protected colspan = 1
@@ -45,7 +48,6 @@ export class FormCComponent implements OnInit , AfterViewInit {
   constructor(private fakeApiService : FakeApiService) {
     this.todos = []
   }
-
 
 
   ngOnInit(): void {

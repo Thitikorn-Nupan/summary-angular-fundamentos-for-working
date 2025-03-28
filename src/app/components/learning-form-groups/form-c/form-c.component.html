@@ -1,4 +1,4 @@
-<h2>Basic Form Group + Attribute Binding</h2>
+<h2 *ngIf="enable">Basic Form Group + Attribute Binding</h2>
 <!--
     [attr.< attribute of tag >] = "< dynamic value >"
     ex. [attr.id]="idDynamic"
@@ -8,10 +8,10 @@
 <!--
     now p-table,tr tags have dynamic id
 -->
-<h4>Ex Attribute Binding</h4>
+<h4 *ngIf="enable">Ex Attribute Binding</h4>
 <!-- you can't bind like <th colspan="{{colspan}}">Completed</th> get error you have to use binding attribute -->
 <!-- same i set <p-table id="<some name>" ></p-table> -->
-<p-table [attr.id]="tableId" [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+<p-table *ngIf="enable" [attr.id]="tableId" [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template #header>
     <!-- same i set <tr id="<some name>"> </tr> -->
     <tr [attr.id]="tableHeaderId">
@@ -58,5 +58,5 @@
   <div class="card flex justify-center gap-4" [style]="{'margin-top': '10px'}">
     <p-button (onClick)="onSendClicked()" label="Send" icon="pi pi-sign-in"  /> <!-- [loading]="loading" (onClick)="load()"-->
   </div>
-  
+
 </div>

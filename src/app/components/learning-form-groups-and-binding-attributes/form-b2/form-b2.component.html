@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup"  class="card flex justify-center" [style]="{'padding':'10px'}">
+  <h3>{{formTitle}}</h3>
+  <div>
+    <span class="font-bold block mb-2">{{fieldTest.fieldLabel}}</span>
+    <p-inputMask
+      [id]="fieldTest.fieldId"
+      [formControlName]="fieldTest.fieldName"
+      mask="09-999-9999"
+      placeholder="09-999-9999">
+    </p-inputMask>
+  </div>
+
+  <br/>
+  <div class="card flex justify-content-center">
+    <!--
+         [options]="<data for display>"
+         country will have value if user clicked option
+         optionLabel="name" display name
+    -->
+    <p-dropdown
+      [attr.id]="field2.fieldId"
+      [formControlName]="field2.fieldName"
+      [options]="data"
+      optionLabel="name"
+      [placeholder]="field2.fieldLabel"/>
+  </div>
+
+
+  <div class="card flex justify-center gap-4" [style]="{'margin-top': '10px'}">
+    <p-button (onClick)="onSendClicked()" label="Send" icon=""/> <!-- [loading]="loading" (onClick)="load()"-->
+  </div>
+
+</div>

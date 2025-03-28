@@ -66,6 +66,9 @@ import { InputMaskModule } from 'primeng/inputmask';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormCComponent } from './components/learning-form-groups/form-c/form-c.component';
 import {WindowMaximizeIcon} from "primeng/icons";
+import { LearningFormGroupsAndBindingAttributesComponent } from './components/learning-form-groups-and-binding-attributes/learning-form-groups-and-binding-attributes.component';
+import { FormA2Component } from './components/learning-form-groups-and-binding-attributes/form-a2/form-a2.component';
+import { FormB2Component } from './components/learning-form-groups-and-binding-attributes/form-b2/form-b2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +98,9 @@ import {WindowMaximizeIcon} from "primeng/icons";
     FormBComponent,
     ProgessSpinnerComponent,
     FormCComponent,
+    LearningFormGroupsAndBindingAttributesComponent,
+    FormA2Component,
+    FormB2Component,
   ],
   imports: [
     BrowserModule,

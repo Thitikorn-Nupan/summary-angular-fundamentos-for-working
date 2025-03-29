@@ -1,0 +1,62 @@
+<h2 *ngIf="enable">Basic Form Group + Attribute Binding</h2>
+<!--
+    [attr.< attribute of tag >] = "< dynamic value >"
+    ex. [attr.id]="idDynamic"
+        [attr.class]="classDynamic"
+        [attr.value]="valueDynamic"
+-->
+<!--
+    now p-table,tr tags have dynamic id
+-->
+<h4 *ngIf="enable">Ex Attribute Binding</h4>
+<!-- you can't bind like <th colspan="{{colspan}}">Completed</th> get error you have to use binding attribute -->
+<!-- same i set <p-table id="<some name>" ></p-table> -->
+<p-table *ngIf="enable" [attr.id]="tableId" [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header>
+    <!-- same i set <tr id="<some name>"> </tr> -->
+    <tr [attr.id]="tableHeaderId">
+      <th>Oder</th>
+      <th>User ID</th>
+      <th>Title</th>
+      <th [attr.colspan]="colspan">Completed</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-data>
+    <tr>
+      <td>{{ data.id }}</td>
+      <td>{{ data.userId }}</td>
+      <td>{{ data.title }}</td>
+      <td [attr.colspan]="colspan"
+          [attr.class]="data.completed ? tdCompletedClass[0] : tdCompletedClass[1]">{{ data.completed }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- first mapped form grop -->
+<div [formGroup]="loginForm" class="card flex justify-center" [style]="{'padding':'10px'}">
+  <h3>Login Form</h3>
+  <p-iftalabel>
+    <!-- this key "pInputText" is importance -->
+    <!-- second mapped form control name as dynamic -->
+    <input [formControlName]="field1.fieldName" pInputText id="username" autocomplete="off"/>
+    <label for="username">Username</label>
+  </p-iftalabel>
+
+  <p-iftalabel  [style]="{'margin-top': '10px'}">
+    <input [formControlName]="field2.fieldName" pInputText id="password" autocomplete="off"/>
+    <label for="password">Password</label>
+  </p-iftalabel>
+
+  <p-checkbox
+    [style]="{'margin-top': '10px'}"
+    [formControlName]="field3.fieldName"
+    [binary]="true"
+    inputId="binary"/>
+  <label>Remember</label>
+
+  <div class="card flex justify-center gap-4" [style]="{'margin-top': '10px'}">
+    <p-button (onClick)="onSendClicked()" label="Send" icon="pi pi-sign-in"  /> <!-- [loading]="loading" (onClick)="load()"-->
+  </div>
+
+</div>

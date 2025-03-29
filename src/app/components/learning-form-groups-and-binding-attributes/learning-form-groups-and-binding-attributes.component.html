@@ -1,0 +1,64 @@
+<form-a2
+  [formTitle]="loginFormDynamic.formTitle"
+  [field1]="loginFormDynamic.field1"
+  [field2]="loginFormDynamic.field2"
+></form-a2>
+
+<form-a2
+  [formTitle]="studentFormDynamic.formTitle"
+  [field1]="studentFormDynamic.field1"
+  [field2]="studentFormDynamic.field2"
+></form-a2>
+
+
+<form-b2
+  [formTitle]="orderFormDynamic.formTitle"
+  [data]="orderFormDynamic.data"
+  [field1]="orderFormDynamic.field1"
+  [field2]="orderFormDynamic.field2">
+</form-b2>
+
+<form-b2
+  [formTitle]="serviceFormDynamic.formTitle"
+  [data]="serviceFormDynamic.data"
+  [field1]="serviceFormDynamic.field1"
+  [field2]="serviceFormDynamic.field2">
+</form-b2>
+
+
+<form-c2
+  [formTitle]="departmentProgrammingFormDynamic.formTitle"
+  [enableInputSalary]="departmentProgrammingFormDynamic.enableInputSalary"
+  [enableInputAddress]="departmentProgrammingFormDynamic.enableInputAddress"
+  [field1]="departmentProgrammingFormDynamic.field1"
+  [field2]="departmentProgrammingFormDynamic.field2"
+  [field3]="departmentProgrammingFormDynamic.field3"
+  [field4]="departmentProgrammingFormDynamic.field4"
+></form-c2>
+
+
+<form-c2
+  [formTitle]="departmentSaleFormDynamic.formTitle"
+  [enableInputSalary]="departmentSaleFormDynamic.enableInputSalary"
+  [enableInputAddress]="departmentSaleFormDynamic.enableInputAddress"
+  [field1]="departmentSaleFormDynamic.field1"
+  [field2]="departmentSaleFormDynamic.field2"
+  [field3]="departmentSaleFormDynamic.field3"
+  [field4]="departmentSaleFormDynamic.field4"
+></form-c2>
+
+<!--
+  **  void      =  return type mapped parameter void
+  [updateField4]="commonField4('')"
+  the way to bind void function with return function
+-->
+<form-c2
+  [formTitle]="departmentUserFormDynamic.formTitle"
+  [enableInputSalary]="departmentUserFormDynamic.enableInputSalary"
+  [enableInputAddress]="departmentUserFormDynamic.enableInputAddress"
+  [field1]="departmentUserFormDynamic.field1"
+  [field2]="departmentUserFormDynamic.field2"
+  [field3]="departmentUserFormDynamic.field3"
+  [field4]="departmentUserFormDynamic.field4"
+  [updateField4]="commonField4('user-id-field4')"
+></form-c2>

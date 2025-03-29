@@ -31,29 +31,6 @@
 
     <br/>
 
-    <!--<div class="card flex justify-content-center">
-      <div class="flex flex-wrap gap-3">
-        <div class="flex align-items-center">
-          <p-radioButton
-            formControlName="pizza"
-            name="pizza"
-            [value]="profileForm.controls.pizza"
-            ></p-radioButton>
-          <label class="ml-2">Cheese</label>
-        </div>
-
-        <div class="flex align-items-center">
-          <p-radioButton
-            formControlName="pizza"
-            name="pizza"
-            [value]="profileForm.controls.pizza"
-          ></p-radioButton>
-          <label class="ml-2">Mushroom</label>
-        </div>
-
-      </div>
-    </div>-->
-
     <div>
       Favorite Language (Without primeng)
       <br>
@@ -65,7 +42,7 @@
     </div>
 
     <div class="card flex justify-content-center">
-      Favorite Ingredient (With primeng)
+      Favorite Ingredient (With primeng) ** p radio-button
       <div class="flex flex-wrap gap-3">
         <div class="flex align-items-center">
           <p-radioButton
@@ -90,8 +67,71 @@
       </div>
     </div>
 
+    <br/>
+
+    <div class="card flex justify-content-center">
+      <p-floatLabel>
+        <textarea
+          id="float-input"
+          rows="5"
+          cols="30"
+          formControlName="comment"
+          pInputTextarea>
+        </textarea>
+        <label for="float-input">Comment</label>
+      </p-floatLabel>
+    </div>
 
     <br/>
+
+    <div >
+      <label for="salary">Salary </label>
+      <p-inputNumber
+        formControlName="salary"
+        id="salary"/>
+
+      <!-- decimal -->
+      <label for="weight">Weight </label>
+      <p-inputNumber
+        id="weight"
+        formControlName="weight"
+        inputId="minmaxfraction"
+        mode="decimal"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="5" />
+    </div>
+
+    <div>
+      <p-inputSwitch formControlName="enable" />
+    </div>
+
+    <div>
+      <span class="font-bold block mb-2">Phone Number</span>
+      <p-inputMask
+        formControlName="phoneNumber"
+        mask="09-999-9999"
+        placeholder="09-999-9999">
+      </p-inputMask>
+    </div>
+
+
+    <br/>
+    <div class="card flex justify-content-center">
+      <!-- [options]="<data for display>"
+           country will have value if user clicked option
+      -->
+      <p-dropdown
+        formControlName="country"
+        [options]="countries"
+        optionLabel="name"
+        placeholder="Select a country" />
+
+    </div>
+
+
+    <br/>
+
+
     <button (click)="onSubmit()">Submit</button>
 
   </div>

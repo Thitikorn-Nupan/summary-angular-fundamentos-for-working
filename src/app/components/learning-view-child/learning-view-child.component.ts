@@ -97,7 +97,7 @@ export class LearningViewChildComponent implements OnInit, AfterViewInit {
     ])
   }
 
-  protected updateCard() {
+  protected updateStatusCard() {
     this.cardComponent.enableCard = !this.cardComponent.enableCard;
   }
 

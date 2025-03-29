@@ -1,0 +1,11 @@
+.custom-position-loading {
+  margin: 0 auto;
+  max-width: 0px;
+  display: block;
+}
+
+.custom-position-message {
+  margin: 0 auto;
+  max-width: 200px;
+  display: block;
+}

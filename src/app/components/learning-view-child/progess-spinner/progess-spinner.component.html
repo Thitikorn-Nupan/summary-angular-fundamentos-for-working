@@ -1,0 +1,19 @@
+<ng-container *ngIf="enable" class="card flex justify-content-center">
+  <!-- [ngClass]="{ '<var>' : <true or false> }" work for add style variable to tag -->
+  <p-progressSpinner
+    [ngClass]="{'custom-position-loading' : enable}"
+    styleClass="w-4rem h-4rem"
+    strokeWidth="8"
+    fill="var(--surface-ground)"
+    [animationDuration]="animationSpinner"/>
+</ng-container>
+
+<ng-container *ngIf="!enable" class="card">
+  <div class="card" >
+    <p-message
+      closable severity="success"
+      [ngClass]="{'custom-position-message' : !enable}">
+      Loaded
+    </p-message>
+  </div>
+</ng-container>

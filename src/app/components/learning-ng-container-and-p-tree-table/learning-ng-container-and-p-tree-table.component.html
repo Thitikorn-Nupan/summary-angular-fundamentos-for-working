@@ -23,6 +23,10 @@
   </ng-container>
 
 
+  <ng-container *ngIf="templates.c" [ngTemplateOutlet]="templateC">
+    <!-- Template B Render here-->
+  </ng-container>
+
   <ng-template #templateA>
     <!-- Template A Render here-->
     <data-table
@@ -79,6 +83,13 @@
                              'height': '300px'}">
     </data-table>
 
+  </ng-template>
+
+
+  <ng-template #templateC>
+
+
+    Hello
   </ng-template>
 </div>
 

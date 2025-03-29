@@ -88,6 +88,10 @@ export class LearningNgContainerAndPTreeTableComponent implements OnInit {
     }
     if (template.name === 'c' && template.model.length == 0) {
       this.templates.c = false;
+      this.header = []
+      this.header2 = []
+      this.body = []
+      this.body2 = []
     }
     console.log(this.templates);
   }

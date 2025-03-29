@@ -56,6 +56,24 @@ import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ProgessSpinnerComponent } from './components/learning-view-child/progess-spinner/progess-spinner.component';
+import {ProgressSpinner} from 'primeng/progressspinner';
+import {MessagesModule} from 'primeng/messages';
+import {InputTextarea} from 'primeng/inputtextarea';
+import {InputNumber} from 'primeng/inputnumber';
+import {InputSwitch} from 'primeng/inputswitch';
+import { InputMaskModule } from 'primeng/inputmask';
+import {DropdownModule} from 'primeng/dropdown';
+import { FormCComponent } from './components/learning-form-groups/form-c/form-c.component';
+import {WindowMaximizeIcon} from "primeng/icons";
+import { LearningFormGroupsAndBindingAttributesComponent } from './components/learning-form-groups-and-binding-attributes/learning-form-groups-and-binding-attributes.component';
+import { FormA2Component } from './components/learning-form-groups-and-binding-attributes/form-a2/form-a2.component';
+import { FormB2Component } from './components/learning-form-groups-and-binding-attributes/form-b2/form-b2.component';
+import { FormC2Component } from './components/learning-form-groups-and-binding-attributes/form-c2/form-c2.component';
+import {Fluid} from 'primeng/fluid';
+import {Toast} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
+import { LearningFormGroupsAndBindingAttributesAndNgTagComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/learning-form-groups-and-binding-attributes-and-ng-tag.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +101,13 @@ import { CheckboxModule } from 'primeng/checkbox';
     LearningFormGroupsComponent,
     FormAComponent,
     FormBComponent,
+    ProgessSpinnerComponent,
+    FormCComponent,
+    LearningFormGroupsAndBindingAttributesComponent,
+    FormA2Component,
+    FormB2Component,
+    FormC2Component,
+    LearningFormGroupsAndBindingAttributesAndNgTagComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +115,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
     InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
-    ReactiveFormsModule,FloatLabelModule,InputIconModule,IconFieldModule,InputTextModule,CheckboxModule
+    ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule
+    , CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch, InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast,
     // HttpClientModule
   ],
   providers: [
@@ -102,7 +128,8 @@ import { CheckboxModule } from 'primeng/checkbox';
       theme: {
         preset: Aura,
       },
-    })
+    }),
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

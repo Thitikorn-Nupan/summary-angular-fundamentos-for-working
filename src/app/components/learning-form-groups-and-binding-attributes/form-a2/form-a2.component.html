@@ -1,0 +1,21 @@
+<div [formGroup]="formGroup" class="card flex justify-center" [style]="{'padding':'10px'}">
+
+  <h3>{{formTitle}}</h3>
+  <p-iftalabel>
+    <!-- this key "pInputText" is importance -->
+    <!-- second mapped form control name as dynamic -->
+    <input [formControlName]="field1.fieldName" pInputText [attr.id]="field1.fieldId" autocomplete="off"/>
+    <label >{{ field1.fieldLabel }}</label>
+  </p-iftalabel>
+
+  <p-iftalabel  [style]="{'margin-top': '10px'}">
+    <input [formControlName]="field2.fieldName" pInputText [attr.id]="field2.fieldId" autocomplete="off"/>
+    <label>{{ field2.fieldLabel }}</label>
+  </p-iftalabel>
+
+  <div class="card flex justify-center gap-4" [style]="{'margin-top': '10px'}">
+    <p-button (onClick)="onSendClicked()" label="Send" icon=""  /> <!-- [loading]="loading" (onClick)="load()"-->
+  </div>
+
+</div>
+

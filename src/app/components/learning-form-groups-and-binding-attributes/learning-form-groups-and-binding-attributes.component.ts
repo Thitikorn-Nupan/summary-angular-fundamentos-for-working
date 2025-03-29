@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import {FormC2Component} from './form-c2/form-c2.component';
 
 interface Order {
   name: string;
@@ -20,6 +21,9 @@ interface Problem {
   styleUrl: './learning-form-groups-and-binding-attributes.component.css'
 })
 export class LearningFormGroupsAndBindingAttributesComponent {
+
+  /*@ViewChild(FormC2Component)
+  protected formC2Component! : FormC2Component;*/
 
   private orders: Order[] = [
     {name: 'Stir-fried basil and pork', price: 300},
@@ -101,5 +105,127 @@ export class LearningFormGroupsAndBindingAttributesComponent {
     },
   }
 
+
+
+  protected departmentProgrammingFormDynamic = {
+    formTitle: 'Department Programming',
+    enableInputSalary: true,
+    enableInputAddress:true,
+    field1: {
+      name : 'fullname',
+      data : new FormControl('',[Validators.required]),
+      id : 'fullname-id-field1',
+      icon : 'pi pi-user',
+      placeHolder : 'Fullname...'
+    },
+    field2: {
+      name : 'email',
+      data : new FormControl('',[Validators.required]),
+      id : 'email-id-field2',
+      icon : 'pi pi-at',
+      placeHolder : 'Email Company...'
+    }
+    ,
+    field3: {
+      name : 'salary',
+      data : new FormControl('',[Validators.required]),
+      id : 'salary-id-field3',
+      icon : '฿',
+      placeHolder : 'Expect Salary'
+    }
+    ,
+    field4: {
+      name : 'address',
+      data : new FormControl('',[Validators.required]),
+      id : 'address-id-field4',
+      icon : 'pi pi-pencil',
+      placeHolder : 'Address...'
+    }
+  }
+
+  protected departmentSaleFormDynamic = {
+    formTitle: 'Department Sale',
+    enableInputSalary: true,
+    enableInputAddress:true,
+    field1: {
+      name : 'nickname',
+      data : new FormControl('',[Validators.required]),
+      id : 'nickname-id-field1',
+      icon : 'pi pi-user',
+      placeHolder : 'Nickname...'
+    },
+    field2: {
+      name : 'email',
+      data : new FormControl('',[Validators.required]),
+      id : 'email-sale-id-field2',
+      icon : 'pi pi-at',
+      placeHolder : 'Email...'
+    }
+    ,
+    field3: {
+      name : 'salary',
+      data : new FormControl('',[Validators.required]),
+      id : 'salary-sale-id-field3',
+      icon : '฿',
+      placeHolder : 'Expect Salary'
+    }
+    ,
+    field4: {
+      name : 'comment',
+      data : new FormControl('',[Validators.required]),
+      id : 'comment-id-field4',
+      icon : 'pi pi-pencil',
+      placeHolder : 'Comment...'
+    }
+  }
+
+
+  protected departmentUserFormDynamic = {
+    formTitle: 'User Recommendation',
+    enableInputSalary: false,
+    enableInputAddress:true,
+    field1: {
+      name : 'nickname',
+      data : new FormControl('',[Validators.required]),
+      id : 'nickname-user-id-field1',
+      icon : 'pi pi-user',
+      placeHolder : 'Nickname...'
+    },
+    field2: {
+      name : 'email',
+      data : new FormControl('',[Validators.required]),
+      id : 'email-user-id-field2',
+      icon : 'pi pi-at',
+      placeHolder : 'Email...'
+    }
+    ,
+    field3: {
+      name : 'salary',
+      data : new FormControl('',[]),
+      id : 'salary-sale-id-field3',
+      icon : '฿',
+      placeHolder : 'Expect Salary'
+    }
+    ,
+    field4: {
+      name : 'comment',
+      data : new FormControl('',[]),
+      id : 'comment-user-id-field4',
+      icon : 'pi pi-pencil',
+      placeHolder : 'Comment...'
+    }
+  }
+
+
+  // this function mapped void function in child component
+  commonField4(id :string) {
+    return {
+      name : 'message',
+      data : new FormControl('',[]),
+      id : id,
+      icon : 'pi pi-pencil',
+      placeHolder : 'Leave the message...'
+    };
+  }
 
 }

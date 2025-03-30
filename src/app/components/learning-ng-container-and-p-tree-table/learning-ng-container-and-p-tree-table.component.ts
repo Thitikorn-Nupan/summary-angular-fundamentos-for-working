@@ -58,8 +58,8 @@ export class LearningNgContainerAndPTreeTableComponent implements OnInit {
         this.fakeDataService.setBodyTreeTable(this.getBodyUserTreeTable());
       */
       this.header = this.getHeaderUserTreeTable()
-      this.header2 = this.getHeaderStudentTreeTable()
       this.body = this.getBodyUserTreeTable()
+      this.header2 = this.getHeaderStudentTreeTable()
       this.body2 = this.getBodyStudentTreeTable()
     }
     if (template.name === 'a' && template.model.length == 0) {

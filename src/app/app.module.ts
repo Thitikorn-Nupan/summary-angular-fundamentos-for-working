@@ -74,6 +74,8 @@ import {Fluid} from 'primeng/fluid';
 import {Toast} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import { LearningFormGroupsAndBindingAttributesAndNgTagComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/learning-form-groups-and-binding-attributes-and-ng-tag.component';
+import { DataTableAComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-table-a/data-table-a.component';
+import { DataFormComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-form/data-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,6 +110,8 @@ import { LearningFormGroupsAndBindingAttributesAndNgTagComponent } from './compo
     FormB2Component,
     FormC2Component,
     LearningFormGroupsAndBindingAttributesAndNgTagComponent,
+    DataTableAComponent,
+    DataFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,10 @@ export class DataFormComponent implements OnInit{
   @Output()
   protected emitterStatus = new EventEmitter<boolean>()
 
+  @Output()
+  protected fieldsValue = new EventEmitter<any>()
+
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       [this.field0.name] : this.field0.data,
@@ -44,10 +48,12 @@ export class DataFormComponent implements OnInit{
 
   onFormGroupClicked() {
     if (this.formGroup.valid) {
-      this.field0Value.emit(this.formGroup.value[this.field0.name]);
+      /*this.field0Value.emit(this.formGroup.value[this.field0.name]);
       this.field1Value.emit(this.formGroup.value[this.field1.name]);
       this.field2Value.emit(this.formGroup.value[this.field2.name]);
-      this.emitterStatus.emit(true)
+      this.emitterStatus.emit(true)*/
+      // i can use below instead
+      this.fieldsValue.emit(this.formGroup.value)
     }
   }
 }

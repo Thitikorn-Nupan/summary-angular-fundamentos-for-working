@@ -37,8 +37,14 @@
           {{ rowData[col.field] }}
           <ng-container *ngIf="col.field === 'action'">
             <!-- if current colum.filed is 'action' key add this container -->
-            <p-button icon="pi pi-wrench" rounded="false" severity="warn" [style]="{ 'margin-right': '.5em' }"/>
-            <p-button icon="pi pi-minus" rounded="false" severity="danger"/>
+            <p-button icon="pi pi-wrench" rounded="false" severity="warn" [style]="{ 'margin-right': '.5em' }" (onClick)="onUpdateClicked(rowData)"/>
+            <!-- rowData == {
+                    "id": 101,
+                    "name": "jon",
+                    "email": "jon@hotmail.com"
+                }
+            -->
+            <p-button icon="pi pi-minus" rounded="false" severity="danger" (onClick)="onDeleteClicked(rowData)"/>
           </ng-container>
         </td>
       </tr>

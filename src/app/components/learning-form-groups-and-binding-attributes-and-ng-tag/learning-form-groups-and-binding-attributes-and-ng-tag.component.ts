@@ -29,9 +29,13 @@ export class LearningFormGroupsAndBindingAttributesAndNgTagComponent implements 
   protected templates: Template []
   protected studentFieldsValue: Field
   protected selectedTemplate: Template;
-  public header: HeaderCol[]
-  public data : TreeNode[]
-  private studentServiceData:StudentServiceData
+  public header1: HeaderCol[]
+  public header2: HeaderCol[]
+  public declare data1 : TreeNode[]
+  public declare data2 : TreeNode[]
+  private studentServiceData1:StudentServiceData
+  private studentServiceData2:StudentServiceData
+
   constructor() {
     this.templates = [
       {name: 'Template A', key: 'A'},
@@ -47,17 +51,15 @@ export class LearningFormGroupsAndBindingAttributesAndNgTagComponent implements 
     this.selectedTemplate = {
       name: '', key: ''
     }
-    /*this.header = []
-    this.data = []*/
-    this.studentServiceData = new StudentServiceData();
-    this.header = this.getHeaderStudentTreeTable()
-    this.data = this.getDataStudentTreeTable()
+    this.studentServiceData1 = new StudentServiceData();
+    this.studentServiceData2 = new StudentServiceData();
+    this.header1 = this.getHeaderStudentTreeTable()
+    this.header2 = this.getHeaderStudentTreeTable()
   }
 
-
-
   ngOnInit(): void {
-
+    this.data1 = this.convertObjectToDataTreeTable(this.studentServiceData1.getStudents())
+    this.data2 = this.convertObjectToDataTreeTable(this.studentServiceData2.getStudents())
   }
 
   protected studentForm() {
@@ -88,6 +90,14 @@ export class LearningFormGroupsAndBindingAttributesAndNgTagComponent implements 
     }
   }
 
+  private convertObjectToDataTreeTable(data : any) {
+    let customTableDataTree: CustomTableDataTree<Student>[] = []
+    for (let i = 0; i < data.length; i++) {
+      customTableDataTree.push({data: data[i], children: []})
+    }
+    return customTableDataTree
+  }
+
   // Student table
   private getHeaderStudentTreeTable() {
     let studentCols: HeaderCol[] = []
@@ -97,19 +107,8 @@ export class LearningFormGroupsAndBindingAttributesAndNgTagComponent implements 
     studentCols.push({field: "action", header: "Action"})
     return studentCols
   }
-  private getDataStudentTreeTable() {
-    let data: Student[] = [
-      new Student(100, 'alex', 'alex@hotmail.com'),
-      new Student(101, 'jon', 'jon@hotmail.com'),
-      new Student(102, 'kevin', 'kevin@hotmail.com'),
-    ];
-    let customTableDataTree: CustomTableDataTree<Student>[] = []
-    customTableDataTree.push({data: data[0], children: []})
-    customTableDataTree.push({data: data[1], children: []})
-    customTableDataTree.push({data: data[2], children: []})
-    return customTableDataTree
-  }
 
+  /** can reduce code by setStudentFieldsValueValid(...) method
   // ** map @Output on child component
   protected setStudentField0(field: number) {
     this.studentFieldsValue.field0 = field
@@ -126,7 +125,79 @@ export class LearningFormGroupsAndBindingAttributesAndNgTagComponent implements 
   protected setStudentEmitterStatus(emitter: boolean) {
     this.studentFieldsValue.emitterStatus = emitter
     if (this.studentFieldsValue.emitterStatus) {
-      console.log('success')
+      const student = new Student(this.studentFieldsValue.field0,this.studentFieldsValue.field1,this.studentFieldsValue.field2)
+      this.studentServiceData.addStudent(student)
+      this.data = this.convertObjectToDataTreeTable(this.studentServiceData.getStudents()) // ** no need to set it empty array it'll do overwrite
+    }
+    this.studentFieldsValue.emitterStatus = false
+  }
+  */
+
+  protected setStudentFieldsValueValid(fieldsValue : any) {
+    const student = new Student(fieldsValue.id,fieldsValue.name,fieldsValue.email)
+    this.studentServiceData1.addStudent(student)
+    this.data1 = this.convertObjectToDataTreeTable(this.studentServiceData1.getStudents()) // ** no need to set it empty array it'll do overwrite
+  }
+
+  protected setStudentRowDataDelete(rowData: any) {
+    const student = new Student(rowData.id,rowData.name,rowData.email)
+    this.studentServiceData1.removeStudent(student)
+    this.data1 = this.convertObjectToDataTreeTable(this.studentServiceData1.getStudents())
+  }
+
+  protected setStudentRowDataUpdate(rowData: any) {
+    const studentNew = new Student(0,"test","test@hotmail.com")
+    this.studentServiceData1.editStudent(studentNew,rowData.id)
+    this.data1 = this.convertObjectToDataTreeTable(this.studentServiceData1.getStudents())
+  }
+
+
+
+  // New
+  protected studentNewForm() {
+    return {
+      formTitle: 'Student New Form',
+      field0: {
+        name: 'id',
+        data: new FormControl('', [Validators.required]),
+        id: 'student-new-id-field0',
+        icon: 'ID',
+        placeHolder: 'ID...'
+      },
+      field1: {
+        name: 'name',
+        data: new FormControl('', [Validators.required]),
+        id: 'name-new-id-field1',
+        icon: 'pi pi-user',
+        placeHolder: 'Name...'
+      }
+      ,
+      field2: {
+        name: 'email',
+        data: new FormControl('', [Validators.required]),
+        id: 'email-new-id-field3',
+        icon: 'pi pi-at',
+        placeHolder: 'Email...'
+      }
     }
   }
+
+  protected setStudentNewFieldsValueValid(fieldsValue : any) {
+    const student = new Student(fieldsValue.id,fieldsValue.name,fieldsValue.email)
+    this.studentServiceData2.addStudent(student)
+    this.data2 = this.convertObjectToDataTreeTable(this.studentServiceData2.getStudents()) // ** no need to set it empty array it'll do overwrite
+  }
+
+  protected setStudentNewRowDataDelete(rowData: any) {
+    const student = new Student(rowData.id,rowData.name,rowData.email)
+    this.studentServiceData2.removeStudent(student)
+    this.data2 = this.convertObjectToDataTreeTable(this.studentServiceData2.getStudents())
+  }
+
+  protected setStudentNewRowDataUpdate(rowData: any) {
+    const studentNew = new Student(0,"test","test@hotmail.com")
+    this.studentServiceData2.editStudent(studentNew,rowData.id)
+    this.data2 = this.convertObjectToDataTreeTable(this.studentServiceData2.getStudents())
+  }
+
 }

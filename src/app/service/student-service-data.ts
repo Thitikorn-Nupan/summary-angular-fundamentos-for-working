@@ -20,4 +20,26 @@ export class StudentServiceData {
     this.students.push(student);
   }
 
+  public removeStudent(studentSearch: Student) {
+    this.students = this.students.filter((student)=> student.id !== studentSearch.id)
+  }
+
+  public editStudent(studentNew: Student,id: number) {
+    // can do
+    /*for (const student of this.students) {
+      if (student.id === id) {
+        student.name = studentNew.name;
+        student.email = studentNew.email;
+      }
+    }*/
+    // can do
+    // this below work like looping
+    this.students = this.students.filter((student)=> {
+      if (student.id === id) {
+        student.name = studentNew.name;
+        student.email = studentNew.email;
+      }
+      return student;
+    })
+  }
 }

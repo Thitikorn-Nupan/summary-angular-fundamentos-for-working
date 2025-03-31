@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TreeNode} from 'primeng/api';
 import {HeaderCol} from '../../../models/api/header-col';
 
@@ -19,11 +19,20 @@ export class DataTableAComponent {
   public style = {
     'max-width': 'fit-content',
     'max-height': '500px',
-    'overflow-y': 'auto',
-    'height': '300px'
+    'overflow-y': 'auto'
   }
   @Input()
   public loading: boolean = true;
+  // for send row selected to parent component
+  @Output()
+  protected rowDataDelete = new EventEmitter<any>();
+  @Output()
+  protected rowDataUpdate = new EventEmitter<any>();
 
-
+  protected onDeleteClicked(rowData : any) {
+    this.rowDataDelete.emit(rowData)
+  }
+  protected onUpdateClicked(rowData : any) {
+    this.rowDataUpdate.emit(rowData)
+  }
 }

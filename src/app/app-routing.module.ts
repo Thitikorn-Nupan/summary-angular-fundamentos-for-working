@@ -17,6 +17,9 @@ import {LearningFormGroupsComponent} from './components/learning-form-groups/lea
 import {
   LearningFormGroupsAndBindingAttributesComponent
 } from './components/learning-form-groups-and-binding-attributes/learning-form-groups-and-binding-attributes.component';
+import {
+  LearningFormGroupsAndBindingAttributesAndNgTagComponent
+} from './components/learning-form-groups-and-binding-attributes-and-ng-tag/learning-form-groups-and-binding-attributes-and-ng-tag.component';
 
 const routes: Routes = [
   {path: 'learning-ng-template', component: LearningNgTagComponent},
@@ -27,6 +30,7 @@ const routes: Routes = [
   {path: 'learning-ng-container-and-p-tree-table', component: LearningNgContainerAndPTreeTableComponent},
   {path: 'learning-form-groups', component: LearningFormGroupsComponent},
   {path: 'learning-form-groups-and-binding-attributes ', component: LearningFormGroupsAndBindingAttributesComponent},
+  {path: 'learning-form-groups-and-binding-attributes-and-ng-tag', component: LearningFormGroupsAndBindingAttributesAndNgTagComponent},
 ];
 
 @NgModule({

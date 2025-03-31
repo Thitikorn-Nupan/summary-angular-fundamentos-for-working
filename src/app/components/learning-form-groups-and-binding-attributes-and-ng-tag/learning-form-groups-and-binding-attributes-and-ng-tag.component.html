@@ -1,0 +1,64 @@
+<ng-container class="card flex justify-center gap-2" *ngFor="let template of templates">
+  <p-radio-button [inputId]="template.key"
+                  name="temaplate"
+                  [value]="template"
+                  [(ngModel)]="selectedTemplate">
+    <!--
+         if user clicked ngModel will update selectedTemplate auto
+         that why i don't have event to handle selectTemplate
+    -->
+  </p-radio-button>
+  <label [for]="template.key" class="ml-2">{{ template.name }}</label>
+</ng-container>
+
+
+
+<ng-container *ngIf="selectedTemplate.key==='A'" [ngTemplateOutlet]="templateA">
+  <!-- ngTemplateOutlet render here -->
+</ng-container>
+
+
+<ng-template #templateA>
+  <!--
+    (field0Value)="setStudentField0($event)"
+    (field1Value)="setStudentField1($event)"
+    (field2Value)="setStudentField2($event)"
+    (emitterStatus)="setStudentEmitterStatus($event)"
+  -->
+  <data-form
+    [formTitle]="studentForm().formTitle"
+    [field0]="studentForm().field0"
+    [field1]="studentForm().field1"
+    [field2]="studentForm().field2"
+    (fieldsValue)="setStudentFieldsValueValid($event)">
+  </data-form>
+
+  <data-table-a
+    [enable]="true"
+    [header]="header1"
+    [data]="data1"
+    [loading]="false"
+    (rowDataDelete)="setStudentRowDataDelete($event)"
+    (rowDataUpdate)="setStudentRowDataUpdate($event)">
+  </data-table-a>
+
+
+
+  <data-form
+    [formTitle]="studentNewForm().formTitle"
+    [field0]="studentNewForm().field0"
+    [field1]="studentNewForm().field1"
+    [field2]="studentNewForm().field2"
+    (fieldsValue)="setStudentNewFieldsValueValid($event)">
+  </data-form>
+
+
+  <data-table-a
+    [enable]="true"
+    [header]="header2"
+    [data]="data2"
+    [loading]="false"
+    (rowDataDelete)="setStudentNewRowDataDelete($event)"
+    (rowDataUpdate)="setStudentNewRowDataUpdate($event)">
+  </data-table-a>
+</ng-template>

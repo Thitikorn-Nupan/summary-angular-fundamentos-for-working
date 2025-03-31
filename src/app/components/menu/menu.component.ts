@@ -69,6 +69,11 @@ export class MenuComponent implements OnInit {
             routerLink: '/learning-form-groups-and-binding-attributes '
           },
           {
+            label: 'Learning FormGroup + Binding Attribute + Ng-*',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-form-groups-and-binding-attributes-and-ng-tag'
+          },
+          {
             label: 'Contact C',
             items : [
               {

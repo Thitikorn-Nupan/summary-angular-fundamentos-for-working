@@ -1,0 +1,38 @@
+<div [formGroup]="formGroup" class="card flex justify-center" [style]="{'padding':'10px' , 'max-width':'300px'}">
+
+  <h3>{{ formTitle }}</h3>
+
+  <p-inputgroup >
+    <p-inputgroup-addon>
+      {{field0.icon}}
+    </p-inputgroup-addon>
+    <p-inputnumber [placeholder]="field0.placeHolder" [formControlName]="field0.name"  [attr.id]="field0.id"></p-inputnumber>
+  </p-inputgroup>
+
+  <br/>
+
+  <!-- field 1 -->
+  <p-inputgroup>
+    <p-inputgroup-addon>
+      <i [attr.class]="field1.icon"></i>
+    </p-inputgroup-addon>
+    <input pInputText [placeholder]="field1.placeHolder" [formControlName]="field1.name"  [attr.id]="field1.id" />
+  </p-inputgroup>
+
+  <br/>
+  <!-- field 2 -->
+  <p-inputgroup>
+    <p-inputgroup-addon>
+      <i [attr.class]="field2.icon"></i>
+    </p-inputgroup-addon>
+    <input type="email" pInputText [placeholder]="field2.placeHolder" [formControlName]="field2.name"  [attr.id]="field2.id" />
+  </p-inputgroup>
+
+  <br/>
+
+  <div class="card flex justify-center gap-4" [style]="{'margin-top': '10px'}">
+    <p-button label="Add" icon="pi pi-plus" (onClick)="onFormGroupClicked()"/> <!-- [loading]="loading" (onClick)="load()"-->
+  </div>
+
+
+</div>

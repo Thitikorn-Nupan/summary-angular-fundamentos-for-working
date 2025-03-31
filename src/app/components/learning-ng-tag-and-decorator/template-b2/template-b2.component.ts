@@ -74,6 +74,5 @@ export class TemplateB2Component implements OnInit {
     this.newSizeEvent.emit(this.sizeTable - 1) // minus by 1 if event called
     this.reloadTodo() // and reload todo table
     this.reloadPost()
-
   }
 }

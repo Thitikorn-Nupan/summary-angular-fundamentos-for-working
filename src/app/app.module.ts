@@ -76,6 +76,7 @@ import {MessageService} from 'primeng/api';
 import { LearningFormGroupsAndBindingAttributesAndNgTagComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/learning-form-groups-and-binding-attributes-and-ng-tag.component';
 import { DataTableAComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-table-a/data-table-a.component';
 import { DataFormComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-form/data-form.component';
+import { DataFormDynamicFieldComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-form-dynamic-field/data-form-dynamic-field.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,6 +113,7 @@ import { DataFormComponent } from './components/learning-form-groups-and-binding
     LearningFormGroupsAndBindingAttributesAndNgTagComponent,
     DataTableAComponent,
     DataFormComponent,
+    DataFormDynamicFieldComponent,
   ],
   imports: [
     BrowserModule,

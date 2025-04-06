@@ -98,12 +98,20 @@
 
   <!-- **** binding form group -->
 
-  <data-form
-    [formTitle]="userForm().formTitle"
-    [field0]="userForm().field0"
-    [field1]="userForm().field1"
-    [field2]="userForm().field2"
+  <!--<data-form
+    [formTitle]="todoForm().formTitle"
+    [field0]="todoForm().field0"
+    [field1]="todoForm().field1"
+    [field2]="todoForm().field2"
     (getFormGroup)="setDynamicFormGroup($event)">
-  </data-form>
+  </data-form>-->
+
+  <data-table-a
+    [enable]="true"
+    [header]="header1"
+    [data]="data1"
+    [loading]="false"
+    >
+  </data-table-a>
 
 </ng-template>

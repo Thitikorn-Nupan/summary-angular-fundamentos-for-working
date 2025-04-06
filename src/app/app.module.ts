@@ -77,6 +77,11 @@ import { LearningFormGroupsAndBindingAttributesAndNgTagComponent } from './compo
 import { DataTableAComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-table-a/data-table-a.component';
 import { DataFormComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-form/data-form.component';
 import { DataFormDynamicFieldComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-form-dynamic-field/data-form-dynamic-field.component';
+import { MainComponent } from './components/learning-child-routing/main/main.component';
+import {SubMainAComponent} from './components/learning-child-routing/main/sub-main-a/sub-main-a.component';
+import {SubMainBComponent} from './components/learning-child-routing/main/sub-main-b/sub-main-b.component';
+import {SubMainCComponent} from './components/learning-child-routing/main/sub-main-c/sub-main-c.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +119,12 @@ import { DataFormDynamicFieldComponent } from './components/learning-form-groups
     DataTableAComponent,
     DataFormComponent,
     DataFormDynamicFieldComponent,
+    // *** Remember all components that want to use primeng on imports : [...]
+    // *** you have to put component classes on declarations : [...]
+    MainComponent,
+    SubMainAComponent,
+    SubMainBComponent,
+    SubMainCComponent
   ],
   imports: [
     BrowserModule,
@@ -121,9 +132,9 @@ import { DataFormDynamicFieldComponent } from './components/learning-form-groups
     Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
     InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
-    ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule
-    , CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch, InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast,
-    // HttpClientModule
+    ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
+    CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast,
   ],
   providers: [
     // for http client
@@ -135,7 +146,8 @@ import { DataFormDynamicFieldComponent } from './components/learning-form-groups
         preset: Aura,
       },
     }),
-    MessageService
+    //
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })

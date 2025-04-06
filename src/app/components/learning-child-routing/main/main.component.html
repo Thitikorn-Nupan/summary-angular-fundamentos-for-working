@@ -1,0 +1,19 @@
+<div class="card flex justify-center align-center gap-4">
+  <p-message severity="success">
+    <ng-template #icon>
+      <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+    </ng-template>
+    <span class="ml-2">It's in Main Component ** sub main A,B,C render here </span>
+    <p-button [style]="{'margin-left':'15px'}" label="Go to Sub-main A" severity="success" routerLink="sub-a"></p-button>
+    <p-button [style]="{'margin-left':'15px'}" label="Go to Sub-main B" severity="info" routerLink="sub-b"></p-button>
+    <p-button [style]="{'margin-left':'15px'}" label="Go to Sub-main C" severity="secondary" routerLink="sub-c"></p-button>
+  </p-message>
+</div>
+
+<p-button  label="{" severity="danger" disabled></p-button>
+<router-outlet>
+  <!--
+      children render here !
+  -->
+</router-outlet>
+<p-button  label="}" severity="danger" disabled></p-button>

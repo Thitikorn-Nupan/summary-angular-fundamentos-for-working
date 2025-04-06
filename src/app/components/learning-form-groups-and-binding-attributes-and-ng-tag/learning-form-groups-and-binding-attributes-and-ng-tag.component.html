@@ -2,21 +2,28 @@
   <p-radio-button [inputId]="template.key"
                   name="temaplate"
                   [value]="template"
-                  [(ngModel)]="selectedTemplate">
-    <!--
-         if user clicked ngModel will update selectedTemplate auto
-         that why i don't have event to handle selectTemplate
-    -->
+                  [(ngModel)]="selectedTemplate"
+                  (onClick)="onRadioButtonClicked()">
+                  <!--
+                       if user clicked ngModel will update selectedTemplate auto
+                       that why i don't have event to handle selectTemplate
+                  -->
   </p-radio-button>
   <label [for]="template.key" class="ml-2">{{ template.name }}</label>
 </ng-container>
-
 
 
 <ng-container *ngIf="selectedTemplate.key==='A'" [ngTemplateOutlet]="templateA">
   <!-- ngTemplateOutlet render here -->
 </ng-container>
 
+<ng-container *ngIf="selectedTemplate.key==='B'" [ngTemplateOutlet]="templateB">
+  <!-- ngTemplateOutlet render here -->
+</ng-container>
+
+<ng-container *ngIf="selectedTemplate.key==='C'" [ngTemplateOutlet]="templateC">
+  <!-- ngTemplateOutlet render here -->
+</ng-container>
 
 <ng-template #templateA>
   <!--
@@ -25,6 +32,8 @@
     (field2Value)="setStudentField2($event)"
     (emitterStatus)="setStudentEmitterStatus($event)"
   -->
+
+  <!-- To do 1 -->
   <data-form
     [formTitle]="studentForm().formTitle"
     [field0]="studentForm().field0"
@@ -42,8 +51,7 @@
     (rowDataUpdate)="setStudentRowDataUpdate($event)">
   </data-table-a>
 
-
-
+  <!-- To do 2 -->
   <data-form
     [formTitle]="studentNewForm().formTitle"
     [field0]="studentNewForm().field0"
@@ -51,7 +59,6 @@
     [field2]="studentNewForm().field2"
     (fieldsValue)="setStudentNewFieldsValueValid($event)">
   </data-form>
-
 
   <data-table-a
     [enable]="true"
@@ -61,4 +68,50 @@
     (rowDataDelete)="setStudentNewRowDataDelete($event)"
     (rowDataUpdate)="setStudentNewRowDataUpdate($event)">
   </data-table-a>
+
+</ng-template>
+
+
+<ng-template #templateB>
+
+  <data-form
+    [formTitle]="userForm().formTitle"
+    [field0]="userForm().field0"
+    [field1]="userForm().field1"
+    [field2]="userForm().field2"
+    (fieldsValue)="setUserFieldsValueValid($event)">
+  </data-form>
+
+  <data-table-a
+    [enable]="true"
+    [header]="header1"
+    [data]="data1"
+    [loading]="false"
+    (rowDataDelete)="setUserRowDataDelete($event)"
+    (rowDataUpdate)="setUserRowDataUpdate($event)">
+  </data-table-a>
+
+</ng-template>
+
+
+<ng-template #templateC>
+
+  <!-- **** binding form group -->
+
+  <!--<data-form
+    [formTitle]="todoForm().formTitle"
+    [field0]="todoForm().field0"
+    [field1]="todoForm().field1"
+    [field2]="todoForm().field2"
+    (getFormGroup)="setDynamicFormGroup($event)">
+  </data-form>-->
+
+  <data-table-a
+    [enable]="true"
+    [header]="header1"
+    [data]="data1"
+    [loading]="false"
+    >
+  </data-table-a>
+
 </ng-template>

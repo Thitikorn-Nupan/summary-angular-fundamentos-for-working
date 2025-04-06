@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LearningNgTagComponent} from './components/learning-ng-tag/learning-ng-tag.component';
-import {AppComponent} from './app.component';
 import {
   LearningNgTagAndDecoratorComponent
 } from './components/learning-ng-tag-and-decorator/learning-ng-tag-and-decorator.component';
@@ -20,6 +19,10 @@ import {
 import {
   LearningFormGroupsAndBindingAttributesAndNgTagComponent
 } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/learning-form-groups-and-binding-attributes-and-ng-tag.component';
+import {MainComponent} from './components/learning-child-routing/main/main.component';
+import {SubMainAComponent} from './components/learning-child-routing/main/sub-main-a/sub-main-a.component';
+import {SubMainBComponent} from './components/learning-child-routing/main/sub-main-b/sub-main-b.component';
+import {SubMainCComponent} from './components/learning-child-routing/main/sub-main-c/sub-main-c.component';
 
 const routes: Routes = [
   {path: 'learning-ng-template', component: LearningNgTagComponent},
@@ -31,6 +34,45 @@ const routes: Routes = [
   {path: 'learning-form-groups', component: LearningFormGroupsComponent},
   {path: 'learning-form-groups-and-binding-attributes ', component: LearningFormGroupsAndBindingAttributesComponent},
   {path: 'learning-form-groups-and-binding-attributes-and-ng-tag', component: LearningFormGroupsAndBindingAttributesAndNgTagComponent},
+  {
+    // *** The first way
+    // all children component will render on MainComponent component
+    // it renders by <router-outlet></router-outlet>
+    path: 'learning-child-routing',
+    component: MainComponent,
+    children: [
+      {
+        path: 'sub-a',
+        component: SubMainAComponent,
+        children : [ // path look like => learning-child-routing/sub-a/back
+          {
+            path : 'back' ,
+            redirectTo : '/learning-child-routing'
+          }
+        ]
+      },
+      {
+        path: 'sub-b',
+        component: SubMainBComponent,
+        children : [ // path look like => learning-child-routing/sub-b/back
+          {
+            path : 'back' ,
+            redirectTo : '/learning-child-routing'
+          }
+        ]
+      },
+      {
+        path: 'sub-c',
+        component: SubMainCComponent,
+        children : [ // path look like => learning-child-routing/sub-c/back
+          {
+            path : 'back' ,
+            redirectTo : '/learning-child-routing'
+          }
+        ]
+      }
+    ],
+  },
 ];
 
 @NgModule({

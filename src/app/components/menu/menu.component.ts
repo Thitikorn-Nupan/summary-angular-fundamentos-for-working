@@ -52,6 +52,12 @@ export class MenuComponent implements OnInit {
             icon: 'pi pi-pencil',
             routerLink: '/learning-view-child'
           }
+          ,
+          {
+            label: 'Learning Child Routing',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-child-routing'
+          }
         ]
       },
       {

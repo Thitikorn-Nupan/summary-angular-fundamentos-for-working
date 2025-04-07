@@ -81,6 +81,9 @@ import { MainComponent } from './components/learning-child-routing/main/main.com
 import {SubMainAComponent} from './components/learning-child-routing/main/sub-main-a/sub-main-a.component';
 import {SubMainBComponent} from './components/learning-child-routing/main/sub-main-b/sub-main-b.component';
 import {SubMainCComponent} from './components/learning-child-routing/main/sub-main-c/sub-main-c.component';
+import { SubMainC2Component } from './components/learning-load-child-routing/sub-main-c2/sub-main-c2.component';
+import { DynamicFormGroupComponent } from './components/dom-components/dynamic-form-group/dynamic-form-group.component';
+
 
 @NgModule({
   declarations: [
@@ -124,7 +127,9 @@ import {SubMainCComponent} from './components/learning-child-routing/main/sub-ma
     MainComponent,
     SubMainAComponent,
     SubMainBComponent,
-    SubMainCComponent
+    SubMainCComponent,
+    SubMainC2Component,
+    DynamicFormGroupComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,66 @@
-<p>dynamic-form-group works!</p>
+<form [formGroup]="formGroup">
+
+  <div class="w-fit">
+
+    <p-card [header]="formGroupTitle" >
+
+      <ng-container *ngIf="enableInputText">
+        <ng-container *ngFor="let dynamicFieldInputText of dynamicFieldsInputText">
+          <p-inputgroup class="field w-26rem ">
+            <p-inputgroup-addon>
+              <i [attr.class]="dynamicFieldInputText.icon"></i>
+            </p-inputgroup-addon>
+            <input pInputText [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name"  [attr.id]="dynamicFieldInputText.id" />
+          </p-inputgroup>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="enableInputNumber">
+        <ng-container *ngFor="let dynamicFieldInputNumber of dynamicFieldsInputNumber">
+          <p-inputgroup class="field w-26rem ">
+            <p-inputgroup-addon>{{ dynamicFieldInputNumber.icon }}</p-inputgroup-addon>
+            <p-inputnumber [placeholder]="dynamicFieldInputNumber.placeHolder" [formControlName]="dynamicFieldInputNumber.name"  [attr.id]="dynamicFieldInputNumber.id"></p-inputnumber>
+            <!--<p-inputgroup-addon>.00</p-inputgroup-addon>-->
+          </p-inputgroup>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="enableInputDropdown">
+        <ng-container  *ngFor="let dynamicFieldInputDropdown of dynamicFieldsInputDropdown">
+          <p-inputgroup class="field w-26rem">
+            <p-inputgroup-addon>
+              <!--<i class="pi pi-map"></i>-->
+              <i [attr.class]="dynamicFieldInputDropdown.dynamicField.icon"></i>
+            </p-inputgroup-addon>
+            <p-select [options]="dynamicFieldInputDropdown.option" optionLabel="name" [placeholder]="dynamicFieldInputDropdown.dynamicField.placeHolder" [formControlName]="dynamicFieldInputDropdown.dynamicField.name"  [attr.id]="dynamicFieldInputDropdown.dynamicField.id" />
+          </p-inputgroup>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="enableInputTextEmail">
+        <ng-container *ngFor="let dynamicFieldInputTextEmail of dynamicFieldsInputTextEmail">
+          <p-inputgroup class="field w-26rem">
+            <p-inputgroup-addon>
+              <i [attr.class]="dynamicFieldInputTextEmail.icon"></i>
+            </p-inputgroup-addon>
+            <input pInputText type="email" [placeholder]="dynamicFieldInputTextEmail.placeHolder" [formControlName]="dynamicFieldInputTextEmail.name"  [attr.id]="dynamicFieldInputTextEmail.id" />
+          </p-inputgroup>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="enableInputTextSearch">
+        <ng-container  *ngFor="let dynamicFieldInputTextSearch of dynamicFieldsInputTextSearch">
+          <p-inputgroup class="field w-26rem">
+            <p-inputgroup-addon>
+              <i [attr.class]="dynamicFieldInputTextSearch.icon"></i>
+            </p-inputgroup-addon>
+            <input pInputText [placeholder]="dynamicFieldInputTextSearch.placeHolder" [formControlName]="dynamicFieldInputTextSearch.name"  [attr.id]="dynamicFieldInputTextSearch.id" />
+          </p-inputgroup>
+        </ng-container>
+      </ng-container>
+
+      <p-button [style]="{'margin-left':'160px'}" label="Submit" severity="secondary" (onClick)="onSubmit()"></p-button>
+
+    </p-card>
+  </div>
+</form>

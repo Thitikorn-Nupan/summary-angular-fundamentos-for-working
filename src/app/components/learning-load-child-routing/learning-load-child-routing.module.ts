@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Button } from 'primeng/button';
-import {RouterLink, RouterModule} from '@angular/router';
-import {BrowserModule} from '@angular/platform-browser';
-import {AppRoutingModule} from '../../app-routing.module';
 import {Menubar} from 'primeng/menubar';
 import {CommonModule} from '@angular/common';
 import {TableModule} from 'primeng/table';
@@ -40,6 +37,11 @@ import {LearningLoadChildRoutingComponent} from './learning-load-child-routing.c
 import {LearningLoadChildRoutingRoutingModule} from './learning-load-child-routing-routing.module';
 import {SubMainA2Component} from './sub-main-a2/sub-main-a2.component';
 import {SubMainB2Component} from './sub-main-b2/sub-main-b2.component';
+import {DynamicFormGroupComponent} from '../dom-components/dynamic-form-group/dynamic-form-group.component';
+import {Select} from 'primeng/select';
+import {TestUserFormComponent} from './test-user-form/test-user-form.component';
+import {TestRobotFormComponent} from './test-robot-form/test-robot-form.component';
+import {DataTreeTableComponent} from '../dom-components/data-tree-table/data-tree-table.component';
 
 // working as same AppModule
 @NgModule({
@@ -47,6 +49,10 @@ import {SubMainB2Component} from './sub-main-b2/sub-main-b2.component';
     LearningLoadChildRoutingComponent,
     SubMainA2Component,
     SubMainB2Component,
+    DynamicFormGroupComponent,
+    DataTreeTableComponent,
+    TestUserFormComponent,
+    TestRobotFormComponent
   ],
   imports: [
     // All service api should import here
@@ -58,7 +64,7 @@ import {SubMainB2Component} from './sub-main-b2/sub-main-b2.component';
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
     ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
     CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select,
   ],
 
 })

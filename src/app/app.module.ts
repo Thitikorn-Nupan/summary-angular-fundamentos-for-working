@@ -82,7 +82,8 @@ import {SubMainAComponent} from './components/learning-child-routing/main/sub-ma
 import {SubMainBComponent} from './components/learning-child-routing/main/sub-main-b/sub-main-b.component';
 import {SubMainCComponent} from './components/learning-child-routing/main/sub-main-c/sub-main-c.component';
 import { SubMainC2Component } from './components/learning-load-child-routing/sub-main-c2/sub-main-c2.component';
-import { DynamicFormGroupComponent } from './components/dom-components/dynamic-form-group/dynamic-form-group.component';
+import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
+
 
 
 @NgModule({
@@ -129,7 +130,7 @@ import { DynamicFormGroupComponent } from './components/dom-components/dynamic-f
     SubMainBComponent,
     SubMainCComponent,
     SubMainC2Component,
-    DynamicFormGroupComponent,
+    DataTreeTableComponent,
   ],
   imports: [
     BrowserModule,

@@ -57,7 +57,19 @@ export class MenuComponent implements OnInit {
             label: 'Learning Child Routing',
             icon: 'pi pi-pencil',
             routerLink: '/learning-child-routing'
-          }
+          },
+          {
+            label: 'Learning Load Child Routing',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-load-child-routing', // no render anything
+            items: [
+              {
+                label: 'main', // *** render child routes
+                icon: 'pi pi-pencil',
+                routerLink: '/learning-load-child-routing/main',
+              }
+            ]
+          } //
         ]
       },
       {

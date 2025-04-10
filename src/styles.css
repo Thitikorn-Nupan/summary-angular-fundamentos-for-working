@@ -1,1 +1,10 @@
-@import 'primeicons/primeicons.css'; /* add primeng icon to index.html page */
+/* add primeng icon to index.html page */
+@import 'primeicons/primeicons.css';
+/*
+  in primeflex after npm
+  you have to setup 2 file
+  1* main style.css/scss
+  2* angular.json
+*/
+@import 'primeflex/primeflex.css';
+@import 'primeflex/themes/primeone-dark.css';

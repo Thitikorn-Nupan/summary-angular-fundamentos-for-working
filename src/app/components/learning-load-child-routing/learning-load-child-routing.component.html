@@ -1,0 +1,24 @@
+<div class="card flex justify-center align-center gap-4">
+  <p-message severity="warn">
+    <ng-template #icon>
+      <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+    </ng-template>
+    <span class="ml-2">It's in Main Component (Have own routing) ** sub main A,B,C render here </span>
+    <!--
+      You do not need to start on router link at the main as /learning-load-child-routing/main/<to go path>
+      it's smart you can specify as <to go path> as sub-a == /learning-load-child-routing/main/sub-a
+    -->
+    <p-button [style]="{'margin-left':'15px'}" label="Go to Sub-main A" severity="info" routerLink="sub-a"></p-button>
+    <p-button [style]="{'margin-left':'15px'}" label="Go to Sub-main B" severity="primary" routerLink="sub-b"></p-button>
+    <p-button [style]="{'margin-left':'15px'}" label="Go to Sub-main C" severity="danger" routerLink="sub-c"></p-button>
+  </p-message>
+</div>
+
+
+<p-button  label="{" severity="danger" disabled></p-button>
+<router-outlet><!-- children render here ! --></router-outlet>
+<p-button  label="}" severity="danger" disabled></p-button>
+
+
+<test-user-form></test-user-form>
+<test-robot-form></test-robot-form>

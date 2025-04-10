@@ -51,8 +51,6 @@ export class DataFormComponent implements OnInit{
     this.dynamicFormFieldsTest.push({[this.field2.name]: this.field2.data})
 
 
-
-
     this.formGroup = new FormGroup(dynamicFormFields)
 
   }

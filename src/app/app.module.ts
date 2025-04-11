@@ -82,7 +82,8 @@ import {SubMainAComponent} from './components/learning-child-routing/main/sub-ma
 import {SubMainBComponent} from './components/learning-child-routing/main/sub-main-b/sub-main-b.component';
 import {SubMainCComponent} from './components/learning-child-routing/main/sub-main-c/sub-main-c.component';
 import { SubMainC2Component } from './components/learning-load-child-routing/sub-main-c2/sub-main-c2.component';
-import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
+import { TestRobotTableComponent } from './components/learning-load-child-routing/test-robot-table/test-robot-table.component';
+// import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
 
@@ -130,7 +131,7 @@ import { DataTreeTableComponent } from './components/learning-form-groups-and-bi
     SubMainBComponent,
     SubMainCComponent,
     SubMainC2Component,
-    DataTreeTableComponent,
+    TestRobotTableComponent,
   ],
   imports: [
     BrowserModule,

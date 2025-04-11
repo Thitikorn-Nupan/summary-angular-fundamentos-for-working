@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'understand-primeng';
+
   sidebarVisible: boolean = true;
 
   enableSlidebar() {

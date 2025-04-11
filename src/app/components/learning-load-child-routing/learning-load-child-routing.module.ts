@@ -42,6 +42,7 @@ import {Select} from 'primeng/select';
 import {TestUserFormComponent} from './test-user-form/test-user-form.component';
 import {TestRobotFormComponent} from './test-robot-form/test-robot-form.component';
 import {DataTreeTableComponent} from '../dom-components/data-tree-table/data-tree-table.component';
+import {TestUserTableComponent} from './test-user-table/test-user-table.component';
 
 // working as same AppModule
 @NgModule({
@@ -52,7 +53,9 @@ import {DataTreeTableComponent} from '../dom-components/data-tree-table/data-tre
     DynamicFormGroupComponent,
     DataTreeTableComponent,
     TestUserFormComponent,
-    TestRobotFormComponent
+    TestRobotFormComponent,
+
+    TestUserTableComponent
   ],
   imports: [
     // All service api should import here

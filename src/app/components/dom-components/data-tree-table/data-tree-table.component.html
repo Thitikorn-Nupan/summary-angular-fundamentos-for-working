@@ -1,1 +1,49 @@
-<p>data-tree-table works!</p>
+<h3>{{nameTable}}</h3>
+<!-- <p-treeTable ng-reflect-p-table-id="user-custom-table-id" -->
+<p-treeTable #treeTable
+             [attr.id]="pTableId"
+             *ngIf="enable"
+             [columns]="header"
+             [value]="data"
+             [loading]="loading"
+             [paginator]="false"
+             [rows]="0"
+             [style]="style">
+  <!-- header -->
+  <ng-template pTemplate="header" let-columns>
+    <ng-container *ngIf="columns">
+      <tr>
+        <!-- *** [attr.colspan] , [attr.rowspan] are same thing you set colspan,rowspan on tag -->
+        <th
+          *ngFor="let col of columns"> <!-- [ttSortableColumn]="col.field" --> <!-- action sorting-->
+          {{ col.header }}
+          <!--<p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>--> <!-- icon of action sorting -->
+        </th>
+      </tr>
+    </ng-container>
+  </ng-template>
+  <!-- header -->
+  <!-- body-->
+  <!-- all the vars it's default no need to modify if you wanna change do in on ts. file  -->
+  <ng-template  pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+    <ng-container >
+      <tr>
+        <td *ngFor="let col of columns; let i = index">
+          <!--
+          <p-treeTableToggler (click)="listenToggler(rowNode)" [rowNode]="rowNode" *ngIf="i === 5" >
+                 work as toggle icon
+                 so *ngIf="i === 5" means adding toggle to colum 5
+          </p-treeTableToggler>
+          -->
+          {{ rowData[col.field] }}
+          <ng-container *ngIf="col.field === 'action'">
+            <!-- if current colum.filed is 'action' key add this container -->
+            <p-button icon="pi pi-wrench" rounded="false" severity="warn" [style]="{ 'margin-right': '.5em' }" (onClick)="onUpdateClicked(rowData)"/>
+            <p-button icon="pi pi-minus" rounded="false" severity="danger" (onClick)="onDeleteClicked(rowData)"/>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-template>
+  <!-- body-->
+</p-treeTable>

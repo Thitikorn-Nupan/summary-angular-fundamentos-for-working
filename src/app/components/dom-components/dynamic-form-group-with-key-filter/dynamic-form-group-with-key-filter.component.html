@@ -1,0 +1,95 @@
+<div class="w-full">
+    <h3>Prototype</h3>
+    <!-- *** pKeyFilter=" <specify type you want> " -->
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="integer" class="font-bold block mb-2 w-5rem"> Int (1,2,...) </label>
+      </p-inputgroup-addon>
+      <input pInputText id="integer" pKeyFilter="int" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="number" class="font-bold block mb-2 w-8rem"> Num (1.0,2.0,...)</label>
+      </p-inputgroup-addon>
+      <input pInputText id="number" pKeyFilter="num" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="money" class="font-bold block mb-2 w-22rem"> Money (same Num but can have ",") </label>
+      </p-inputgroup-addon>
+      <input pInputText id="money" pKeyFilter="money" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="hex" class="font-bold block mb-2 w-8rem"> Hex (same Int) </label>
+      </p-inputgroup-addon>
+      <input pInputText id="hex" pKeyFilter="hex" class="w-full"/>
+    </p-inputgroup>
+
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="alphabetic" class="font-bold block mb-2 w-17rem"> Alphabetic (string without int)</label>
+      </p-inputgroup-addon>
+      <input pInputText id="alphabetic" pKeyFilter="alpha" class="w-full"/>
+    </p-inputgroup>
+
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="alphanumeric" class="font-bold block mb-2 w-17rem"> Alphanumeric (string have int)</label>
+      </p-inputgroup-addon>
+      <input pInputText id="alphanumeric" pKeyFilter="alphanum" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label class="font-bold block mb-2">Email </label>
+      </p-inputgroup-addon>
+      <input pInputText pKeyFilter="email" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <p-inputicon class="pi pi-search"/>
+      </p-inputgroup-addon>
+      <input pInputText pKeyFilter="alpha" class="w-full" placeholder="Search"/>
+    </p-inputgroup>
+    <!--
+    <div class="card flex justify-center">
+      <p-floatlabel variant="on">
+        <p-password  [toggleMask]="true" />
+        <label for="description">Private Key</label>
+      </p-floatlabel>
+    </div>
+    <div class="card flex justify-center">
+      <p-floatlabel variant="on">
+        <textarea pTextarea pKeyFilter="alpha" id="description" rows="5" cols="30" style="resize: none"  class="bg-black-alpha-50"></textarea>
+        <label for="description">Description</label>
+      </p-floatlabel>
+    </div>
+    -->
+</div>
+
+<form [formGroup]="formGroup">
+  <div class="w-full">
+
+    <p-card [header]="formGroupTitle">
+      <!-- loop fields here -->
+      <ng-container >
+        <ng-container *ngFor="let dynamicFieldInputText of dynamicFieldsInput">
+          <p-inputgroup class="field w-26rem ">
+            <p-inputgroup-addon>
+              <label for="alphabetic" class="font-bold block mb-2 w-fit">{{ dynamicFieldInputText.icon }} </label>
+            </p-inputgroup-addon>
+            <input pInputText [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name"  [attr.id]="dynamicFieldInputText.id" [pKeyFilter]="dynamicFieldInputText.pKeyFilter" />
+          </p-inputgroup>
+        </ng-container>
+      </ng-container>
+      <p-button label="Submit" severity="secondary"></p-button>
+    </p-card>
+  </div>
+</form>

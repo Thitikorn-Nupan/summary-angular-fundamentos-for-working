@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class LearningLoadChildRoutingComponent {
   constructor() {
-    console.log('LearningLoadChildRoutingComponent initialized.');
+    console.log('ApplyDynamicWithLoadChildRoutingComponent initialized.');
   }
 }

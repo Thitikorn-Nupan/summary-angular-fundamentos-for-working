@@ -1,0 +1,51 @@
+<div>
+
+  <div class="">
+    <dynamic-form-group
+      [formGroupTitle]="'User Form Create'"
+      [enableInputNumber]="true"
+      [enableInputText]="true"
+      [enableInputTextEmail]="true"
+      [dynamicFieldsInputNumber]="userFormGroupNumberFields"
+      [dynamicFieldsInputText]="userFormGroupTextFields"
+      [dynamicFieldsInputTextEmail]="userFormGroupTextEmailFields"
+      (getFormGroup)="handleFormGroupCreate($event)"> <!-- do like the event-->
+    </dynamic-form-group>
+  </div>
+
+  <div *ngIf="enableEditFormGroup" class="">
+    <dynamic-form-group
+      [formGroupTitle]="'User Form Update'"
+      [enableInputNumber]="true"
+      [enableInputText]="true"
+      [enableInputTextEmail]="true"
+      [dynamicFieldsInputNumber]="[userFormGroupEditNumberFields]"
+      [dynamicFieldsInputText]="[userFormGroupEditTextFields]"
+      [dynamicFieldsInputTextEmail]="[userFormGroupEditTextEmailFields]"
+      (getFormGroup)="handleFormGroupUpdate($event)"> <!-- do like the event-->
+    </dynamic-form-group>
+  </div>
+
+  <div class="">
+    <data-tree-table
+      [nameTable]="'User Table'"
+      [pTableId]="'user-custom-table-id'"
+      [enable]="true"
+      [header]="header"
+      [data]="data"
+      [loading]="false"
+      [style]="{
+      'max-width':'550px',
+      'max-height': '500px',
+      'overflow-y': 'auto'
+    }"
+      (getRowDataDelete)="setUserRowDataDelete($event)"
+      (getRowDataUpdate)="setUserRowDataUpdate($event)">
+    </data-tree-table>
+  </div>
+
+  <div *ngIf="isValidFormGroup">
+    <p-toast position="top-center"></p-toast>
+  </div>
+
+</div>

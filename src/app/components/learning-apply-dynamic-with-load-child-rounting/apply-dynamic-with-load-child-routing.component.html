@@ -1,0 +1,17 @@
+<ng-container *ngIf="keyRenderTemplate==='user'" [ngTemplateOutlet]="templateUser"><!-- Template A Render here--></ng-container>
+<ng-container *ngIf="keyRenderTemplate==='student'" [ngTemplateOutlet]="templateStudent"><!-- Template A Render here--></ng-container>
+<ng-container *ngIf="keyRenderTemplate==='robot'" [ngTemplateOutlet]="templateRobot"><!-- Template A Render here--></ng-container>
+
+<ng-template #templateUser>
+  <!-- Perfect -->
+  <crud-user>
+  </crud-user>
+</ng-template>
+
+<ng-template #templateStudent>
+  Crud Student
+</ng-template>
+
+<ng-template #templateRobot>
+  Crud Robot
+</ng-template>

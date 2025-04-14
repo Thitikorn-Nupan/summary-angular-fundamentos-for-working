@@ -1,5 +1,5 @@
 <ng-container *ngIf="keyRenderTemplate==='user'" [ngTemplateOutlet]="templateUser"><!-- Template A Render here--></ng-container>
-<ng-container *ngIf="keyRenderTemplate==='student'" [ngTemplateOutlet]="templateStudent"><!-- Template A Render here--></ng-container>
+<ng-container *ngIf="keyRenderTemplate==='user-with-key-filter'" [ngTemplateOutlet]="templateUserKeyFilter"><!-- Template A Render here--></ng-container>
 <ng-container *ngIf="keyRenderTemplate==='robot'" [ngTemplateOutlet]="templateRobot"><!-- Template A Render here--></ng-container>
 
 <ng-template #templateUser>
@@ -8,8 +8,9 @@
   </crud-user>
 </ng-template>
 
-<ng-template #templateStudent>
-  Crud Student
+<ng-template #templateUserKeyFilter>
+  <!-- -->
+  Crud user 2
 </ng-template>
 
 <ng-template #templateRobot>

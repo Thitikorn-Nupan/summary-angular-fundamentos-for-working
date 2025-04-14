@@ -49,20 +49,25 @@ import {
 } from '../dom-components/dynamic-form-group-with-key-filter/dynamic-form-group-with-key-filter.component';
 import {KeyFilter} from 'primeng/keyfilter';
 import { PasswordModule } from 'primeng/password';
+import {
+  TestUserFormWithKeyFilterComponent
+} from './test-user-form-with-key-filter/test-user-form-with-key-filter.component';
 // working as same AppModule
 @NgModule({
     declarations: [
         LearningLoadChildRoutingComponent,
         SubMainA2Component,
         SubMainB2Component,
-        /*DynamicFormGroupComponent,
+        /*
+        DynamicFormGroupComponent,
         DataTreeTableComponent,
         TestUserFormComponent,
         TestRobotFormComponent,
         TestRobotTableComponent,
-        TestUserTableComponent,*/
+        TestUserTableComponent,
+        */
         DynamicFormGroupWithKeyFilterComponent,
-        // **
+        TestUserFormWithKeyFilterComponent,
 
     ],
   imports: [

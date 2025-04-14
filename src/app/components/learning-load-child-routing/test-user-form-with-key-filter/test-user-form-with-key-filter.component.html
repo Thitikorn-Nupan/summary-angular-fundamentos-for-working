@@ -1,0 +1,11 @@
+<div class="">
+  <dynamic-form-group-with-key-filter
+  [formGroupTitle]="'User Custom Form'"
+  [dynamicFieldsInput]="dynamicFields"
+  (getFormGroup)="setEventFormGroup($event)">
+  </dynamic-form-group-with-key-filter>
+</div>
+
+<div *ngIf="isValidFormGroup"  class="w-fit w-28rem">
+  <p-message severity="contrast">{{ resultUserFormGroup }}</p-message>
+</div>

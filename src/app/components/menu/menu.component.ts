@@ -82,10 +82,10 @@ export class MenuComponent implements OnInit {
                 queryParams:{'crud':'user'} // req param on url
               },
               {
-                label: 'Crud student',
+                label: 'Crud user with key filter',
                 icon: 'pi pi-pencil',
                 routerLink: '/learning-apply-dynamic-with-load-child-routing',
-                queryParams:{'crud':'student'}
+                queryParams:{'crud':'user-with-key-filter'}
               }
               ,
               {

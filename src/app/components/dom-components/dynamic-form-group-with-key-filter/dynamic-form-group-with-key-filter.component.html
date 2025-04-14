@@ -1,6 +1,7 @@
+<!--
 <div class="w-full">
     <h3>Prototype</h3>
-    <!-- *** pKeyFilter=" <specify type you want> " -->
+    *** pKeyFilter=" <specify type you want> "
     <p-inputgroup>
       <p-inputgroup-addon>
         <label for="integer" class="font-bold block mb-2 w-5rem"> Int (1,2,...) </label>
@@ -58,38 +59,60 @@
       </p-inputgroup-addon>
       <input pInputText pKeyFilter="alpha" class="w-full" placeholder="Search"/>
     </p-inputgroup>
-    <!--
-    <div class="card flex justify-center">
-      <p-floatlabel variant="on">
-        <p-password  [toggleMask]="true" />
-        <label for="description">Private Key</label>
-      </p-floatlabel>
-    </div>
-    <div class="card flex justify-center">
-      <p-floatlabel variant="on">
-        <textarea pTextarea pKeyFilter="alpha" id="description" rows="5" cols="30" style="resize: none"  class="bg-black-alpha-50"></textarea>
-        <label for="description">Description</label>
-      </p-floatlabel>
-    </div>
-    -->
 </div>
+-->
 
 <form [formGroup]="formGroup">
-  <div class="w-full">
+  <div class="w-fit">
 
     <p-card [header]="formGroupTitle">
+
       <!-- loop fields here -->
-      <ng-container >
-        <ng-container *ngFor="let dynamicFieldInputText of dynamicFieldsInput">
+      <ng-container *ngFor="let dynamicFieldInputText of dynamicFieldsInput">
+
+        <!-- normal key filter -->
+        <!-- case no dropdown -->
+        <ng-container *ngIf="!dynamicFieldInputText.isEmpty && !dynamicFieldInputText.optionDropdown && !dynamicFieldInputText.optionRadio && !dynamicFieldInputText.optionCheckbox">
           <p-inputgroup class="field w-26rem ">
             <p-inputgroup-addon>
-              <label for="alphabetic" class="font-bold block mb-2 w-fit">{{ dynamicFieldInputText.icon }} </label>
+              <label class="font-bold block mb-2 w-fit">{{ dynamicFieldInputText.icon }} </label>
             </p-inputgroup-addon>
-            <input pInputText [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name"  [attr.id]="dynamicFieldInputText.id" [pKeyFilter]="dynamicFieldInputText.pKeyFilter" />
+            <input pInputText [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name" [attr.id]="dynamicFieldInputText.id" [pKeyFilter]="dynamicFieldInputText.pKeyFilter"/>
           </p-inputgroup>
         </ng-container>
+
+        <!-- dropdown with p-select -->
+        <ng-container *ngIf="dynamicFieldInputText.optionDropdown && !dynamicFieldInputText.isEmpty">
+          <p-inputgroup class="field w-26rem">
+            <p-inputgroup-addon>
+              <label class="font-bold block mb-2 w-fit">{{ dynamicFieldInputText.icon }} </label>
+            </p-inputgroup-addon>
+            <p-select [options]="dynamicFieldInputText.optionDropdown" optionLabel="name" [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name" [attr.id]="dynamicFieldInputText.id"/>
+          </p-inputgroup>
+        </ng-container>
+
+        <!-- radio button with p-radio-button -->
+        <ng-container class="flex flex-column" *ngIf="dynamicFieldInputText.optionRadio && !dynamicFieldInputText.isEmpty">
+          <strong>{{ dynamicFieldInputText.icon }}</strong>
+          <div class="flex mt-2" *ngFor="let option of dynamicFieldInputText.optionRadio">
+            <p-radio-button [inputId]="option.key" [value]="option" [formControlName]="dynamicFieldInputText.name"/>
+            <label [for]="option.key" class="ml-2">{{ option.name }}</label>
+          </div>
+        </ng-container>
+
+        <!-- checkbox with p-checkbox -->
+        <ng-container class="flex flex-column" *ngIf="dynamicFieldInputText.optionCheckbox && !dynamicFieldInputText.isEmpty">
+          <strong>{{ dynamicFieldInputText.icon }}</strong>
+          <div class="flex mt-2" *ngFor="let option of dynamicFieldInputText.optionCheckbox">
+            <p-checkbox [inputId]="option.key" [value]="option" [formControlName]="dynamicFieldInputText.name"/>
+            <label [for]="option.key" class="ml-2">{{ option.name }}</label>
+          </div>
+        </ng-container>
+
       </ng-container>
-      <p-button label="Submit" severity="secondary"></p-button>
+
+      <p-button label="Submit" severity="secondary" (onClick)="onSubmitFormGroup()"/>
+
     </p-card>
   </div>
 </form>

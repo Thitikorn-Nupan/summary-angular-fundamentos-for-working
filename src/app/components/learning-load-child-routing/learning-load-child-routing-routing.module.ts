@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path :'main' ,
     component: LearningLoadChildRoutingComponent,
+    // no refresh when gat the child path
     children : [
       {
         path :'sub-a' ,
@@ -54,6 +55,6 @@ const routes: Routes = [
 })
 export class LearningLoadChildRoutingRoutingModule {
   constructor() {
-    console.log('LearningLoadChildRoutingRoutingModule (Routing) initialized')
+    console.log('ApplyDynamicWithLoadChildRoutingRoutingModule (Routing) initialized')
   }
 }

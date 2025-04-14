@@ -43,20 +43,33 @@ import {TestUserFormComponent} from './test-user-form/test-user-form.component';
 import {TestRobotFormComponent} from './test-robot-form/test-robot-form.component';
 import {DataTreeTableComponent} from '../dom-components/data-tree-table/data-tree-table.component';
 import {TestUserTableComponent} from './test-user-table/test-user-table.component';
-
+import {TestRobotTableComponent} from './test-robot-table/test-robot-table.component';
+import {
+  DynamicFormGroupWithKeyFilterComponent
+} from '../dom-components/dynamic-form-group-with-key-filter/dynamic-form-group-with-key-filter.component';
+import {KeyFilter} from 'primeng/keyfilter';
+import { PasswordModule } from 'primeng/password';
+import {
+  TestUserFormWithKeyFilterComponent
+} from './test-user-form-with-key-filter/test-user-form-with-key-filter.component';
 // working as same AppModule
 @NgModule({
-  declarations : [
-    LearningLoadChildRoutingComponent,
-    SubMainA2Component,
-    SubMainB2Component,
-    DynamicFormGroupComponent,
-    DataTreeTableComponent,
-    TestUserFormComponent,
-    TestRobotFormComponent,
+    declarations: [
+        LearningLoadChildRoutingComponent,
+        SubMainA2Component,
+        SubMainB2Component,
+        /*
+        DynamicFormGroupComponent,
+        DataTreeTableComponent,
+        TestUserFormComponent,
+        TestRobotFormComponent,
+        TestRobotTableComponent,
+        TestUserTableComponent,
+        */
+        DynamicFormGroupWithKeyFilterComponent,
+        TestUserFormWithKeyFilterComponent,
 
-    TestUserTableComponent
-  ],
+    ],
   imports: [
     // All service api should import here
     // now all components on declarations : [] can work with service api
@@ -67,12 +80,12 @@ import {TestUserTableComponent} from './test-user-table/test-user-table.componen
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
     ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
     CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select, KeyFilter,
+    PasswordModule
   ],
-
 })
 export class LearningLoadChildRoutingModule {
   constructor() {
-    console.log('LearningLoadChildRoutingModule class is working')
+    console.log('ApplyDynamicWithLoadChildRoutingModule class is working')
   }
 }

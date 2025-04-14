@@ -1,0 +1,118 @@
+<!--
+<div class="w-full">
+    <h3>Prototype</h3>
+    *** pKeyFilter=" <specify type you want> "
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="integer" class="font-bold block mb-2 w-5rem"> Int (1,2,...) </label>
+      </p-inputgroup-addon>
+      <input pInputText id="integer" pKeyFilter="int" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="number" class="font-bold block mb-2 w-8rem"> Num (1.0,2.0,...)</label>
+      </p-inputgroup-addon>
+      <input pInputText id="number" pKeyFilter="num" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="money" class="font-bold block mb-2 w-22rem"> Money (same Num but can have ",") </label>
+      </p-inputgroup-addon>
+      <input pInputText id="money" pKeyFilter="money" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="hex" class="font-bold block mb-2 w-8rem"> Hex (same Int) </label>
+      </p-inputgroup-addon>
+      <input pInputText id="hex" pKeyFilter="hex" class="w-full"/>
+    </p-inputgroup>
+
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="alphabetic" class="font-bold block mb-2 w-17rem"> Alphabetic (string without int)</label>
+      </p-inputgroup-addon>
+      <input pInputText id="alphabetic" pKeyFilter="alpha" class="w-full"/>
+    </p-inputgroup>
+
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label for="alphanumeric" class="font-bold block mb-2 w-17rem"> Alphanumeric (string have int)</label>
+      </p-inputgroup-addon>
+      <input pInputText id="alphanumeric" pKeyFilter="alphanum" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <label class="font-bold block mb-2">Email </label>
+      </p-inputgroup-addon>
+      <input pInputText pKeyFilter="email" class="w-full"/>
+    </p-inputgroup>
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <p-inputicon class="pi pi-search"/>
+      </p-inputgroup-addon>
+      <input pInputText pKeyFilter="alpha" class="w-full" placeholder="Search"/>
+    </p-inputgroup>
+</div>
+-->
+
+<form [formGroup]="formGroup">
+  <div class="w-fit">
+
+    <p-card [header]="formGroupTitle">
+
+      <!-- loop fields here -->
+      <ng-container *ngFor="let dynamicFieldInputText of dynamicFieldsInput">
+
+        <!-- normal key filter -->
+        <!-- case no dropdown -->
+        <ng-container *ngIf="!dynamicFieldInputText.isEmpty && !dynamicFieldInputText.optionDropdown && !dynamicFieldInputText.optionRadio && !dynamicFieldInputText.optionCheckbox">
+          <p-inputgroup class="field w-26rem ">
+            <p-inputgroup-addon>
+              <label class="font-bold block mb-2 w-fit">{{ dynamicFieldInputText.icon }} </label>
+            </p-inputgroup-addon>
+            <input pInputText [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name" [attr.id]="dynamicFieldInputText.id" [pKeyFilter]="dynamicFieldInputText.pKeyFilter"/>
+          </p-inputgroup>
+        </ng-container>
+
+        <!-- dropdown with p-select -->
+        <ng-container *ngIf="dynamicFieldInputText.optionDropdown && !dynamicFieldInputText.isEmpty">
+          <p-inputgroup class="field w-26rem">
+            <p-inputgroup-addon>
+              <label class="font-bold block mb-2 w-fit">{{ dynamicFieldInputText.icon }} </label>
+            </p-inputgroup-addon>
+            <p-select [options]="dynamicFieldInputText.optionDropdown" optionLabel="name" [placeholder]="dynamicFieldInputText.placeHolder" [formControlName]="dynamicFieldInputText.name" [attr.id]="dynamicFieldInputText.id"/>
+          </p-inputgroup>
+        </ng-container>
+
+        <!-- radio button with p-radio-button -->
+        <ng-container class="flex flex-column" *ngIf="dynamicFieldInputText.optionRadio && !dynamicFieldInputText.isEmpty">
+          <strong>{{ dynamicFieldInputText.icon }}</strong>
+          <div class="flex mt-2" *ngFor="let option of dynamicFieldInputText.optionRadio">
+            <p-radio-button [inputId]="option.key" [value]="option" [formControlName]="dynamicFieldInputText.name"/>
+            <label [for]="option.key" class="ml-2">{{ option.name }}</label>
+          </div>
+        </ng-container>
+
+        <!-- checkbox with p-checkbox -->
+        <ng-container class="flex flex-column" *ngIf="dynamicFieldInputText.optionCheckbox && !dynamicFieldInputText.isEmpty">
+          <strong>{{ dynamicFieldInputText.icon }}</strong>
+          <div class="flex mt-2" *ngFor="let option of dynamicFieldInputText.optionCheckbox">
+            <p-checkbox [inputId]="option.key" [value]="option" [formControlName]="dynamicFieldInputText.name"/>
+            <label [for]="option.key" class="ml-2">{{ option.name }}</label>
+          </div>
+        </ng-container>
+
+      </ng-container>
+
+      <p-button label="Submit" severity="secondary" (onClick)="onSubmitFormGroup()"/>
+
+    </p-card>
+  </div>
+</form>

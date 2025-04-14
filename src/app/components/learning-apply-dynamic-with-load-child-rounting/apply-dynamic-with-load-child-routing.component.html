@@ -1,0 +1,18 @@
+<ng-container *ngIf="keyRenderTemplate==='user'" [ngTemplateOutlet]="templateUser"><!-- Template A Render here--></ng-container>
+<ng-container *ngIf="keyRenderTemplate==='user-with-key-filter'" [ngTemplateOutlet]="templateUserKeyFilter"><!-- Template A Render here--></ng-container>
+<ng-container *ngIf="keyRenderTemplate==='robot'" [ngTemplateOutlet]="templateRobot"><!-- Template A Render here--></ng-container>
+
+<ng-template #templateUser>
+  <!-- Perfect -->
+  <crud-user>
+  </crud-user>
+</ng-template>
+
+<ng-template #templateUserKeyFilter>
+  <!-- -->
+  Crud user 2
+</ng-template>
+
+<ng-template #templateRobot>
+  Crud Robot
+</ng-template>

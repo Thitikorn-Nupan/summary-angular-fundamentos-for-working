@@ -84,7 +84,7 @@ const routes: Routes = [
     ], // end children : []
   },
   {
-  // *** Note this way all children have to put components on declarations (at LearningLoadChildRoutingModule) : [...] then you can use some primeng
+  // *** Note this way all children have to put components on declarations (at ApplyDynamicWithLoadChildRoutingModule) : [...] then you can use some primeng
   // *** Note when you add loadChildren you have to restart angular
   // *** Use LoadChildren :
   // If you use () => <routing-module>, *** angular will not create a separate js bundle,
@@ -94,8 +94,23 @@ const routes: Routes = [
     path: 'learning-load-child-routing',
     children: [
       {
+        // Here, we are using loadComponent to lazy load
         path: '',
-        loadChildren: () => import("./components/learning-load-child-routing/learning-load-child-routing.module").then((m) => m.LearningLoadChildRoutingModule)
+        loadChildren: () =>
+          import("./components/learning-load-child-routing/learning-load-child-routing.module")
+            .then((m) => m.LearningLoadChildRoutingModule)
+      }
+    ] // end children : []
+  },
+  {
+    path: 'learning-apply-dynamic-with-load-child-routing',
+    children: [
+      {
+        // Here, we are using loadComponent to lazy load
+        path: '',
+        loadChildren: () =>
+          import("./components/learning-apply-dynamic-with-load-child-rounting/apply-dynamic-with-load-child-routing.module")
+          .then((m) => m.ApplyDynamicWithLoadChildRoutingModule)
       }
     ] // end children : []
   }

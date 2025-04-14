@@ -57,7 +57,45 @@ export class MenuComponent implements OnInit {
             label: 'Learning Child Routing',
             icon: 'pi pi-pencil',
             routerLink: '/learning-child-routing'
-          }
+          },
+          {
+            label: 'Learning Load Child Routing',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-load-child-routing', // no render anything
+            items: [
+              {
+                label: 'main', // *** render child routes
+                icon: 'pi pi-pencil',
+                routerLink: '/learning-load-child-routing/main',
+              }
+            ]
+          },
+          {
+            label: 'Learning Load Child Routing (Apply)',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-apply-dynamic-with-load-child-routing', // no render anything
+            items: [
+              {
+                label: 'Crud user',
+                icon: 'pi pi-pencil',
+                routerLink: '/learning-apply-dynamic-with-load-child-routing',
+                queryParams:{'crud':'user'} // req param on url
+              },
+              {
+                label: 'Crud user with key filter',
+                icon: 'pi pi-pencil',
+                routerLink: '/learning-apply-dynamic-with-load-child-routing',
+                queryParams:{'crud':'user-with-key-filter'}
+              }
+              ,
+              {
+                label: 'Crud robot',
+                icon: 'pi pi-pencil',
+                routerLink: '/learning-apply-dynamic-with-load-child-routing',
+                queryParams:{'crud':'robot'}
+              }
+            ]
+          } //
         ]
       },
       {

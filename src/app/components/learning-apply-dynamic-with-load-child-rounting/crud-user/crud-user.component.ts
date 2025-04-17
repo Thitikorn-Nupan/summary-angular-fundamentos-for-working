@@ -66,6 +66,7 @@ export class CrudUserComponent implements OnInit{
       this.reloadData()
     }
   }
+
   protected handleFormGroupUpdate(formGroup: FormGroup) {
     this.isValidFormGroup = formGroup.valid
     if (formGroup.valid) {

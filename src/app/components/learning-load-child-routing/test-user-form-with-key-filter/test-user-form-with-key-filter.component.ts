@@ -15,11 +15,14 @@ export class TestUserFormWithKeyFilterComponent {
   protected isValidFormGroup : boolean = false
 
   constructor() {
+
     const optionD = [
       { name: 'Frontend Developer', code: 'FD' },
       { name: 'Backend Developer', code: 'BD' },
       { name: 'Fullstack Developer', code: 'FSD' },
     ]
+
+    // for radio button and checkbox
     const optionR = [
       { name: 'Frontend Developer', key: 'FD' },
       { name: 'Backend Developer', key: 'BD' },
@@ -41,7 +44,6 @@ export class TestUserFormWithKeyFilterComponent {
   }
 
   protected setEventFormGroup($event: FormGroup) {
-    // console.log($event)
     this.isValidFormGroup = $event.valid
     this.resultUserFormGroup += $event.value.nickname
     this.resultUserFormGroup += $event.value.address

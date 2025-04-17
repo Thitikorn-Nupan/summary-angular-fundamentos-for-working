@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Button } from 'primeng/button';
+import {NgModule} from '@angular/core';
+import {Button} from 'primeng/button';
 import {Menubar} from 'primeng/menubar';
 import {CommonModule} from '@angular/common';
 import {TableModule} from 'primeng/table';
@@ -39,29 +39,36 @@ import {Select} from 'primeng/select';
 import {CrudUserComponent} from './crud-user/crud-user.component';
 import {DynamicFormGroupComponent} from '../dom-components/dynamic-form-group/dynamic-form-group.component';
 import {DataTreeTableComponent} from '../dom-components/data-tree-table/data-tree-table.component';
+import {CrudUserWithKeyFilterComponent} from './crud-user-with-key-filter/crud-user-with-key-filter.component';
+import {LearningLoadChildRoutingModule} from '../learning-load-child-routing/learning-load-child-routing.module';
+import {
+  DynamicFormGroupWithKeyFilterComponent
+} from '../dom-components/dynamic-form-group-with-key-filter/dynamic-form-group-with-key-filter.component';
+import {KeyFilter} from 'primeng/keyfilter';
 
 // working as same AppModule
 @NgModule({
-    declarations: [
-        DynamicFormGroupComponent,
-        DataTreeTableComponent,
-        ApplyDynamicWithLoadChildRoutingComponent,
-        CrudUserComponent,
-    ],
-    imports: [
-        // All service api should import here
-        // now all components on declarations : [] can work with service api
-        CommonModule, // ***
-        ApplyDynamicWithLoadChildRoutingRoutingModule,
-        Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
-        InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
-        PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
-        ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
-        CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-        InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select,
-    ],
-    exports: [
-    ]
+  declarations: [
+    ApplyDynamicWithLoadChildRoutingComponent,
+    DynamicFormGroupComponent,
+    DataTreeTableComponent,
+    CrudUserComponent,
+    CrudUserWithKeyFilterComponent,
+    DynamicFormGroupWithKeyFilterComponent,
+  ],
+  imports: [
+    // All service api should import here
+    // now all components on declarations : [] can work with service api
+    CommonModule, // ***
+    ApplyDynamicWithLoadChildRoutingRoutingModule,
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
+    InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
+    PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
+    ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
+    CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select, KeyFilter
+  ],
+
 })
 export class ApplyDynamicWithLoadChildRoutingModule {
   constructor() {

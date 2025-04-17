@@ -89,6 +89,7 @@ import {
 import { CrudUserComponent } from './components/learning-apply-dynamic-with-load-child-rounting/crud-user/crud-user.component';
 import { DynamicFormGroupWithKeyFilterComponent } from './components/dom-components/dynamic-form-group-with-key-filter/dynamic-form-group-with-key-filter.component';
 import { TestUserFormWithKeyFilterComponent } from './components/learning-load-child-routing/test-user-form-with-key-filter/test-user-form-with-key-filter.component';
+import { CrudUserWithKeyFilterComponent } from './components/learning-apply-dynamic-with-load-child-rounting/crud-user-with-key-filter/crud-user-with-key-filter.component';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
@@ -146,7 +147,7 @@ import { TestUserFormWithKeyFilterComponent } from './components/learning-load-c
         PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
         ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
         CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-        InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, LearningLoadChildRoutingModule,
+        InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast,
     ],
   providers: [
     // for http client

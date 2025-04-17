@@ -11,7 +11,8 @@ import {DynamicField} from '../../../models/form/dynamic-field';
 export class DynamicFormGroupWithKeyFilterComponent implements OnInit {
 
   // blockChars: RegExp = /^[^<>*!]+$/;
-  protected declare formGroup: FormGroup;
+  @Input()
+  public declare dynamicFormGroup: FormGroup;
   @Input()
   public declare dynamicFieldsInput: DynamicField[];
   @Input()
@@ -27,9 +28,8 @@ export class DynamicFormGroupWithKeyFilterComponent implements OnInit {
     this.loadDynamicFields()
   }
 
-  private testSetupDynamicFields() {
+  /*private testSetupDynamicFields() {
     this.formGroup = new FormGroup({})
-
     let f0 = new DynamicField('nickname',new FormControl('',Validators.required),'nickname-id','Nickname','Put your nickname...').setPkeyFilter('alpha').setIsEmpty(true)
     let f1 = new DynamicField('fullname',new FormControl('',Validators.required),'fullname-id','Fullname','Put your fullname...').setPkeyFilter('alpha') // only chars i want
     let f2= new DynamicField('address',new FormControl('',Validators.required),'address-id','Address','Put your address...').setPkeyFilter(null) // any types
@@ -43,17 +43,27 @@ export class DynamicFormGroupWithKeyFilterComponent implements OnInit {
     for (let i = 0; i < this.dynamicFieldsInput.length; i++) {
       this.formGroup.addControl(this.dynamicFieldsInput[i].name,this.dynamicFieldsInput[i].data)
     }
-  }
+  }*/
 
 
   private loadDynamicFields() {
-    this.formGroup = new FormGroup({})
+    // this.formGroup = new FormGroup({})
     for (let i = 0; i < this.dynamicFieldsInput.length; i++) {
-      this.formGroup.addControl(this.dynamicFieldsInput[i].name,this.dynamicFieldsInput[i].data)
+      this.dynamicFormGroup.addControl(this.dynamicFieldsInput[i].name,this.dynamicFieldsInput[i].data)
+    }
+  }
+
+  public reloadFormGroup(dynamicFieldsInput: DynamicField[],dynamicFormGroup: FormGroup) {
+    // console.log('reloaded')
+    this.dynamicFormGroup = dynamicFormGroup
+    for (let i = 0; i < dynamicFieldsInput.length; i++) {
+      // console.log(dynamicFieldsInput[i].name)
+      // console.log(dynamicFieldsInput[i].data)
+      this.dynamicFormGroup.addControl(dynamicFieldsInput[i].name,dynamicFieldsInput[i].data)
     }
   }
 
   protected onSubmitFormGroup() {
-    this.getFormGroup.emit(this.formGroup)
+    this.getFormGroup.emit(this.dynamicFormGroup)
   }
 }

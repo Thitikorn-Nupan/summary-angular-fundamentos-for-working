@@ -101,7 +101,7 @@
         </ng-container>
 
         <!-- checkbox with p-checkbox -->
-        <ng-container class="flex flex-column" *ngIf="dynamicFieldInputText.optionCheckbox && !dynamicFieldInputText.isEmpty">
+        <ng-container class="flex flex-column" *ngIf="dynamicFieldInputText.optionCheckbox && dynamicFieldInputText.isEmpty">
           <strong>{{ dynamicFieldInputText.icon }}</strong>
           <div class="flex mt-2" *ngFor="let option of dynamicFieldInputText.optionCheckbox">
             <p-checkbox [inputId]="option.key" [value]="option" [formControlName]="dynamicFieldInputText.name"/>

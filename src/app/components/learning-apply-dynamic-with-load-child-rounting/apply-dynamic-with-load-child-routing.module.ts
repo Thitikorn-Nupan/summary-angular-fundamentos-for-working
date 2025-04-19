@@ -45,6 +45,9 @@ import {
   DynamicFormGroupWithKeyFilterComponent
 } from '../dom-components/dynamic-form-group-with-key-filter/dynamic-form-group-with-key-filter.component';
 import {KeyFilter} from 'primeng/keyfilter';
+import {
+  CrudTodoFakeapiWithKeyFilterComponent
+} from './crud-todo-fakeapi-with-key-filter/crud-todo-fakeapi-with-key-filter.component';
 
 // working as same AppModule
 @NgModule({
@@ -54,6 +57,7 @@ import {KeyFilter} from 'primeng/keyfilter';
     DataTreeTableComponent,
     CrudUserComponent,
     CrudUserWithKeyFilterComponent,
+    CrudTodoFakeapiWithKeyFilterComponent,
     DynamicFormGroupWithKeyFilterComponent,
   ],
   imports: [

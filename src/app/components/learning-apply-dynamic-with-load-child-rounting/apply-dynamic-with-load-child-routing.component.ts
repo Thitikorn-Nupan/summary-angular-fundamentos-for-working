@@ -13,6 +13,21 @@ protected keyRenderTemplate : string = ''
 
   constructor(private router: ActivatedRoute) {
     console.log('ApplyDynamicWithLoadChildRoutingComponent initialized')
+    /*
+       *** nullish coalescing
+    *  (?? operation) provide a concise way to handle null or undefined
+    *  When used, the double question mark operator checks if the value
+    *  on the left-hand side is null or un
+       const defaultValue = "Default Value";
+       const value = null;
+       const result = value ?? defaultValue;
+       result is "Default Value"
+    *  (??) in TypeScript allows for chaining multiple expressions
+       const firstName = null;
+       const lastName = undefined;
+       const fullName = firstName ?? lastName ?? 'John Doe';
+       fullName is 'John Doe'
+    */
   }
 
   ngOnInit(): void {

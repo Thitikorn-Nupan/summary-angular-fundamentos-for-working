@@ -1,6 +1,6 @@
 <ng-container *ngIf="keyRenderTemplate==='user'" [ngTemplateOutlet]="templateUser"><!-- Template A Render here--></ng-container>
 <ng-container *ngIf="keyRenderTemplate==='user-with-key-filter'" [ngTemplateOutlet]="templateUserKeyFilter"><!-- Template A Render here--></ng-container>
-<ng-container *ngIf="keyRenderTemplate==='robot'" [ngTemplateOutlet]="templateRobot"><!-- Template A Render here--></ng-container>
+<ng-container *ngIf="keyRenderTemplate==='todo-with-key-filter'" [ngTemplateOutlet]="templateRobot"><!-- Template A Render here--></ng-container>
 
 <ng-template #templateUser>
   <!-- Perfect -->
@@ -14,5 +14,6 @@
 </ng-template>
 
 <ng-template #templateRobot>
-  Crud Robot
+  <crud-todo-fakeapi-with-key-filter>
+  </crud-todo-fakeapi-with-key-filter>
 </ng-template>

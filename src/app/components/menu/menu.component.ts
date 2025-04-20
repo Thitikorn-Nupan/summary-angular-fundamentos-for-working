@@ -89,10 +89,10 @@ export class MenuComponent implements OnInit {
               }
               ,
               {
-                label: 'Crud robot',
+                label: 'Crud todo with key filter (API)',
                 icon: 'pi pi-pencil',
                 routerLink: '/learning-apply-dynamic-with-load-child-routing',
-                queryParams:{'crud':'robot'}
+                queryParams:{'crud':'todo-with-key-filter'}
               }
             ]
           } //

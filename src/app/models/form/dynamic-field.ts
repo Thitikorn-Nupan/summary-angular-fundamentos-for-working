@@ -33,11 +33,7 @@ export class DynamicField  {
   }
 
   public setIsEmpty(condition: boolean) {
-    this.isEmpty = condition;
-    if (this.isEmpty) {
-      this.name = 'empty';
-      this.data = new FormControl<any>('empty');
-    }
+    this.isEmpty = condition // for enable/disable dom on html
     return this
   }
 

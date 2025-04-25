@@ -17,3 +17,12 @@
   <crud-todo-fakeapi-with-key-filter>
   </crud-todo-fakeapi-with-key-filter>
 </ng-template>
+
+
+<dynamic-popup
+  [labelButton]="'Delete row'"
+  [severityButton]="'danger'"
+  [toastDynamicOptions]="toastDynamicOptions"
+  (getToastDynamicStatus)="setToastDynamicStatus($event)">
+</dynamic-popup>
+

@@ -44,7 +44,7 @@ export class CrudTodoFakeapiWithKeyFilterComponent implements OnInit {
     this.dynamicFields = [
       new DynamicField('userId', new FormControl(0, Validators.required), 'uid-id', 'UID', 'Put your user id...').setPkeyFilter('int'),
       new DynamicField('id', new FormControl(0, Validators.required), 'id-id', 'ID', 'Put your id...').setPkeyFilter('int'),
-      new DynamicField('title', new FormControl('', Validators.required), 'title-id', 'TITLE', 'Put your title...').setPkeyFilter('alpha'), // only text no spec
+      new DynamicField('title', new FormControl('', Validators.required), 'title-id', 'TITLE', 'Put your title...').setPkeyFilter(null), // only text no spec
       new DynamicField('completed', new FormControl(), 'completed-id', '', '').setIsEmpty(true).setOptionCheckbox([{
         name: "completed",
         key: "c"
@@ -54,24 +54,19 @@ export class CrudTodoFakeapiWithKeyFilterComponent implements OnInit {
 
   protected handleFormGroupCreate(formGroup: FormGroup) {
     let todo: Todo | null = null
+    let completed = false
     if (formGroup.valid && (formGroup.value.completed !== null && formGroup.value.completed.length > 0)) {
-      todo = {
-        userId: formGroup.value.userId,
-        id: formGroup.value.id,
-        title: formGroup.value.title,
-        completed: formGroup.value.completed.length > 0
-      }
+      completed = true
     } else if (formGroup.valid && formGroup.value.completed === null) {
-      todo = {
-        userId: Number(formGroup.value.userId),
-        id: Number(formGroup.value.id),
-        title: formGroup.value.title,
-        completed: false
-      }
+      completed = false
     }
-    if (todo != null) {
-      this.addTodo(todo);
+    todo = {
+      userId: Number(formGroup.value.userId),
+      id: Number(formGroup.value.id),
+      title: formGroup.value.title,
+      completed: completed
     }
+    this.addTodo(todo);
   }
 
 

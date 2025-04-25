@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {ToastDynamicOption} from '../../models/form/toast-dynamic-option';
+import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-learning-load-child-routing',
@@ -9,7 +11,17 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ApplyDynamicWithLoadChildRoutingComponent implements OnInit {
 
-protected keyRenderTemplate : string = ''
+  protected keyRenderTemplate: string = ''
+
+  protected toastDynamicOptions: ToastDynamicOption = new ToastDynamicOption(
+    'confirm-dynamic-popup',
+    'secondary',
+    'Confirm message',
+    'Are you sure to delete?',
+    true,
+    'fa-solid fa-circle-info fa-xl',
+    {'color': '#63E6BE'}
+  )
 
   constructor(private router: ActivatedRoute) {
     console.log('ApplyDynamicWithLoadChildRoutingComponent initialized')
@@ -37,4 +49,10 @@ protected keyRenderTemplate : string = ''
       this.keyRenderTemplate = params['crud']
     })
   }
+
+  protected setToastDynamicStatus($event : {status: boolean,detail : string}) {
+    console.log($event)
+  }
+
+
 }

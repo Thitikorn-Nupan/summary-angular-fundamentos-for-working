@@ -48,6 +48,7 @@ import {KeyFilter} from 'primeng/keyfilter';
 import {
   CrudTodoFakeapiWithKeyFilterComponent
 } from './crud-todo-fakeapi-with-key-filter/crud-todo-fakeapi-with-key-filter.component';
+import {DynamicPopupComponent} from '../dom-components/dynamic-popup/dynamic-popup.component';
 
 // working as same AppModule
 @NgModule({
@@ -59,6 +60,7 @@ import {
     CrudUserWithKeyFilterComponent,
     CrudTodoFakeapiWithKeyFilterComponent,
     DynamicFormGroupWithKeyFilterComponent,
+    DynamicPopupComponent,
   ],
   imports: [
     // All service api should import here

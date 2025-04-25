@@ -1,0 +1,112 @@
+<!-- buttons -->
+<!--
+  <p-button (click)="showConfirm()" label="Confirm" />
+  <p-button (click)="showWarning()" label="Warning" />
+  <p-button (click)="showError()" label="Error" />
+-->
+<!--'"success" | "info" | "warn" | "danger" | "help" | "primary" | "secondary" | "contrast" | null | undefined' -->
+<p-button (click)="showToastDynamic()" [label]="labelButton" [severity]="severityButton"/>
+
+<div class="card flex justify-center">
+  <!--
+  *** warning
+  <p-toast position="center" key="warning" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message #message>
+      <div class="">
+        <div class="grid">
+          <div class="col-1 mt-2">
+            <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #FFD43B;"></i>
+          </div>
+          <div class="col-10 mt-2 ml-2">
+            <span class="font-bold">Header</span>
+          </div>
+          <div class="col-12">
+            <div class="font-medium text-lg my-4">{{ message.summary }}</div>
+          </div>
+          <div class="col-12">
+            <p-button severity="success" size="small" label="Ok" (click)="onConfirm()" />
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-toast>
+
+  *** confirm
+  <p-toast position="center" key="confirm" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message #message>
+      <div class="">
+        <div class="grid">
+          <div class="col-1 mt-2">
+            <i class="fa-solid fa-circle-info fa-xl" style="color: #63E6BE;"></i>
+          </div>
+          <div class="col-10 mt-2 ml-2">
+            <span class="font-bold">Header</span>
+          </div>
+          <div class="col-12">
+             // message will get ToastMessageOptions
+            <div class="font-medium text-lg my-4">{{ message.summary }} </div>
+          </div>
+          <div class="col-12">
+            <p-button severity="success" size="small" label="Ok" (click)="onConfirm()" />
+            <p-button severity="success" size="small" label="Cancle" (click)="onConfirm()" />
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-toast>
+
+  *** error
+  <p-toast position="center" key="error" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message #message>
+      <div class="">
+        <div class="grid">
+          <div class="col-1 mt-2">
+            <i class="fa-solid fa-bug fa-xl" style="color: #e0002d;"></i>
+          </div>
+          <div class="col-10 mt-2 ml-2">
+            <span class="font-bold">Header</span>
+          </div>
+          <div class="col-12">
+            <div class="font-medium text-lg my-4">{{ message.summary }}</div>
+          </div>
+          <div class="col-12">
+            <p-button severity="success" size="small" label="Ok" (click)="onConfirm()" />
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-toast>
+  -->
+
+
+
+
+  <!-- dynamic -->
+  <p-toast position="center" [key]="toastDynamicOptions.key" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message #message>
+      <div class="">
+        <div class="grid">
+          <div class="col-1 mt-2">
+            <i [class]="toastDynamicOptions.iconFa" [style]="toastDynamicOptions.iconColor"></i>
+          </div>
+          <div class="col-10 mt-2 ml-2">
+            <span class="font-bold">{{toastDynamicOptions.header}}</span>
+          </div>
+          <div class="col-12">
+            <div class="font-medium text-lg my-4">{{ toastDynamicOptions.summary }}</div>
+          </div>
+          <div class="col-12">
+            <ng-container *ngIf="toastDynamicOptions.key==='confirm-dynamic-popup'">
+              <p-button severity="success" size="small" label="Ok" (click)="onConfirm()" />
+              <p-button severity="success" size="small" label="Cancle" (click)="onCancel()" />
+            </ng-container>
+            <ng-container *ngIf="toastDynamicOptions.key==='warning-dynamic-popup' || toastDynamicOptions.key==='error-dynamic-popup'">
+              <p-button severity="success" size="small" label="Ok" (click)="onConfirm()" />
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-toast>
+
+</div>

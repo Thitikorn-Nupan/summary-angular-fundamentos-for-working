@@ -27,6 +27,7 @@ import {AppComponent} from './app.component';
 import {
   LearningLoadChildRoutingModule
 } from './components/learning-load-child-routing/learning-load-child-routing.module';
+import {LearningEnvTsWithApiComponent} from './components/learning-env-ts-with-api/learning-env-ts-with-api.component';
 
 const routes: Routes = [
   // *** One url renders one component
@@ -42,6 +43,7 @@ const routes: Routes = [
     path: 'learning-form-groups-and-binding-attributes-and-ng-tag',
     component: LearningFormGroupsAndBindingAttributesAndNgTagComponent
   },
+  {path: 'learning-env-with-api-service', component: LearningEnvTsWithApiComponent},
   {
     // *** Note this way all children have to put components on declarations (at AppModule) : [...] then you can use some primeng
     // *** One url renders many components

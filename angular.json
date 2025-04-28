@@ -68,10 +68,38 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+
+
+
+            "dev": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+
+            "qa": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
             }
+
           },
           "defaultConfiguration": "production"
         },
+
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
@@ -80,6 +108,12 @@
             },
             "development": {
               "buildTarget": "understand-primeng:build:development"
+            },
+            "dev": {
+              "buildTarget": "understand-primeng:build:dev"
+            },
+            "qa": {
+              "buildTarget": "understand-primeng:build:qa"
             }
           },
           "defaultConfiguration": "development"

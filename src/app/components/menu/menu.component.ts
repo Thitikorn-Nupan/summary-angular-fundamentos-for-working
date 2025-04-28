@@ -129,6 +129,17 @@ export class MenuComponent implements OnInit {
             ]
           }
         ]
+      },
+      {
+        label: 'Projects (apply environment.ts)',
+        icon: 'pi pi-search',
+        items: [ // key items inside label for generate dropdown
+          {
+            label: 'Learning Environment With API Service',
+            icon: 'pi pi-pencil',
+            routerLink: '/learning-env-with-api-service'
+          }
+          ]
       }
     ]
   }

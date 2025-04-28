@@ -1,0 +1,42 @@
+
+<div class="card flex justify-center">
+  <!-- can custom header="Title Popup" by #header on ng-template -->
+  <!--
+    key : string;
+    draggable : boolean
+    iconFa : string
+    iconColor : any
+    header : string
+    content : string
+  -->
+  <p-dialog [draggable]="dialogDynamicOption.draggable" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" [resizable]="false">
+    <ng-template #header>
+      <div class="grid">
+        <div class="col-2 mt-2">
+          <i [class]="dialogDynamicOption.iconFa" [style]="dialogDynamicOption.iconColor"></i>
+        </div>
+        <div class="col-8 mt-2 ml-3" [style]="{width: 'fit-content'}">
+          <span class="font-bold">{{ dialogDynamicOption.header }}</span>
+        </div>
+      </div>
+    </ng-template>
+    <div class="grid">
+      <div class="col-12">
+        <div class="font-medium text-lg my-4">{{ dialogDynamicOption.content }}</div>
+      </div>
+    </div>
+    <ng-template #footer>
+      <div class="grid">
+        <div class="col-12">
+          <ng-container *ngIf="dialogDynamicOption.key==='confirm-dynamic-popup'">
+            <p-button severity="success" size="small" label="Ok" (click)="visible = false" />
+            <p-button severity="success" size="small" label="Cancle" (click)="visible = false" />
+          </ng-container>
+          <ng-container *ngIf="dialogDynamicOption.key==='warning-dynamic-popup' || dialogDynamicOption.key==='error-dynamic-popup'">
+            <p-button severity="success" size="small" label="Ok" (click)="visible = false" />
+          </ng-container>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+</div>

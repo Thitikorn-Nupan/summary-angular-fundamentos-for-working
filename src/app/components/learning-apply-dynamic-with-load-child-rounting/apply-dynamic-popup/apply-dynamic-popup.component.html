@@ -1,0 +1,27 @@
+<p>apply-dynamic-popup works!</p>
+<dynamic-popup-p-dialog
+ [visible]="visibleConfirm"
+ [dialogDynamicOption]="dialogDynamicOptionConfirm">
+</dynamic-popup-p-dialog>
+
+<dynamic-popup-p-dialog
+  [visible]="visibleWarning"
+  [dialogDynamicOption]="dialogDynamicOptionWarning">
+</dynamic-popup-p-dialog>
+
+<dynamic-popup-p-dialog
+  [visible]="visibleError"
+  [dialogDynamicOption]="dialogDynamicOptionError">
+</dynamic-popup-p-dialog>
+<!--
+  if you don't want to import a tag
+  you can use <div [name selector]> </div>
+  dynamic-popup-p-dialog map [dynamic-popup-p-dialog] at selector on DynamicPopupWithPDailogComponent
+-->
+<div
+  dynamic-popup-p-dialog
+  [visible]="visibleForExtend"
+  [dialogDynamicOption]="dialogDynamicOptionForExtend"
+  (getOnCancel)="setOnCancel()"
+   >
+</div>

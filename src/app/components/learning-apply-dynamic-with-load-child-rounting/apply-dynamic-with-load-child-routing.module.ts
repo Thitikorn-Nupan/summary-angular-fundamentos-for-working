@@ -45,6 +45,18 @@ import {
   DynamicFormGroupWithKeyFilterComponent
 } from '../dom-components/dynamic-form-group-with-key-filter/dynamic-form-group-with-key-filter.component';
 import {KeyFilter} from 'primeng/keyfilter';
+import {
+  CrudTodoFakeapiWithKeyFilterComponent
+} from './crud-todo-fakeapi-with-key-filter/crud-todo-fakeapi-with-key-filter.component';
+import {DynamicPopupComponent} from '../dom-components/dynamic-popup-with-p-toast/dynamic-popup.component';
+import {
+  DynamicPopupWithPDailogComponent
+} from '../dom-components/dynamic-popup-with-p-dailog/dynamic-popup-with-p-dailog.component';
+import {Dialog} from 'primeng/dialog';
+import {ApplyDynamicPopupComponent} from './apply-dynamic-popup/apply-dynamic-popup.component';
+import {
+  DynamicPopupWithPDailogForExtendComponent
+} from '../dom-components/dynamic-popup-with-p-dailog-for-extend/dynamic-popup-with-p-dailog-for-extend.component';
 
 // working as same AppModule
 @NgModule({
@@ -54,7 +66,12 @@ import {KeyFilter} from 'primeng/keyfilter';
     DataTreeTableComponent,
     CrudUserComponent,
     CrudUserWithKeyFilterComponent,
+    CrudTodoFakeapiWithKeyFilterComponent,
     DynamicFormGroupWithKeyFilterComponent,
+    DynamicPopupComponent,
+    DynamicPopupWithPDailogComponent,
+    DynamicPopupWithPDailogForExtendComponent,
+    ApplyDynamicPopupComponent,
   ],
   imports: [
     // All service api should import here
@@ -66,7 +83,7 @@ import {KeyFilter} from 'primeng/keyfilter';
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
     ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
     CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select, KeyFilter
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Select, KeyFilter, Dialog
   ],
 
 })

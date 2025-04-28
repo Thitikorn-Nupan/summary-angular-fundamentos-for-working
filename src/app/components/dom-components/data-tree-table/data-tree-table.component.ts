@@ -35,4 +35,12 @@ export class DataTreeTableComponent {
   protected onUpdateClicked(rowData : any) {
     this.getRowDataUpdate.emit(rowData)
   }
+
+  public addRowData(rowData : any) {
+    this.data?.push({
+      data : rowData,
+      children : [],
+    })
+    console.log(this.data)
+  }
 }

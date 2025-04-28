@@ -1,0 +1,25 @@
+<ng-container *ngIf="true">
+  <dynamic-form-group-with-key-filter
+    [dynamicFormGroup]="formGroup"
+    [formGroupTitle]="'Todo Form'"
+    [dynamicFieldsInput]="dynamicFields"
+    (getFormGroup)="handleFormGroupCreate($event)">
+  </dynamic-form-group-with-key-filter>
+</ng-container>
+<ng-container *ngIf="true">
+  <data-tree-table
+    [nameTable]="'Todo Table'"
+    [pTableId]="'todo-table-id'"
+    [enable]="true"
+    [header]="header"
+    [data]="data"
+    [loading]="false"
+    [style]="{
+      'max-width':'750px',
+      'max-height': '500px',
+      'overflow-y': 'auto'
+      }"
+    (getRowDataDelete)="setTodoRowDataDelete($event)"
+    (getRowDataUpdate)="setTodoRowDataUpdate($event)">
+  </data-tree-table>
+</ng-container>

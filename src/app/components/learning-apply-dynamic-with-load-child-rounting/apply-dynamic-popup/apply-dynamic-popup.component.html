@@ -20,8 +20,15 @@
 -->
 <div
   dynamic-popup-p-dialog
-  [visible]="visibleForExtend"
-  [dialogDynamicOption]="dialogDynamicOptionForExtend"
-  (getOnCancel)="setOnCancel()"
-   >
+  [visible]="visibleForExtendA"
+  [dialogDynamicOption]="dialogDynamicOptionForExtendA"
+  (getOnCancel)="setOnCancelA()">
+</div>
+
+
+<div
+  dynamic-popup-p-dialog
+  [visible]="visibleForExtendB"
+  [dialogDynamicOption]="dialogDynamicOptionForExtendB"
+  (getOnCancel)="setOnCancelB()">
 </div>

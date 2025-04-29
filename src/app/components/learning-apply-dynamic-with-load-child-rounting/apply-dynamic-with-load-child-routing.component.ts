@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, NgZone, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ToastDynamicOption} from '../../models/form/toast-dynamic-option';
 import {Button} from 'primeng/button';
+import {WebStorageService} from '../../service/web-storage-service';
 
 @Component({
   selector: 'app-learning-load-child-routing',
@@ -12,7 +13,6 @@ import {Button} from 'primeng/button';
 export class ApplyDynamicWithLoadChildRoutingComponent implements OnInit {
 
   protected keyRenderTemplate: string = ''
-
   protected toastDynamicOptions: ToastDynamicOption = new ToastDynamicOption(
     'confirm-dynamic-popup',
     'secondary',
@@ -23,7 +23,7 @@ export class ApplyDynamicWithLoadChildRoutingComponent implements OnInit {
     {'color': '#63E6BE'}
   )
 
-  constructor(private router: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,private webStorageService : WebStorageService,private  router: Router,private ngZone: NgZone ) {
     console.log('ApplyDynamicWithLoadChildRoutingComponent initialized')
     /*
        *** nullish coalescing
@@ -43,11 +43,20 @@ export class ApplyDynamicWithLoadChildRoutingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // will refresh when gat the child path
-    this.router.queryParams.subscribe(params => {
-      // console.log("crud ", params)
-      this.keyRenderTemplate = params['crud']
-    })
+    this.validateLoginWithoutGuardRouting();
+  }
+
+  // *** Basic validate without guard routing
+  private validateLoginWithoutGuardRouting() {
+    if (this.webStorageService.getLocal('login') === true && this.webStorageService.getLocal('username') === 'Admin') {
+      // will refresh when gat the child path
+      this.activatedRoute.queryParams.subscribe(params => {
+        // console.log("crud ", params)
+        this.keyRenderTemplate = params['crud']
+      })
+    } else {
+      this.ngZone.run(() => this.router.navigateByUrl('login')) // go to path
+    }
   }
 
   protected setToastDynamicStatus($event : {status: boolean,detail : string}) {

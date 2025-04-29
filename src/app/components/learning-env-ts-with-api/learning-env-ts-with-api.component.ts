@@ -3,6 +3,7 @@ import {FakeApiForEnvService} from '../../service/fake-api-for-env.service';
 import {Todo} from '../../models/api/todo';
 import {Post} from '../../models/api/post';
 import {TreeNode} from 'primeng/api';
+import {User} from '../../models/api/user-dummy';
 
 @Component({
   selector: 'app-learning-env-ts-with-api',
@@ -12,7 +13,7 @@ import {TreeNode} from 'primeng/api';
 })
 export class LearningEnvTsWithApiComponent implements OnInit {
 
-  protected declare data : Todo[] | Post[] | null
+  protected declare data : Todo[] | Post[] | User[] | null
   protected declare nodes: TreeNode[];
   constructor(private fakeApiForEnv: FakeApiForEnvService) {}
 

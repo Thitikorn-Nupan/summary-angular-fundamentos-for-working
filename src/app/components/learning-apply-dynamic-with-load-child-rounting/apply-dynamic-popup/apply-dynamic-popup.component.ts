@@ -16,14 +16,24 @@ import {
 // ** extends <component> extends DynamicPopupWithPDailogComponent
 export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtendComponent implements OnInit {
 
-  protected visibleForExtend : boolean = false;
-  protected dialogDynamicOptionForExtend = new DialogDynamicOption(
+  protected visibleForExtendA : boolean = false;
+  protected dialogDynamicOptionForExtendA = new DialogDynamicOption(
     'warning-dynamic-popup',
     false,
     'fa-solid fa-triangle-exclamation fa-xl',
     {'color': '#FFD43B'},
     'Warning message',
     'Please do the correct way!'
+  )
+
+  protected visibleForExtendB : boolean = false;
+  protected dialogDynamicOptionForExtendB = new DialogDynamicOption(
+    'confirm-dynamic-popup',
+    false,
+    'fa-solid fa-circle-info fa-xl',
+    {'color': '#63E6BE'},
+    'Confirm message',
+    'Are you sure to delete?'
   )
 
 
@@ -63,8 +73,8 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
 
   // override ngOnInit
   override ngOnInit(): void {
-    this.visibleForExtend = true //
-    this.dialogDynamicOptionForExtend = new  DialogDynamicOption(
+    this.visibleForExtendA = true //
+    this.dialogDynamicOptionForExtendA = new  DialogDynamicOption(
       'confirm-dynamic-popup',
       false,
       'fa-solid fa-circle-info fa-xl',
@@ -78,12 +88,20 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
   }
 
 
-  setOnCancel() {
+  setOnCancelA() {
     // why i don't call visible = false because i map visibleForExtend = visible
     // so when visibleForExtend changes it (visible) changes too
-    this.visibleForExtend = false;
+    this.visibleForExtendA = false;
     setTimeout(() => {
-      this.visibleForExtend = true;
+      this.visibleForExtendA = true;
+    },3000)
+  }
+
+
+  setOnCancelB() {
+    this.visibleForExtendB = false;
+    setTimeout(() => {
+      this.visibleForExtendB = true;
     },3000)
   }
 }

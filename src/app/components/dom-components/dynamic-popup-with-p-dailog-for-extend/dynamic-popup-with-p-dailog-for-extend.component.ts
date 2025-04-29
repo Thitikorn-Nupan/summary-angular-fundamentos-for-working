@@ -24,7 +24,6 @@ export class DynamicPopupWithPDailogForExtendComponent  implements OnInit { // i
 
 
 
-
   protected onCancel() {
     this.getOnCancel.emit();
   }

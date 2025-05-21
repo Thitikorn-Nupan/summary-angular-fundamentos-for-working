@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DialogDynamicOption} from '../../../models/form/dialog-dynamic-option';
 
 @Component({
@@ -13,6 +13,11 @@ export class DynamicPopupWithPDailogComponent  { // implements OnInit
   public declare visible: boolean ;
   @Input()
   public declare dialogDynamicOption : DialogDynamicOption
+  // way to output functions
+  @Output()
+  public getOnCancel = new EventEmitter();
+  @Output()
+  public getOnOk = new EventEmitter();
 
   constructor() {
     /**
@@ -68,12 +73,12 @@ export class DynamicPopupWithPDailogComponent  { // implements OnInit
   }*/
 
 
-  protected openDialog(): void {
-    this.visible = true;
+  // way to output functions
+  protected onCancel() {
+    this.getOnCancel.emit();
   }
 
-  protected closeDialog(): void {
-    this.visible = false;
+  protected onOk() {
+    this.getOnOk.emit();
   }
-
 }

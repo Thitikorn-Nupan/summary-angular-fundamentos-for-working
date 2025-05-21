@@ -15,13 +15,14 @@ export class PublicGuard implements CanActivate {
     const isUserLogin= Boolean(this.webStorageService.getLocal('login'))
     if (state.url==='/' || state.url==='/login') {
       if (isUserLogin) {
-        console.log('got login');
+        console.log('got login user can not go to / or /login');
         return false
       }
+      // can go thru
       return true
     }
+    // can go thru
     return true
-
   }
 
 }

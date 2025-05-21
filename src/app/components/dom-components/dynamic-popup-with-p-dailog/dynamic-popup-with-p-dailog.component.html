@@ -1,6 +1,18 @@
 <div class="card flex justify-center">
   <!-- can custom header="Title Popup" by #header on ng-template -->
-  <p-dialog [draggable]="dialogDynamicOption.draggable" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" [resizable]="false">
+  <!--
+    key : string;
+    draggable : boolean
+    iconFa : string
+    iconColor : any
+    header : string
+    content : string
+  -->
+  <p-dialog [draggable]="dialogDynamicOption.draggable"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '25rem' }"
+            [resizable]="false">
     <ng-template #header>
       <div class="grid">
         <div class="col-2 mt-2">

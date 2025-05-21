@@ -107,7 +107,6 @@ import {Password} from 'primeng/password';
   declarations: [
     AppComponent,
     MenuComponent,
-
     LearningNgTagComponent,
     TemplateAComponent,
     TemplateBComponent,

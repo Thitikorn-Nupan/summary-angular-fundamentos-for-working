@@ -57,6 +57,9 @@ import {ApplyDynamicPopupComponent} from './apply-dynamic-popup/apply-dynamic-po
 import {
   DynamicPopupWithPDailogForExtendComponent
 } from '../dom-components/dynamic-popup-with-p-dailog-for-extend/dynamic-popup-with-p-dailog-for-extend.component';
+import {
+  DynamicPopupWithPDailogAndKeyFilterComponent
+} from '../dom-components/dynamic-popup-with-p-dailog-and-key-fillter/dynamic-popup-with-p-dailog-and-key-filter.component';
 
 // working as same AppModule
 @NgModule({
@@ -71,6 +74,7 @@ import {
     DynamicPopupComponent,
     DynamicPopupWithPDailogComponent,
     DynamicPopupWithPDailogForExtendComponent,
+    DynamicPopupWithPDailogAndKeyFilterComponent,
     ApplyDynamicPopupComponent,
   ],
   imports: [

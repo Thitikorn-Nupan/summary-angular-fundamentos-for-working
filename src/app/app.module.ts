@@ -96,6 +96,9 @@ import { DynamicPopupWithPDailogComponent } from './components/dom-components/dy
 import { LearningEnvTsWithApiComponent } from './components/learning-env-ts-with-api/learning-env-ts-with-api.component';
 import {Tree} from 'primeng/tree';
 import { ApplyDynamicPopupComponent } from './components/learning-apply-dynamic-with-load-child-rounting/apply-dynamic-popup/apply-dynamic-popup.component';
+import { LoginComponent } from './components/login/login.component';
+import {KeyFilter} from 'primeng/keyfilter';
+import {Password} from 'primeng/password';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
@@ -104,7 +107,6 @@ import { ApplyDynamicPopupComponent } from './components/learning-apply-dynamic-
   declarations: [
     AppComponent,
     MenuComponent,
-
     LearningNgTagComponent,
     TemplateAComponent,
     TemplateBComponent,
@@ -146,6 +148,8 @@ import { ApplyDynamicPopupComponent } from './components/learning-apply-dynamic-
     SubMainCComponent,
     SubMainC2Component,
     LearningEnvTsWithApiComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -155,7 +159,7 @@ import { ApplyDynamicPopupComponent } from './components/learning-apply-dynamic-
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
     ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
     CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Tree,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Tree, KeyFilter, Password,
   ],
   providers: [
     // for http client

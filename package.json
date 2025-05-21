@@ -4,7 +4,8 @@
   "comment": [
     "** set env ts on configurations->production->in angular.json",
     "** set env ts on serve->in angular.json",
-    "set npm run env ts on scripts->in package.json"
+    "set npm run env ts on scripts->in package.json",
+    "** set env ts on npm start find defaul config like this \"defaultConfiguration\": \"production\" and add some default env ts file on production object "
   ],
   "scripts": {
     "ng": "ng",

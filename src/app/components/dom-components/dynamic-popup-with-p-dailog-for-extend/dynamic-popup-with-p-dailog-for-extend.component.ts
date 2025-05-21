@@ -13,8 +13,11 @@ export class DynamicPopupWithPDailogForExtendComponent  implements OnInit { // i
   public visible!: boolean ;
   @Input()
   public dialogDynamicOption! : DialogDynamicOption
+  // way to output functions
   @Output()
   public getOnCancel = new EventEmitter();
+  @Output()
+  public getOnOk = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {
@@ -22,10 +25,12 @@ export class DynamicPopupWithPDailogForExtendComponent  implements OnInit { // i
     console.log(this.dialogDynamicOption)
   }
 
-
-
-
+  // way to output functions
   protected onCancel() {
     this.getOnCancel.emit();
+  }
+
+  protected onOk() {
+    this.getOnOk.emit();
   }
 }

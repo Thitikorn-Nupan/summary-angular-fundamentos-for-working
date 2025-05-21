@@ -18,10 +18,33 @@
   you can use <div [name selector]> </div>
   dynamic-popup-p-dialog map [dynamic-popup-p-dialog] at selector on DynamicPopupWithPDailogComponent
 -->
+<!-- for extends -->
 <div
   dynamic-popup-p-dialog
-  [visible]="visibleForExtend"
-  [dialogDynamicOption]="dialogDynamicOptionForExtend"
-  (getOnCancel)="setOnCancel()"
-   >
+  [visible]="visibleForExtendA"
+  [dialogDynamicOption]="dialogDynamicOptionForExtendA"
+  (getOnCancel)="setOnCancelA()"
+  (getOnOk)="setOnOkA()">
 </div>
+
+<div
+  dynamic-popup-p-dialog
+  [visible]="visibleForExtendB"
+  [dialogDynamicOption]="dialogDynamicOptionForExtendB"
+  (getOnCancel)="setOnCancelB()"
+  (getOnOk)="setOnOkB()">
+</div>
+
+
+<dynamic-popup-p-dialog-and-key-filter
+  [header]="'Test FormGroup on popup'"
+  [label]="'Show'"
+  [closeable]="true"
+  [dynamicInputTextFields]="dynamicInputTextFields"
+  [formGroup]="formGroupInputText"
+  [visible]="true"
+  (getOnSave)="setOnSave()"
+  (getOnCancel)="setOnClose()"
+  (getFormGroup)="setFormGroup($event)"
+  >
+</dynamic-popup-p-dialog-and-key-filter>

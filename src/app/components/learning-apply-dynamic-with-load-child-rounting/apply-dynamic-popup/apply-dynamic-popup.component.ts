@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {
   DynamicPopupWithPDailogComponent
 } from '../../dom-components/dynamic-popup-with-p-dailog/dynamic-popup-with-p-dailog.component';
@@ -6,6 +6,11 @@ import {DialogDynamicOption} from '../../../models/form/dialog-dynamic-option';
 import {
   DynamicPopupWithPDailogForExtendComponent
 } from '../../dom-components/dynamic-popup-with-p-dailog-for-extend/dynamic-popup-with-p-dailog-for-extend.component';
+import {DynamicInputTextField} from '../../../models/form/dynamic-input-text-field';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {
+  DynamicPopupWithPDailogAndKeyFilterComponent
+} from '../../dom-components/dynamic-popup-with-p-dailog-and-key-fillter/dynamic-popup-with-p-dailog-and-key-filter.component';
 
 @Component({
   selector: 'apply-dynamic-popup',
@@ -14,10 +19,20 @@ import {
   styleUrl: './apply-dynamic-popup.component.css'
 })
 // ** extends <component> extends DynamicPopupWithPDailogComponent
-export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtendComponent implements OnInit {
+export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtendComponent implements OnInit,AfterViewInit {
 
-  protected visibleForExtend : boolean = false;
-  protected dialogDynamicOptionForExtend = new DialogDynamicOption(
+  protected visibleForExtendA : boolean = false;
+  protected dialogDynamicOptionForExtendA = new DialogDynamicOption( // change it onInit
+    'warning-dynamic-popup',
+    false,
+    'fa-solid fa-triangle-exclamation fa-xl',
+    {'color': '#FFD43B'},
+    'Warning message',
+    'Please do the correct way!'
+  )
+
+  protected visibleForExtendB : boolean = false;
+  protected dialogDynamicOptionForExtendB = new DialogDynamicOption(
     'warning-dynamic-popup',
     false,
     'fa-solid fa-triangle-exclamation fa-xl',
@@ -57,14 +72,34 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
     'Please try another way!'
   )
 
+
+  protected visibleFormGroupInputText : boolean = false;
+  protected formGroupInputText = new FormGroup({})
+  protected dynamicInputTextFields : DynamicInputTextField[] = [
+    new DynamicInputTextField('firstname',new FormControl('',Validators.required),'firstname','Firstname','text','...'),
+    new DynamicInputTextField('lastname',new FormControl('',Validators.required),'lastname','Lastname','text','...'),
+    new DynamicInputTextField('year',new FormControl(1,Validators.required),'year','Year','number','...'),
+    new DynamicInputTextField('email',new FormControl('',Validators.required),'email','Email','email','...'),
+    new DynamicInputTextField('password',new FormControl('',Validators.required),'password','Password','password',null)
+  ]
+  @ViewChild(DynamicPopupWithPDailogAndKeyFilterComponent,{static:false})
+  protected declare dynamicPopupWithPDailogAndKeyFilterComponent:DynamicPopupWithPDailogAndKeyFilterComponent;
+
   constructor() {
     super()
+
+  }
+
+  ngAfterViewInit(): void {
+    console.log('check object form group ',this.formGroupInputText)
+
   }
 
   // override ngOnInit
   override ngOnInit(): void {
-    this.visibleForExtend = true //
-    this.dialogDynamicOptionForExtend = new  DialogDynamicOption(
+    /*
+    this.visibleForExtendA = true //
+    this.dialogDynamicOptionForExtendA = new  DialogDynamicOption(
       'confirm-dynamic-popup',
       false,
       'fa-solid fa-circle-info fa-xl',
@@ -72,18 +107,58 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
       'Confirm message',
       'Are you sure to delete?'
     )
+    */
     /**this.visible = this.visibleForExtend
     this.dialogDynamicOption = this.dialogDynamicOptionForExtend*/
     super.ngOnInit();
   }
 
-
-  setOnCancel() {
+  protected setOnCancelA() {
     // why i don't call visible = false because i map visibleForExtend = visible
     // so when visibleForExtend changes it (visible) changes too
-    this.visibleForExtend = false;
+    this.visibleForExtendA = false;
     setTimeout(() => {
-      this.visibleForExtend = true;
+      this.visibleForExtendA = true;
     },3000)
+  }
+
+  protected setOnOkA() {
+    // why i don't call visible = false because i map visibleForExtend = visible
+    // so when visibleForExtend changes it (visible) changes too
+    this.visibleForExtendA = false;
+    console.log('Whatever you want next on Popup A?')
+  }
+
+  protected setOnCancelB() {
+    this.visibleForExtendB = false;
+    setTimeout(() => {
+      this.visibleForExtendB = true;
+    },3000)
+  }
+
+  protected setOnOkB() {
+    // why i don't call visible = false because i map visibleForExtend = visible
+    // so when visibleForExtend changes it (visible) changes too
+    this.visibleForExtendB = false;
+    console.log('Whatever you want next on Popup B?')
+  }
+
+  protected setOnSave() {
+    console.log('got event on save')
+    console.log(this.formGroupInputText);
+
+  }
+
+  protected setFormGroup($event: any) {
+    console.log('got a form group')
+    this.formGroupInputText = $event
+    if (this.formGroupInputText.valid) {
+      this.dynamicPopupWithPDailogAndKeyFilterComponent.visible = false
+    }
+  }
+
+  protected setOnClose() {
+    console.log('got event on close')
+
   }
 }

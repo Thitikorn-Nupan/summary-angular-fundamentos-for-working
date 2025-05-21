@@ -1,0 +1,19 @@
+<div class="card flex justify-center">
+  <!-- button for showing -->
+  <p-button (click)="showDialog()" [label]="label"/>
+  <p-dialog [header]="header" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" [closable]="closeable">
+    <ng-container [formGroup]="formGroup">
+      <ng-container *ngFor="let dynamicField of dynamicInputTextFields">
+        <div class="flex items-center gap-4 mb-4">
+          <label [for]="dynamicField.id" class="font-semibold w-24">{{dynamicField.label}}</label>
+          <!-- if you can't bind some attr of html tag try wrapping by [()] -->
+          <input pInputText [formControlName]="dynamicField.name" [id]="dynamicField.id" [(type)]="dynamicField.typeInput" class="flex-auto" autocomplete="off" [placeholder]="dynamicField.placeHolder === null ? '' : dynamicField.placeHolder"/>
+        </div>
+      </ng-container>
+    </ng-container>
+    <div class="flex justify-end gap-2">
+      <p-button label="Cancel" severity="secondary" (click)="onCancel()"/>
+      <p-button label="Save" severity="contrast" (click)="onSave()"/>
+    </div>
+  </p-dialog>
+</div>

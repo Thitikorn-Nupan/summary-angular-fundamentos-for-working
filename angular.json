@@ -43,7 +43,11 @@
             "scripts": []
           },
           "configurations": {
+
             "production": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -56,8 +60,15 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             },
+
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -69,7 +80,6 @@
                 }
               ]
             },
-
 
 
             "dev": {
@@ -97,6 +107,7 @@
             }
 
           },
+
           "defaultConfiguration": "production"
         },
 
@@ -114,6 +125,9 @@
             },
             "qa": {
               "buildTarget": "understand-primeng:build:qa"
+            },
+            "default": {
+              "buildTarget": "understand-primeng:build:default"
             }
           },
           "defaultConfiguration": "development"

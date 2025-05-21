@@ -28,8 +28,14 @@ import {
   LearningLoadChildRoutingModule
 } from './components/learning-load-child-routing/learning-load-child-routing.module';
 import {LearningEnvTsWithApiComponent} from './components/learning-env-ts-with-api/learning-env-ts-with-api.component';
+import {LoginComponent} from './components/login/login.component';
+import { PublicGuard } from './guard/public-guard';
 
 const routes: Routes = [
+
+  {path: '', component: LoginComponent, canActivate: [PublicGuard] },
+  {path: 'login', component: LoginComponent, canActivate: [PublicGuard] },
+
   // *** One url renders one component
   {path: 'learning-ng-template', component: LearningNgTagComponent},
   {path: 'learning-ng-tag-and-decorator', component: LearningNgTagAndDecoratorComponent},

@@ -1,4 +1,3 @@
-
 <div class="card flex justify-center">
   <!-- can custom header="Title Popup" by #header on ng-template -->
   <!--
@@ -9,7 +8,11 @@
     header : string
     content : string
   -->
-  <p-dialog [draggable]="dialogDynamicOption.draggable" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" [resizable]="false">
+  <p-dialog [draggable]="dialogDynamicOption.draggable"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '25rem' }"
+            [resizable]="false">
     <ng-template #header>
       <div class="grid">
         <div class="col-2 mt-2">
@@ -29,11 +32,11 @@
       <div class="grid">
         <div class="col-12">
           <ng-container *ngIf="dialogDynamicOption.key==='confirm-dynamic-popup'">
-            <p-button severity="success" size="small" label="Ok" (click)="visible = false" />
+            <p-button severity="success" size="small" label="Ok" (click)="onOk()" />
             <p-button severity="success" size="small" label="Cancle" (click)="onCancel()" />
           </ng-container>
           <ng-container *ngIf="dialogDynamicOption.key==='warning-dynamic-popup' || dialogDynamicOption.key==='error-dynamic-popup'">
-            <p-button severity="success" size="small" label="Ok" (click)="visible = false" />
+            <p-button severity="success" size="small" label="Ok" (click)="onOk()" />
           </ng-container>
         </div>
       </div>

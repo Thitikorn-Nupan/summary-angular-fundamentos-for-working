@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 
+// do on your senoir app
 // if i mark this @Injectable annotation
 // i don't need to create instance on own just do on constructor as (private webStorageService : WebStorageService)
 @Injectable({

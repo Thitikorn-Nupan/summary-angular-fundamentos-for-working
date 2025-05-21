@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="doLogin()" class="card flex flex-wrap gap-4 p-3">
+<!--<form [formGroup]="formGroup" (ngSubmit)="doLogin()" class="card flex flex-wrap gap-4 p-3">
   <div class="flex-none">
     <label for="blockspace" class="font-bold block mb-2"> Username </label>
     <input pInputText id="blockspace" pKeyFilter="alpha" class="w-15rem" [formControlName]="'username'"/>
@@ -12,4 +12,19 @@
       <p-button type="submit" label="Login" severity="secondary"/>
     </div>
   </div>
-</form>
+</form>-->
+
+<dynamic-popup-p-dialog-and-key-filter-for-main-router
+  [closeable]="true"
+  [draggable]="false"
+  [visible]="false"
+  [label]="'Login'"
+  [header]="headerFormGroup"
+  [formGroup]="formGroup"
+  [dynamicInputTextFields]="dynamicInputTextFields"
+  (getFormGroup)="setFormGroup($event)"
+  (getOnSave)="setOnSave()">
+
+</dynamic-popup-p-dialog-and-key-filter-for-main-router>
+
+

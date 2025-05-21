@@ -73,6 +73,7 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
   )
 
 
+  protected headerFormGroupInputText : string = 'Test FormGroup on popup'
   protected visibleFormGroupInputText : boolean = false;
   protected formGroupInputText = new FormGroup({})
   protected dynamicInputTextFields : DynamicInputTextField[] = [
@@ -87,13 +88,8 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
 
   constructor() {
     super()
-
   }
 
-  ngAfterViewInit(): void {
-    console.log('check object form group ',this.formGroupInputText)
-
-  }
 
   // override ngOnInit
   override ngOnInit(): void {
@@ -112,6 +108,7 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
     this.dialogDynamicOption = this.dialogDynamicOptionForExtend*/
     super.ngOnInit();
   }
+
 
   protected setOnCancelA() {
     // why i don't call visible = false because i map visibleForExtend = visible
@@ -143,22 +140,33 @@ export class ApplyDynamicPopupComponent extends DynamicPopupWithPDailogForExtend
     console.log('Whatever you want next on Popup B?')
   }
 
-  protected setOnSave() {
-    console.log('got event on save')
-    console.log(this.formGroupInputText);
 
+  ngAfterViewInit(): void {
+    // it did child and did parent (component)
+    console.log('check object form group ',this.formGroupInputText)
   }
+
 
   protected setFormGroup($event: any) {
-    console.log('got a form group')
     this.formGroupInputText = $event
-    if (this.formGroupInputText.valid) {
-      this.dynamicPopupWithPDailogAndKeyFilterComponent.visible = false
-    }
+    console.log('got a form group')
   }
+
+  protected setOnSave() {
+    console.log('got event on save')
+    const isFormGroupValid = this.formGroupInputText.valid
+    if (isFormGroupValid) {
+      this.dynamicPopupWithPDailogAndKeyFilterComponent.visible = false
+      const values : any = this.formGroupInputText?.value
+      console.log(`Result are ${values.firstname} , ${values.lastname} , ${values.email} , ${values.password}`)
+      this.formGroupInputText.reset() // reset all controls values
+    }
+    this.headerFormGroupInputText = isFormGroupValid ? 'Test FormGroup on popup' : 'Some fields are empty'
+  }
+
 
   protected setOnClose() {
     console.log('got event on close')
-
+    this.dynamicPopupWithPDailogAndKeyFilterComponent.visible = false
   }
 }

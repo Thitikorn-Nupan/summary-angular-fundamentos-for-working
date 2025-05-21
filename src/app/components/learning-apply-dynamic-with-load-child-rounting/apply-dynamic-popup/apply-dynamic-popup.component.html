@@ -37,14 +37,15 @@
 
 
 <dynamic-popup-p-dialog-and-key-filter
-  [header]="'Test FormGroup on popup'"
+  [header]="headerFormGroupInputText"
   [label]="'Show'"
   [closeable]="true"
   [dynamicInputTextFields]="dynamicInputTextFields"
   [formGroup]="formGroupInputText"
   [visible]="true"
+  [draggable]="false"
   (getOnSave)="setOnSave()"
   (getOnCancel)="setOnClose()"
-  (getFormGroup)="setFormGroup($event)"
-  >
+  (getFormGroup)="setFormGroup($event)">
+
 </dynamic-popup-p-dialog-and-key-filter>

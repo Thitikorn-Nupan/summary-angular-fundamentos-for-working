@@ -99,6 +99,10 @@ import { ApplyDynamicPopupComponent } from './components/learning-apply-dynamic-
 import { LoginComponent } from './components/login/login.component';
 import {KeyFilter} from 'primeng/keyfilter';
 import {Password} from 'primeng/password';
+import {
+  DynamicPopupWithPDailogAndKeyFilterForMainRouterComponent
+} from './components/dom-components/dynamic-popup-with-p-dailog-and-key-fillter-for-main-router/dynamic-popup-with-p-dailog-and-key-filter-for-main-router.component';
+import {Dialog} from 'primeng/dialog';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
@@ -149,7 +153,7 @@ import {Password} from 'primeng/password';
     SubMainC2Component,
     LearningEnvTsWithApiComponent,
     LoginComponent,
-
+    DynamicPopupWithPDailogAndKeyFilterForMainRouterComponent
   ],
   imports: [
     BrowserModule,
@@ -159,7 +163,7 @@ import {Password} from 'primeng/password';
     PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
     ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
     CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Tree, KeyFilter, Password,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Tree, KeyFilter, Password, Dialog,
   ],
   providers: [
     // for http client

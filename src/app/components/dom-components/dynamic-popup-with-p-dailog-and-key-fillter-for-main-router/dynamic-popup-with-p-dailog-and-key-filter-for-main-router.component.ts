@@ -4,12 +4,12 @@ import {DynamicInputTextField} from '../../../models/form/dynamic-input-text-fie
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'dynamic-popup-p-dialog-and-key-filter', // '[dynamic-popup-p-dialog]' mapped <div dynamic-popup-p-dialog></div>
+  selector: 'dynamic-popup-p-dialog-and-key-filter-for-main-router', // '[dynamic-popup-p-dialog]' mapped <div dynamic-popup-p-dialog></div>
   standalone: false,
-  templateUrl: './dynamic-popup-with-p-dailog-and-key-filter.component.html',
-  styleUrl: './dynamic-popup-with-p-dailog-and-key-filter.component.css'
+  templateUrl: './dynamic-popup-with-p-dailog-and-key-filter-for-main-router.component.html',
+  styleUrl: './dynamic-popup-with-p-dailog-and-key-filter-for-main-router.component.css'
 })
-export class DynamicPopupWithPDailogAndKeyFilterComponent implements OnInit,AfterViewInit { // implements OnInit
+export class DynamicPopupWithPDailogAndKeyFilterForMainRouterComponent implements OnInit,AfterViewInit { // implements OnInit
 
   @Input()
   public declare header : string;

@@ -1,0 +1,7 @@
+<div class="card">
+  <p-tree [value]="nodes" styleClass="w-full">
+    <ng-container *ngFor="let node of nodes">
+      <b>{{ node.label }}</b>
+    </ng-container>
+  </p-tree>
+</div>

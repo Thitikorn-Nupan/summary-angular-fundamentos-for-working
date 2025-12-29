@@ -91,6 +91,18 @@ import { DynamicFormGroupWithKeyFilterComponent } from './components/dom-compone
 import { TestUserFormWithKeyFilterComponent } from './components/learning-load-child-routing/test-user-form-with-key-filter/test-user-form-with-key-filter.component';
 import { CrudUserWithKeyFilterComponent } from './components/learning-apply-dynamic-with-load-child-rounting/crud-user-with-key-filter/crud-user-with-key-filter.component';
 import { CrudTodoFakeapiWithKeyFilterComponent } from './components/learning-apply-dynamic-with-load-child-rounting/crud-todo-fakeapi-with-key-filter/crud-todo-fakeapi-with-key-filter.component';
+import { DynamicPopupComponent } from './components/dom-components/dynamic-popup-with-p-toast/dynamic-popup.component';
+import { DynamicPopupWithPDailogComponent } from './components/dom-components/dynamic-popup-with-p-dailog/dynamic-popup-with-p-dailog.component';
+import { LearningEnvTsWithApiComponent } from './components/learning-env-ts-with-api/learning-env-ts-with-api.component';
+import {Tree} from 'primeng/tree';
+import { ApplyDynamicPopupComponent } from './components/learning-apply-dynamic-with-load-child-rounting/apply-dynamic-popup/apply-dynamic-popup.component';
+import { LoginComponent } from './components/login/login.component';
+import {KeyFilter} from 'primeng/keyfilter';
+import {Password} from 'primeng/password';
+import {
+  DynamicPopupWithPDailogAndKeyFilterForMainRouterComponent
+} from './components/dom-components/dynamic-popup-with-p-dailog-and-key-fillter-for-main-router/dynamic-popup-with-p-dailog-and-key-filter-for-main-router.component';
+import {Dialog} from 'primeng/dialog';
 import { DynamicPopupComponent } from './components/dom-components/dynamic-popup/dynamic-popup.component';
 import { LearningReqDownloadFileComponent } from './components/learning-req-download-file/learning-req-download-file.component';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
@@ -141,18 +153,21 @@ import { LearningReqDownloadFileComponent } from './components/learning-req-down
     SubMainBComponent,
     SubMainCComponent,
     SubMainC2Component,
+    LearningEnvTsWithApiComponent,
+    LoginComponent,
+    DynamicPopupWithPDailogAndKeyFilterForMainRouterComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
+    InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
+    PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
+    ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
+    CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
+    InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast, Tree, KeyFilter, Password, Dialog,
     LearningReqDownloadFileComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        Menubar, CommonModule, TableModule, Button, Card, FloatLabel, IftaLabel,
-        InputGroupAddon, InputGroup, Message, CheckboxModule, RadioButton, FormsModule,
-        PickList, OrderList, TreeTableModule, Tag, Avatar, Listbox, ScrollPanelModule, Sidebar,
-        ReactiveFormsModule, FloatLabelModule, InputIconModule, IconFieldModule, InputTextModule,
-        CheckboxModule, ProgressSpinner, MessagesModule, InputTextarea, InputNumber, InputSwitch,
-        InputMaskModule, DropdownModule, WindowMaximizeIcon, Fluid, Toast,
-    ],
   providers: [
     // for http client
     provideHttpClient(withInterceptorsFromDi()),

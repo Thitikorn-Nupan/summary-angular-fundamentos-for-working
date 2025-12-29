@@ -4,7 +4,7 @@ import {ToastDynamicOption} from '../../../models/form/toast-dynamic-option';
 
 
 @Component({
-  selector: 'dynamic-popup',
+  selector: 'dynamic-popup-toast',
   standalone: false,
   templateUrl: './dynamic-popup.component.html',
   styleUrl: './dynamic-popup.component.css'

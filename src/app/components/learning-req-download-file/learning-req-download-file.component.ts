@@ -14,8 +14,7 @@ import {HttpResponse} from '@angular/common/http';
 })
 export class LearningReqDownloadFileComponent {
 
-  constructor(private readonly orderItemService: OrderItemService) {
-  }
+  constructor(private readonly orderItemService: OrderItemService) {}
 
   protected downloadPDF(): Subscription {
     return this.orderItemService.readsReportAsPDF().subscribe((res: HttpResponse<any>): void => {

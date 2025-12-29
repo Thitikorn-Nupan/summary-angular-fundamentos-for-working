@@ -38,7 +38,6 @@ const routes: Routes = [
 
   {path: '', component: LoginComponent, canActivate: [PublicGuard] },
   {path: 'login', component: LoginComponent, canActivate: [PublicGuard] },
-
   // *** One url renders one component
   {path: 'learning-ng-template', component: LearningNgTagComponent},
   {path: 'learning-req-and-download-file', component: LearningReqDownloadFileComponent},

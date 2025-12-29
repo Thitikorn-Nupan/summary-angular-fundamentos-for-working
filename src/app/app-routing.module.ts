@@ -27,10 +27,14 @@ import {AppComponent} from './app.component';
 import {
   LearningLoadChildRoutingModule
 } from './components/learning-load-child-routing/learning-load-child-routing.module';
+import {
+  LearningReqDownloadFileComponent
+} from './components/learning-req-download-file/learning-req-download-file.component';
 
 const routes: Routes = [
   // *** One url renders one component
   {path: 'learning-ng-template', component: LearningNgTagComponent},
+  {path: 'learning-req-and-download-file', component: LearningReqDownloadFileComponent},
   {path: 'learning-ng-tag-and-decorator', component: LearningNgTagAndDecoratorComponent},
   {path: 'learning-ng-container', component: LearningNgContainerTagComponent},
   {path: 'learning-ng-content', component: LearningNgContentComponent},

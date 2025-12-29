@@ -1,0 +1,16 @@
+<p-button label="Download File AS PDF" severity="danger" (onClick)="downloadPDF()">
+  <ng-template pTemplate="icon">
+    <!-- Add your custom icon element here, e.g., Font Awesome or a Material icon -->
+    <i class="fa-solid fa-file-pdf"></i>
+  </ng-template>
+</p-button>
+<p-button label="Download File AS EXCEL" severity="success" (onClick)="downloadExcel()" >
+  <ng-template pTemplate="icon">
+    <i class="fa-solid fa-file-excel"></i>
+  </ng-template>
+</p-button>
+<p-button label="Download File AS WORD" severity="info" (onClick)="downloadWord()" >
+  <ng-template pTemplate="icon">
+    <i class="fa-solid fa-file-word"></i>
+  </ng-template>
+</p-button>

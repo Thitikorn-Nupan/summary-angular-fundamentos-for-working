@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MessageService} from 'primeng/api';
 import {ToastDynamicOption} from '../../../models/form/toast-dynamic-option';
 
@@ -9,7 +9,7 @@ import {ToastDynamicOption} from '../../../models/form/toast-dynamic-option';
   templateUrl: './dynamic-popup.component.html',
   styleUrl: './dynamic-popup.component.css'
 })
-export class DynamicPopupComponent {
+export class DynamicPopupComponent implements OnInit{
 
   // protected readonly severity = new Button().severity =  'info'
   @Input()
@@ -20,7 +20,7 @@ export class DynamicPopupComponent {
   public declare toastDynamicOptions: ToastDynamicOption;
   @Output()
   public declare getToastDynamicStatus :EventEmitter<{ status : boolean , detail : string }> ;
-  private disable : boolean = false; // where visible var binds to MessageService service ??
+  protected disable : boolean = false; // where visible var binds to MessageService service ??
 
   constructor(private messageService: MessageService) {
     /**
@@ -58,6 +58,10 @@ export class DynamicPopupComponent {
      }
     */
     this.getToastDynamicStatus = new EventEmitter<{ status : boolean , detail : string }>()
+  }
+
+  ngOnInit(): void {
+
   }
 
   /**

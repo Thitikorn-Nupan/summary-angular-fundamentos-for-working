@@ -92,6 +92,7 @@ import { TestUserFormWithKeyFilterComponent } from './components/learning-load-c
 import { CrudUserWithKeyFilterComponent } from './components/learning-apply-dynamic-with-load-child-rounting/crud-user-with-key-filter/crud-user-with-key-filter.component';
 import { CrudTodoFakeapiWithKeyFilterComponent } from './components/learning-apply-dynamic-with-load-child-rounting/crud-todo-fakeapi-with-key-filter/crud-todo-fakeapi-with-key-filter.component';
 import { DynamicPopupComponent } from './components/dom-components/dynamic-popup/dynamic-popup.component';
+import { LearningReqDownloadFileComponent } from './components/learning-req-download-file/learning-req-download-file.component';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
@@ -140,6 +141,7 @@ import { DynamicPopupComponent } from './components/dom-components/dynamic-popup
     SubMainBComponent,
     SubMainCComponent,
     SubMainC2Component,
+    LearningReqDownloadFileComponent,
   ],
     imports: [
         BrowserModule,

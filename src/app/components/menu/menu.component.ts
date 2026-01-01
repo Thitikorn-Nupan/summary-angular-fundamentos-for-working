@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+
 @Component({
   selector: 'menu-component',
   standalone: false,
@@ -79,20 +80,20 @@ export class MenuComponent implements OnInit {
                 label: 'Crud user',
                 icon: 'pi pi-pencil',
                 routerLink: '/learning-apply-dynamic-with-load-child-routing',
-                queryParams:{'crud':'user'} // req param on url
+                queryParams: {'crud': 'user'} // req param on url
               },
               {
                 label: 'Crud user with key filter',
                 icon: 'pi pi-pencil',
                 routerLink: '/learning-apply-dynamic-with-load-child-routing',
-                queryParams:{'crud':'user-with-key-filter'}
+                queryParams: {'crud': 'user-with-key-filter'}
               }
               ,
               {
                 label: 'Crud todo with key filter (API)',
                 icon: 'pi pi-pencil',
                 routerLink: '/learning-apply-dynamic-with-load-child-routing',
-                queryParams:{'crud':'todo-with-key-filter'}
+                queryParams: {'crud': 'todo-with-key-filter'}
               }
             ]
           } //
@@ -119,7 +120,7 @@ export class MenuComponent implements OnInit {
           },
           {
             label: 'Contact C',
-            items : [
+            items: [
               {
                 label: 'Contact C1',
               },
@@ -141,7 +142,8 @@ export class MenuComponent implements OnInit {
           }
         ]
       },
-      { label: 'Projects (Download File)',
+      {
+        label: 'Projects (Download File)',
         icon: 'pi pi-search',
         items: [ // key items inside label for generate dropdown
           {
@@ -149,7 +151,7 @@ export class MenuComponent implements OnInit {
             icon: 'pi pi-pencil',
             routerLink: '/learning-req-and-download-file'
           },
-          ]
+        ]
       }
     ]
   }

@@ -145,15 +145,11 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-search',
         items: [ // key items inside label for generate dropdown
           {
-            label: 'Learning Req And Download File',
-            icon: 'pi pi-pencil',
-            routerLink: '/learning-req-and-download-file'
-          },
-          {
             label: 'Learning Req And Download File + Authentication',
             icon: 'pi pi-pencil',
             routerLink: '/learning-req-and-download-file'
-          }]
+          },
+          ]
       }
     ]
   }

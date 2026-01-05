@@ -33,6 +33,9 @@ import { PublicGuard } from './guard/public-guard';
 import {
   LearningReqDownloadFileComponent
 } from './components/learning-req-download-file/learning-req-download-file.component';
+import {
+  LearningSocialLoginWithGoogleComponent
+} from './components/learning-social-login-with-google/learning-social-login-with-google.component';
 
 const routes: Routes = [
 
@@ -48,10 +51,8 @@ const routes: Routes = [
   {path: 'learning-ng-container-and-p-tree-table', component: LearningNgContainerAndPTreeTableComponent},
   {path: 'learning-form-groups', component: LearningFormGroupsComponent},
   {path: 'learning-form-groups-and-binding-attributes ', component: LearningFormGroupsAndBindingAttributesComponent},
-  {
-    path: 'learning-form-groups-and-binding-attributes-and-ng-tag',
-    component: LearningFormGroupsAndBindingAttributesAndNgTagComponent
-  },
+  {path: 'learning-form-groups-and-binding-attributes-and-ng-tag', component: LearningFormGroupsAndBindingAttributesAndNgTagComponent},
+  {path: 'learning-social-login-with-google', component: LearningSocialLoginWithGoogleComponent},
   {path: 'learning-env-with-api-service', component: LearningEnvTsWithApiComponent},
   {
     // *** Note this way all children have to put components on declarations (at AppModule) : [...] then you can use some primeng

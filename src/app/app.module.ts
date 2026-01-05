@@ -92,6 +92,8 @@ import {
 } from './components/dom-components/dynamic-popup-with-p-dailog-and-key-fillter-for-main-router/dynamic-popup-with-p-dailog-and-key-filter-for-main-router.component';
 import {Dialog} from 'primeng/dialog';
 import { LearningReqDownloadFileComponent } from './components/learning-req-download-file/learning-req-download-file.component';
+import { LearningSocialLoginWithGoogleComponent } from './components/learning-social-login-with-google/learning-social-login-with-google.component';
+import { ContentComponent } from './components/learning-social-login-with-google/content/content.component';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
@@ -144,6 +146,8 @@ import { LearningReqDownloadFileComponent } from './components/learning-req-down
     LoginComponent,
     DynamicPopupWithPDailogAndKeyFilterForMainRouterComponent,
     LearningReqDownloadFileComponent,
+    LearningSocialLoginWithGoogleComponent,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,

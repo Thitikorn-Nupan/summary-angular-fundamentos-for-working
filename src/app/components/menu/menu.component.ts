@@ -152,6 +152,18 @@ export class MenuComponent implements OnInit {
             routerLink: '/learning-req-and-download-file'
           },
         ]
+      },
+      {
+        label: 'Projects (Social Login API)',
+        icon: 'pi pi-search',
+        items: [ // key items inside label for generate dropdown
+          {
+            label: 'Learning Social Login API',
+            icon: 'pi pi-pencil',
+
+            routerLink: '/learning-social-login-with-google'
+          },
+        ]
       }
     ]
   }

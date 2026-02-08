@@ -13,19 +13,23 @@ export class GoogleSocialLoginService {
   constructor(private http: HttpClient) { }
 
   getGoogleLoginUrl(): any {
-    return this.http.get("http://localhost:8080/auth/url" );
+    return this.http.get("http://localhost:8080/google/url" );
   }
 
   getPrivateContent(): any {
-    return this.http.get("http://localhost:8080/messages", {headers: new HttpHeaders({"Authorization": "Bearer " + this.token})});
+    return this.http.get("http://localhost:8080/private/messages", {headers: new HttpHeaders({
+        "Authorization": "Bearer " + this.token,
+        "GoogleLogin": "True",
+      }
+      )});
   }
 
   // ***
   getToken(code: string): Observable<boolean> {
-    return this.http.get<Token>("http://localhost:8080/auth/callback?code=" + code, {observe: "response"})
+    return this.http.get<Token>("http://localhost:8080/google/auth/callback?code=" + code, {observe: "response"})
       .pipe(map((response: HttpResponse<Token>) => {
         if (response.status === 200 && response.body !== null) {
-          this.token = response.body.token;
+          this.token = response.body.idToken;
           return true;
         } else {
           return false;

@@ -1,3 +1,3 @@
 export class Token {
-  constructor(public token: string) {}
+  constructor(public idToken: string,public accessToken: string) {}
 }

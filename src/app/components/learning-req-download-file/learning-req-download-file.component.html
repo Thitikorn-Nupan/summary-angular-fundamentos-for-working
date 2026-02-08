@@ -4,6 +4,16 @@
 </div>
 
 <ng-container *ngIf="!switchTemplate">
+  <ng-container *ngIf="pdfUrl !== '' && pdfUrl">
+    <p-card header="PDF Document Viewer">
+      <iframe [src]="pdfUrl | previewPdf " width="100%" height="500px" style="border:none;" title="Embedded PDF Viewer"> </iframe >
+    </p-card>
+  </ng-container>
+  <p-button label="Preview File AS PDF" severity="warn" (onClick)="previewPDF()">
+    <ng-template pTemplate="icon">
+      <i class="fa-solid fa-file-pdf"></i>
+    </ng-template>
+  </p-button>
   <p-button label="Download File AS PDF" severity="danger" (onClick)="downloadPDF()">
     <ng-template pTemplate="icon">
       <!-- Add your custom icon element here, e.g., Font Awesome or a Material icon -->

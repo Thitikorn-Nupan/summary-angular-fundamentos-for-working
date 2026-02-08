@@ -42,7 +42,7 @@ export class LearningSocialLoginWithGoogleComponent implements OnInit {
   }
 
   private loadUrlGoogleLogin() : void {
-    this.googleSocialLoginService.getGoogleLoginUrl().subscribe((data: any) => (this.googleLoginUrl = data.authURL));
+    this.googleSocialLoginService.getGoogleLoginUrl().subscribe((data: any) => (this.googleLoginUrl = data.url));
     /*
       console.log(data)
       {

@@ -5,6 +5,7 @@ import {OrderItemService} from '../../service/order-item.service';
 import {saveAs} from 'file-saver';
 import {Subscription} from 'rxjs';
 import {HttpResponse} from '@angular/common/http';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-learning-req-download-file',
@@ -15,11 +16,12 @@ import {HttpResponse} from '@angular/common/http';
 export class LearningReqDownloadFileComponent {
 
   protected token : string = ''
+  protected pdfUrl : string = ''
   protected switchTemplate : boolean = false
   protected titleTemplate : string = 'Download File'
 
 
-  constructor(private readonly orderItemService: OrderItemService) {}
+  constructor(private readonly orderItemService: OrderItemService, private readonly sanitizer: DomSanitizer) {}
 
   protected listenTemplate() : void {
     this.switchTemplate = !this.switchTemplate;
@@ -33,6 +35,24 @@ export class LearningReqDownloadFileComponent {
         const filename: string = res.headers.get('File-Name')!
         // console.log(filename) // Follow res filename.pdf // console.log(res.body) // Follow res Blob {size: 6197943, type: 'application/octet-stream'}
         saveAs(res.body, filename);
+      }
+    })
+  }
+
+  protected previewPDF(): Subscription {
+    return this.orderItemService.previewReportAsPDF().subscribe((res: any): void => {
+      // User Library: The file-save for download
+      if (res) {  // You can now access all exposed headers here
+        const blob : Blob = new Blob([res], { type: 'application/pdf' });
+        const url : string = URL.createObjectURL(blob);
+        // console.log(url)
+        // Mark the blob URL as safe for Angular's security
+        const pdfUrl : any  = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+        this.pdfUrl = pdfUrl.changingThisBreaksApplicationSecurity
+        // {
+        //     "changingThisBreaksApplicationSecurity": "blob:http://localhost:4200/8e244f58-19cb-4c6e-b7ab-75587c2e6ba3"
+        // }
+        window.open(this.pdfUrl, '_blank');
       }
     })
   }

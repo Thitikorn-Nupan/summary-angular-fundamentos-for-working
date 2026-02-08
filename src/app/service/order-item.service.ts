@@ -23,6 +23,12 @@ export class OrderItemService {
     }); // Use 'blob' for binary data
   }
 
+  public previewReportAsPDF(): Observable<any> {
+    return this.httpClient.get(this.baseUrl+'/preview-report' ,{
+      responseType: 'blob', // Specify the response body type as a blob
+    }); // Use 'blob' for binary data
+  }
+
   public readsReportAsExcel(): Observable<any> {
     const fileType : any = {
       fileExtension: 'XLSX',

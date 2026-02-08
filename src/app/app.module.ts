@@ -94,6 +94,7 @@ import {Dialog} from 'primeng/dialog';
 import { LearningReqDownloadFileComponent } from './components/learning-req-download-file/learning-req-download-file.component';
 import { LearningSocialLoginWithGoogleComponent } from './components/learning-social-login-with-google/learning-social-login-with-google.component';
 import { ContentComponent } from './components/learning-social-login-with-google/content/content.component';
+import { PreviewPdfPipe } from './pips/preview-pdf.pipe';
 // import { DataTreeTableComponent } from './components/learning-form-groups-and-binding-attributes-and-ng-tag/data-tree-table/data-tree-table.component';
 
 
@@ -148,6 +149,7 @@ import { ContentComponent } from './components/learning-social-login-with-google
     LearningReqDownloadFileComponent,
     LearningSocialLoginWithGoogleComponent,
     ContentComponent,
+    PreviewPdfPipe,
   ],
   imports: [
     BrowserModule,

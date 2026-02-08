@@ -5,7 +5,7 @@
 
 <ng-container *ngIf="!switchTemplate">
   <ng-container *ngIf="pdfUrl !== '' && pdfUrl">
-    <p-card header="PDF Document Viewer">
+    <p-card header="PDF Document Viewer" >
       <iframe [src]="pdfUrl | previewPdf " width="100%" height="500px" style="border:none;" title="Embedded PDF Viewer"> </iframe >
     </p-card>
   </ng-container>
@@ -37,7 +37,19 @@
 <ng-container *ngIf="switchTemplate">
   <p-button label="Login And Get Token" severity="warn" (onClick)="login()"/>
   <ng-container *ngIf="token.length > 0">
+    <ng-container *ngIf="pdfUrl !== '' && pdfUrl">
+      <p-card header="PDF Document Viewer" >
+        <iframe [src]="pdfUrl | previewPdf " width="100%" height="500px" style="border:none;" title="Embedded PDF Viewer"> </iframe >
+      </p-card>
+    </ng-container>
     <p-message severity="warn">{{token}}</p-message>
+    <p-button label="Preview File AS PDF Auth " severity="warn" (onClick)="previewPDFAuthen()">
+      <ng-template pTemplate="icon">
+        <!-- Add your custom icon element here, e.g., Font Awesome or a Material icon -->
+        <i class="fa-solid fa-file-pdf"></i>
+      </ng-template>
+    </p-button>
+    <br/>
     <p-button label="Download File AS PDF Auth But Permission All" severity="danger" (onClick)="downloadPDFAuthButPermissionAll()">
       <ng-template pTemplate="icon">
         <!-- Add your custom icon element here, e.g., Font Awesome or a Material icon -->

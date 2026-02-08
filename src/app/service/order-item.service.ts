@@ -81,6 +81,16 @@ export class OrderItemService {
     }); // Use 'blob' for binary data
   }
 
+  public previewReportAsPDFAuth(token: string): Observable<any> {
+    const headers = {
+      'Authorization': 'Bearer '+token,
+    };
+    return this.httpClient.get(this.baseUrlSecurity+'/preview-report' , {
+      responseType: 'blob', // Specify the response body type as a blob
+      headers
+    }); // Use 'blob' for binary data
+  }
+
   public readsReportAsExcelAuth(token: string): Observable<any> {
     const fileType : any = {
       fileExtension: 'XLSX',

@@ -109,6 +109,19 @@ export class LearningReqDownloadFileComponent {
     })
   }
 
+  protected previewPDFAuthen(): Subscription {
+    return this.orderItemService.previewReportAsPDFAuth(this.token).subscribe((res: any): void => {
+      // User Library: The file-save for download
+      if (res) {  // You can now access all exposed headers here
+        const blob : Blob = new Blob([res], { type: 'application/pdf' });
+        const url : string = URL.createObjectURL(blob);
+        const pdfUrl : any  = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+        this.pdfUrl = pdfUrl.changingThisBreaksApplicationSecurity
+        // window.open(this.pdfUrl, '_blank');
+      }
+    })
+  }
+
   protected downloadExcelAuthen(): Subscription {
     return this.orderItemService.readsReportAsExcelAuth(this.token).subscribe((res: HttpResponse<any>): void => {
       if (res.body && res.headers.has('File-Name')) {
